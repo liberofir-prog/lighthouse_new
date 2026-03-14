@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { buttonVariants } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 import { FadeIn, ScaleIn } from "@/lib/motion";
@@ -153,19 +154,17 @@ export default function Hero() {
               {/* Decorative amber glow behind image */}
               <div className="absolute -inset-4 rounded-[2rem] bg-gradient-to-br from-amber/10 via-transparent to-primary/5 blur-2xl" />
 
-              <div className="relative aspect-[3/4] rounded-[2rem] overflow-hidden bg-gradient-to-br from-secondary via-muted to-secondary shadow-warm-lg ring-1 ring-border/30">
-                {/* Placeholder visual */}
-                <div className="absolute inset-0 flex flex-col items-center justify-center gap-4">
-                  <div className="w-20 h-20 rounded-full bg-amber/10 flex items-center justify-center">
-                    <svg width="32" height="32" viewBox="0 0 24 24" fill="none" className="text-amber/50">
-                      <path d="M12 2v2M4.93 4.93l1.41 1.41M2 12h2M4.93 19.07l1.41-1.41M19.07 4.93l-1.41 1.41M22 12h-2M19.07 19.07l-1.41-1.41M12 20v2" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
-                      <circle cx="12" cy="12" r="4" stroke="currentColor" strokeWidth="1.5" fill="oklch(0.78 0.115 75 / 0.1)" />
-                    </svg>
-                  </div>
-                  <p className="text-muted-foreground/30 text-sm font-medium">תמונת אווירה</p>
-                </div>
-                {/* Gradient overlay */}
-                <div className="absolute inset-0 bg-gradient-to-t from-background/20 via-transparent to-amber/5" />
+              <div className="relative aspect-[3/4] rounded-[2rem] overflow-hidden shadow-warm-lg ring-1 ring-border/30">
+                <Image
+                  src="/inbal.png"
+                  alt="ענבל ליבר – מטפלת רגשית ומלווה רוחנית"
+                  fill
+                  className="object-cover object-top"
+                  sizes="(max-width: 768px) 100vw, 40vw"
+                  priority
+                />
+                {/* Subtle warm overlay at bottom */}
+                <div className="absolute inset-0 bg-gradient-to-t from-primary/10 via-transparent to-transparent" />
               </div>
 
               {/* Floating decorative badge */}
