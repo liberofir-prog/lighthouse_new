@@ -14,7 +14,7 @@ const credentials = [
 
 export default function About() {
   return (
-    <section id="about" className="relative py-24 md:py-32 overflow-clip">
+    <section id="about" className="relative py-24 md:py-32">
       {/* Background accent */}
       <div className="absolute inset-0 bg-gradient-to-br from-secondary/30 via-background to-amber/3" />
 

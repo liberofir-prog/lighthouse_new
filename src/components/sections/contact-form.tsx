@@ -16,7 +16,7 @@ export default function ContactForm() {
   );
 
   return (
-    <section id="contact" className="relative py-24 md:py-32 overflow-clip">
+    <section id="contact" className="relative py-24 md:py-32">
       {/* Background */}
       <div className="absolute inset-0 bg-gradient-to-b from-background via-secondary/15 to-background" />
 

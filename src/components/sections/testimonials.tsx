@@ -33,7 +33,7 @@ function Stars() {
 
 export default function Testimonials() {
   return (
-    <section id="testimonials" className="relative py-24 md:py-32 overflow-clip">
+    <section id="testimonials" className="relative py-24 md:py-32">
       {/* Background */}
       <div className="absolute inset-0 bg-gradient-to-b from-background via-warm to-background" />
 

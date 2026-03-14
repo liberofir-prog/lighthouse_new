@@ -9,7 +9,7 @@ import WhatsAppFab from "@/components/sections/whatsapp-fab";
 
 export default function Home() {
   return (
-    <>
+    <div className="overflow-x-clip">
       <Header />
       <main>
         <Hero />
@@ -20,6 +20,6 @@ export default function Home() {
       </main>
       <Footer />
       <WhatsAppFab />
-    </>
+    </div>
   );
 }

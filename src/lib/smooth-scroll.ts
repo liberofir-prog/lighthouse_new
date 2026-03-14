@@ -8,7 +8,7 @@
  */
 export function smoothScrollTo(
   targetId: string,
-  offset = 64,
+  offset = 20,
   duration = 800
 ): void {
   const el = document.getElementById(targetId);
@@ -47,7 +47,7 @@ export function smoothScrollTo(
  */
 export function handleAnchorClick(
   e: React.MouseEvent<HTMLAnchorElement>,
-  offset = 64
+  offset = 20
 ): void {
   const href = e.currentTarget.getAttribute("href");
   if (!href || !href.startsWith("#")) return;

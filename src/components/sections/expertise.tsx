@@ -35,7 +35,7 @@ const areas = [
 
 export default function Expertise() {
   return (
-    <section id="expertise" className="relative py-24 md:py-32 overflow-clip">
+    <section id="expertise" className="relative py-24 md:py-32">
       {/* Subtle background */}
       <div className="absolute inset-0 bg-gradient-to-b from-background via-secondary/20 to-background" />
 
