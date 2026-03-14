@@ -4,7 +4,7 @@ import { FadeIn } from "@/lib/motion";
 
 export default function Footer() {
   return (
-    <footer className="relative py-12 overflow-hidden">
+    <footer className="relative py-12 overflow-clip">
       {/* Background */}
       <div className="absolute inset-0 bg-gradient-to-b from-background to-secondary/20" />
 

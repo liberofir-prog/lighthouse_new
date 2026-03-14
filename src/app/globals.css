@@ -78,23 +78,14 @@
 @layer base {
   * {
     @apply border-border outline-ring/50;
-    /* Prevent any element from becoming a scroll-snap container */
-    scroll-snap-type: none !important;
-    scroll-snap-align: none !important;
-    scroll-snap-stop: normal !important;
   }
   body {
     @apply bg-background text-foreground;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-    overflow-y: auto;
-    overflow-x: hidden;
   }
   html {
     @apply font-sans;
-    /* NO scroll-behavior here — natural wheel scroll, JS easing only for anchor clicks */
-    scroll-behavior: auto;
-    overflow-y: auto;
   }
 
   /* Selection color */

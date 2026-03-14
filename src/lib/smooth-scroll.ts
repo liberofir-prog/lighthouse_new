@@ -8,8 +8,8 @@
  */
 export function smoothScrollTo(
   targetId: string,
-  offset = 88,
-  duration = 900
+  offset = 64,
+  duration = 800
 ): void {
   const el = document.getElementById(targetId);
   if (!el) return;
@@ -18,17 +18,20 @@ export function smoothScrollTo(
   const targetY = el.getBoundingClientRect().top + window.scrollY - offset;
   const distance = targetY - startY;
 
+  // Skip animation for very short distances
+  if (Math.abs(distance) < 5) return;
+
   let startTime: number | null = null;
 
-  function easeInOutCubic(t: number): number {
-    return t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2;
+  function easeOutQuart(t: number): number {
+    return 1 - Math.pow(1 - t, 4);
   }
 
   function step(timestamp: number) {
     if (startTime === null) startTime = timestamp;
     const elapsed = timestamp - startTime;
     const progress = Math.min(elapsed / duration, 1);
-    const eased = easeInOutCubic(progress);
+    const eased = easeOutQuart(progress);
 
     window.scrollTo(0, startY + distance * eased);
 
@@ -44,7 +47,7 @@ export function smoothScrollTo(
  */
 export function handleAnchorClick(
   e: React.MouseEvent<HTMLAnchorElement>,
-  offset = 88
+  offset = 64
 ): void {
   const href = e.currentTarget.getAttribute("href");
   if (!href || !href.startsWith("#")) return;
