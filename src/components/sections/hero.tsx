@@ -27,7 +27,7 @@ function WhatsAppIcon({ className }: { className?: string }) {
 
 export default function Hero() {
   return (
-    <section className="relative min-h-[100dvh] flex items-center pt-20 pb-20 grain">
+    <section className="relative min-h-[100dvh] flex items-center pt-14 pb-16 grain">
       {/* ─── Ambient background layers ─── */}
 
       {/* Base warm gradient */}
