@@ -23,6 +23,9 @@
   --color-card-foreground: var(--card-foreground);
   --color-card: var(--card);
   --color-whatsapp: var(--whatsapp);
+  --color-amber: var(--amber);
+  --color-amber-foreground: var(--amber-foreground);
+  --color-warm: var(--warm);
   --radius-sm: calc(var(--radius) * 0.6);
   --radius-md: calc(var(--radius) * 0.8);
   --radius-lg: var(--radius);
@@ -33,26 +36,43 @@
 }
 
 :root {
-  --background: oklch(0.97 0.008 80);
-  --foreground: oklch(0.25 0.04 55);
-  --card: oklch(0.99 0.005 80);
-  --card-foreground: oklch(0.25 0.04 55);
-  --popover: oklch(0.99 0.005 80);
-  --popover-foreground: oklch(0.25 0.04 55);
-  --primary: oklch(0.35 0.06 55);
-  --primary-foreground: oklch(0.97 0.008 80);
-  --secondary: oklch(0.92 0.015 70);
-  --secondary-foreground: oklch(0.30 0.04 55);
-  --muted: oklch(0.94 0.01 75);
-  --muted-foreground: oklch(0.50 0.03 55);
-  --accent: oklch(0.90 0.02 70);
-  --accent-foreground: oklch(0.25 0.04 55);
+  /* Core palette — warm sanctuary tones */
+  --background: oklch(0.975 0.007 85);
+  --foreground: oklch(0.22 0.035 50);
+  --card: oklch(0.99 0.004 82);
+  --card-foreground: oklch(0.22 0.035 50);
+  --popover: oklch(0.99 0.004 82);
+  --popover-foreground: oklch(0.22 0.035 50);
+
+  /* Deep coffee-brown — authority & warmth */
+  --primary: oklch(0.30 0.065 50);
+  --primary-foreground: oklch(0.97 0.007 85);
+
+  /* Mocha — secondary backgrounds */
+  --secondary: oklch(0.93 0.012 72);
+  --secondary-foreground: oklch(0.28 0.04 50);
+
+  /* Soft warm gray — muted elements */
+  --muted: oklch(0.94 0.008 78);
+  --muted-foreground: oklch(0.48 0.025 50);
+
+  /* Warm accent */
+  --accent: oklch(0.91 0.018 72);
+  --accent-foreground: oklch(0.22 0.035 50);
+
+  /* Golden amber — lighthouse light */
+  --amber: oklch(0.78 0.115 75);
+  --amber-foreground: oklch(0.25 0.06 55);
+
+  /* Warm tint for overlays */
+  --warm: oklch(0.95 0.015 78);
+
   --destructive: oklch(0.577 0.245 27.325);
-  --border: oklch(0.88 0.015 70);
-  --input: oklch(0.88 0.015 70);
-  --ring: oklch(0.50 0.04 55);
+  --border: oklch(0.90 0.012 72);
+  --input: oklch(0.92 0.010 75);
+  --ring: oklch(0.45 0.05 50);
   --whatsapp: oklch(0.62 0.17 155);
-  --radius: 0.625rem;
+  --radius: 0.75rem;
 }
 
 @layer base {
@@ -61,9 +81,113 @@
   }
   body {
     @apply bg-background text-foreground;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
   }
   html {
     @apply font-sans;
     scroll-behavior: smooth;
   }
+
+  /* Selection color */
+  ::selection {
+    background: oklch(0.78 0.115 75 / 0.3);
+    color: oklch(0.22 0.035 50);
+  }
+}
+
+/* Grain texture overlay */
+@layer utilities {
+  .grain {
+    position: relative;
+  }
+  .grain::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    opacity: 0.03;
+    pointer-events: none;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+    background-size: 200px 200px;
+  }
+
+  /* Lighthouse glow effect */
+  .glow-amber {
+    box-shadow:
+      0 0 40px oklch(0.78 0.115 75 / 0.15),
+      0 0 80px oklch(0.78 0.115 75 / 0.08);
+  }
+
+  .glow-amber-sm {
+    box-shadow:
+      0 0 20px oklch(0.78 0.115 75 / 0.12),
+      0 0 40px oklch(0.78 0.115 75 / 0.06);
+  }
+
+  /* Premium shadow */
+  .shadow-warm {
+    box-shadow:
+      0 1px 2px oklch(0.30 0.065 50 / 0.04),
+      0 4px 12px oklch(0.30 0.065 50 / 0.06),
+      0 12px 32px oklch(0.30 0.065 50 / 0.04);
+  }
+
+  .shadow-warm-lg {
+    box-shadow:
+      0 2px 4px oklch(0.30 0.065 50 / 0.03),
+      0 8px 24px oklch(0.30 0.065 50 / 0.08),
+      0 24px 48px oklch(0.30 0.065 50 / 0.06);
+  }
+
+  /* Decorative divider */
+  .divider-warm {
+    height: 2px;
+    background: linear-gradient(
+      to left,
+      transparent,
+      oklch(0.78 0.115 75 / 0.4),
+      oklch(0.30 0.065 50 / 0.2),
+      oklch(0.78 0.115 75 / 0.4),
+      transparent
+    );
+  }
+}
+
+/* WhatsApp pulse animation */
+@keyframes wa-pulse {
+  0%, 100% {
+    box-shadow:
+      0 0 0 0 oklch(0.62 0.17 155 / 0.4),
+      0 4px 16px oklch(0.62 0.17 155 / 0.3);
+  }
+  50% {
+    box-shadow:
+      0 0 0 12px oklch(0.62 0.17 155 / 0),
+      0 4px 16px oklch(0.62 0.17 155 / 0.3);
+  }
+}
+
+.wa-pulse {
+  animation: wa-pulse 2.5s ease-in-out infinite;
+}
+
+/* Light beam keyframes */
+@keyframes light-sweep {
+  0% { opacity: 0.03; transform: rotate(-8deg) translateX(-5%); }
+  50% { opacity: 0.07; transform: rotate(0deg) translateX(0%); }
+  100% { opacity: 0.03; transform: rotate(8deg) translateX(5%); }
+}
+
+.light-beam {
+  animation: light-sweep 8s ease-in-out infinite;
+}
+
+/* Floating animation */
+@keyframes float-gentle {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-8px); }
+}
+
+.float-gentle {
+  animation: float-gentle 6s ease-in-out infinite;
 }
