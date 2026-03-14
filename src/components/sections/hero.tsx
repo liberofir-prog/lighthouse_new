@@ -52,9 +52,9 @@ export default function Hero() {
 
       {/* ─── Content ─── */}
       <div className="relative mx-auto max-w-6xl px-5 w-full">
-        <div className="grid md:grid-cols-[1fr_0.85fr] gap-12 lg:gap-20 items-center">
+        <div className="grid md:grid-cols-[1fr_0.85fr] gap-12 lg:gap-20 items-start">
           {/* Text content — right side in RTL */}
-          <div className="flex flex-col gap-5">
+          <div className="flex flex-col gap-5 md:pt-24">
             {/* Decorative label */}
             <FadeIn delay={0.1} direction="none">
               <span className="inline-flex items-center gap-2 text-sm font-semibold text-primary/80 bg-primary/6 px-4 py-2 rounded-full w-fit border border-primary/12 shadow-sm">
@@ -149,7 +149,7 @@ export default function Hero() {
           </div>
 
           {/* Atmosphere image — left side in RTL */}
-          <ScaleIn delay={0.3} className="hidden md:block">
+          <ScaleIn delay={0.3} className="hidden md:block mt-20">
             <div className="relative">
               {/* Decorative amber glow behind image */}
               <div className="absolute -inset-4 rounded-[2rem] bg-gradient-to-br from-amber/10 via-transparent to-primary/5 blur-2xl" />
