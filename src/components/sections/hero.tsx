@@ -99,7 +99,7 @@ export default function Hero() {
               </p>
             </FadeIn>
 
-            {/* CTA Buttons */}
+            {/* CTA Buttons + Trust indicators */}
             <FadeIn delay={0.5}>
               <div className="flex flex-wrap gap-4">
                 <a
@@ -127,11 +127,8 @@ export default function Hero() {
                   השאירו פרטים
                 </a>
               </div>
-            </FadeIn>
 
-            {/* Trust indicators */}
-            <FadeIn delay={0.55}>
-              <div className="flex items-center gap-6 mt-1 pt-4 border-t border-border/50">
+              <div className="flex items-center gap-6 mt-5">
                 <div className="text-center">
                   <p className="text-2xl font-bold text-primary">15+</p>
                   <p className="text-xs text-muted-foreground">שנות ניסיון</p>
