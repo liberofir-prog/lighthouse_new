@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { CheckCircle } from "lucide-react";
 import { FadeIn, ScaleIn } from "@/lib/motion";
 import { motion } from "framer-motion";
@@ -31,15 +32,13 @@ export default function About() {
 
               {/* Main image container */}
               <div className="relative aspect-[3/4] rounded-[2rem] overflow-hidden bg-gradient-to-br from-secondary via-muted to-warm shadow-warm-lg ring-1 ring-border/20">
-                <div className="absolute inset-0 flex flex-col items-center justify-center gap-3">
-                  <div className="w-24 h-24 rounded-full bg-amber/8 flex items-center justify-center">
-                    <svg width="40" height="40" viewBox="0 0 24 24" fill="none" className="text-amber/40">
-                      <circle cx="12" cy="8" r="4" stroke="currentColor" strokeWidth="1.5" />
-                      <path d="M5 20c0-3.866 3.134-7 7-7s7 3.134 7 7" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
-                    </svg>
-                  </div>
-                  <p className="text-muted-foreground/30 text-sm">תמונת פרופיל</p>
-                </div>
+                <Image
+                  src="/inbal-profile.jpg"
+                  alt="ענבל ליבר – מטפלת רגשית ומלווה רוחנית"
+                  fill
+                  className="object-cover object-top"
+                  sizes="(max-width: 768px) 80vw, 30vw"
+                />
                 {/* Warm overlay */}
                 <div className="absolute inset-0 bg-gradient-to-t from-primary/5 to-transparent" />
               </div>
