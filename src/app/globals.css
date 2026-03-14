@@ -86,7 +86,7 @@
   }
   html {
     @apply font-sans;
-    scroll-behavior: smooth;
+    /* Smooth scroll handled via JS easing for silky feel */
   }
 
   /* Selection color */

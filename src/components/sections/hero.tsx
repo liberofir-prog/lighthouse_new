@@ -3,8 +3,9 @@
 import { buttonVariants } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 import { FadeIn, ScaleIn } from "@/lib/motion";
-import { MessageCircle, ArrowDown } from "lucide-react";
+import { ArrowDown } from "lucide-react";
 import { motion } from "framer-motion";
+import { handleAnchorClick } from "@/lib/smooth-scroll";
 
 const WHATSAPP_URL =
   "https://wa.me/972501234567?text=%D7%A9%D7%9C%D7%95%D7%9D%2C%20%D7%90%D7%A9%D7%9E%D7%97%20%D7%9C%D7%A7%D7%91%D7%9C%20%D7%A4%D7%A8%D7%98%D7%99%D7%9D%20%D7%A0%D7%95%D7%A1%D7%A4%D7%99%D7%9D";
@@ -116,6 +117,7 @@ export default function Hero() {
 
                 <a
                   href="#contact"
+                  onClick={handleAnchorClick}
                   className={cn(
                     buttonVariants({ variant: "outline", size: "lg" }),
                     "gap-2.5 text-base rounded-full px-7 h-12 border-primary/20 hover:border-primary/40 hover:bg-primary/5 transition-all duration-300"
