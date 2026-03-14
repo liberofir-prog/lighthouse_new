@@ -53,7 +53,7 @@ export default function Hero() {
       <div className="relative mx-auto max-w-6xl px-5 w-full">
         <div className="grid md:grid-cols-[1fr_0.85fr] gap-12 lg:gap-20 items-center">
           {/* Text content — right side in RTL */}
-          <div className="flex flex-col gap-7">
+          <div className="flex flex-col gap-5">
             {/* Decorative label */}
             <FadeIn delay={0.1} direction="none">
               <span className="inline-flex items-center gap-2 text-sm font-medium text-amber bg-amber/8 px-4 py-1.5 rounded-full w-fit border border-amber/15">
@@ -101,7 +101,7 @@ export default function Hero() {
 
             {/* CTA Buttons */}
             <FadeIn delay={0.5}>
-              <div className="flex flex-wrap gap-4 mt-1">
+              <div className="flex flex-wrap gap-4">
                 <a
                   href={WHATSAPP_URL}
                   target="_blank"
@@ -130,8 +130,8 @@ export default function Hero() {
             </FadeIn>
 
             {/* Trust indicators */}
-            <FadeIn delay={0.65}>
-              <div className="flex items-center gap-6 mt-4 pt-6 border-t border-border/50">
+            <FadeIn delay={0.55}>
+              <div className="flex items-center gap-6 mt-1 pt-4 border-t border-border/50">
                 <div className="text-center">
                   <p className="text-2xl font-bold text-primary">15+</p>
                   <p className="text-xs text-muted-foreground">שנות ניסיון</p>
