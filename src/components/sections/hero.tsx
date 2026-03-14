@@ -56,8 +56,8 @@ export default function Hero() {
           <div className="flex flex-col gap-5">
             {/* Decorative label */}
             <FadeIn delay={0.1} direction="none">
-              <span className="inline-flex items-center gap-2 text-sm font-medium text-amber bg-amber/8 px-4 py-1.5 rounded-full w-fit border border-amber/15">
-                <span className="w-1.5 h-1.5 rounded-full bg-amber animate-pulse" />
+              <span className="inline-flex items-center gap-2 text-sm font-semibold text-primary/80 bg-primary/6 px-4 py-2 rounded-full w-fit border border-primary/12 shadow-sm">
+                <span className="w-2 h-2 rounded-full bg-amber" />
                 קליניקת מגדלור — ענבל ליבר
               </span>
             </FadeIn>
