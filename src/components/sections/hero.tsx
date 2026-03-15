@@ -50,8 +50,21 @@ export default function Hero() {
         style={{ animationDelay: "3s", animationName: "float-gentle", animationDuration: "8s", animationTimingFunction: "ease-in-out", animationIterationCount: "infinite" }}
       />
 
+      {/* Mobile background image — visible only below md */}
+      <div className="absolute inset-0 md:hidden">
+        <Image
+          src="/inbal.png"
+          alt=""
+          fill
+          className="object-cover object-top"
+          sizes="100vw"
+          priority
+        />
+        <div className="absolute inset-0 bg-gradient-to-t from-background via-background/85 to-background/50" />
+      </div>
+
       {/* ─── Content ─── */}
-      <div className="relative mx-auto max-w-6xl px-5 w-full">
+      <div className="relative z-10 mx-auto max-w-6xl px-5 w-full">
         <div className="grid md:grid-cols-[1fr_0.85fr] gap-12 lg:gap-20 items-start">
           {/* Text content — right side in RTL */}
           <div className="flex flex-col gap-5 md:pt-14">
