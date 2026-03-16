@@ -105,9 +105,9 @@ export default function Hero() {
             {/* Subtext */}
             <FadeIn delay={0.35}>
               <p className="text-lg md:text-xl text-muted-foreground leading-relaxed max-w-[520px]">
-                תמיכה רגשית, ליווי רוחני והדרכת הורים לילדים ובני משפחותיהם
-                המתמודדים עם משבר בריאותי, שינויים מהותיים בחיים, קשיים
-                התנהגותיים, מחלות קשות ואובדן.
+                תמיכה רגשית וליווי רוחני לילדים והדרכת הורים במצבים של משבר
+                בריאותי, שינויים מהותיים בחיים, קשיים התנהגותיים או רגשיים
+                ובהתמודדות עם מחלות קשות ואובדן.
                 <span className="block mt-2 text-primary/90 font-medium text-base">
                   מגדלור — תמיכה בילדים והכוונה למשפחות ברגעים הקשים עד להגעה לחוף מבטחים.
                 </span>
@@ -145,7 +145,7 @@ export default function Hero() {
 
               <div className="flex items-center gap-6 mt-5">
                 <div className="text-center">
-                  <p className="text-2xl font-bold text-primary">8</p>
+                  <p className="text-2xl font-bold text-primary">+8</p>
                   <p className="text-xs text-muted-foreground">שנות ניסיון</p>
                 </div>
                 <div className="w-px h-8 bg-border/60" />

@@ -6,7 +6,7 @@ import { FadeIn, ScaleIn } from "@/lib/motion";
 import { motion } from "framer-motion";
 
 const education = [
-  "תואר שני במשפטים בתחום רפואה ומשפט וזכויות ילדים עם מוגבלויות",
+  "עו\u05F4ד בעלת תואר שני במשפטים (אוניברסיטת חיפה) בתחום רפואה ומשפט וזכויות ילדים עם מוגבלויות",
   "לימודי ליווי רוחני במסגרת מכללת רמב\u05F4ם–ידע",
   "הסמכה בליווי רוחני מטעם העמותה לליווי רוחני בישראל",
   "לימודי ליווי רוחני בילדים ובני משפחותיהם מטעם מכללת רמב\u05F4ם–ידע",
@@ -17,7 +17,7 @@ const education = [
 const experience = [
   "בית חולים לילדים רות רפפורט – ליווי רוחני לילדים ובני משפחותיהם",
   "מרכז אלה — ליווי בתהליכי אובדן ושכול טראומטיים",
-  "קליניקה פרטית \"מגדלור\" — ליווי רגשי, רוחני והדרכת הורים",
+  "קליניקה פרטית \"מגדלור\" (ביישוב אלפי מנשה) — ליווי רגשי, רוחני והדרכת הורים",
 ];
 
 function CredentialItem({ children, index }: { children: React.ReactNode; index: number }) {
@@ -101,7 +101,7 @@ export default function About() {
                 >
                   <div className="flex items-center gap-2.5">
                     <div className="w-9 h-9 rounded-full bg-amber/10 flex items-center justify-center">
-                      <span className="text-amber text-base font-bold">8</span>
+                      <span className="text-amber text-base font-bold">+8</span>
                     </div>
                     <div>
                       <p className="text-sm font-semibold text-foreground leading-tight">שנות ניסיון</p>

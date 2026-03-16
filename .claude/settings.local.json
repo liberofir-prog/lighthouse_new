@@ -1,0 +1,14 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(find /c/Users/ofir.MIDOTSYSTEM/AppData/Local/Temp -maxdepth 2 -name *.png -newer 'c:/cloude_workspace/new light/public/inbal.png')",
+      "Bash(find /c/temp -name *.png -o -name *.jpg)",
+      "Read(//tmp/**)",
+      "Bash(for f:*)",
+      "Bash(do file:*)",
+      "Bash(done)",
+      "Bash(find /tmp -name *.png -newer /tmp/ccb562a1-a352-4b65-8d7b-f42060a05c85.tmp)",
+      "Bash(find C:/Users/ofir.MIDOTSYSTEM/AppData/Local/Temp -maxdepth 1 -name *.png -mmin -30)"
+    ]
+  }
+}

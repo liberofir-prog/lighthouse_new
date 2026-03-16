@@ -6,7 +6,7 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { FadeIn } from "@/lib/motion";
 import { submitContactForm } from "@/app/actions";
-import { Phone, Mail, Send, CheckCircle2, MessageCircle } from "lucide-react";
+import { Phone, Mail, Send, CheckCircle2, MessageCircle, MapPin } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 
 export default function ContactForm() {
@@ -56,14 +56,13 @@ export default function ContactForm() {
                 <a
                   href="tel:+972545524516"
                   className="group flex items-center gap-4 p-4 rounded-xl bg-card/60 border border-border/25 hover:border-amber/20 hover:shadow-warm transition-all duration-300"
-                  dir="ltr"
                 >
                   <div className="w-10 h-10 rounded-xl bg-primary/6 group-hover:bg-primary/10 flex items-center justify-center transition-colors shrink-0">
                     <Phone size={18} className="text-primary" />
                   </div>
-                  <div className="text-right flex-1">
+                  <div className="flex-1">
                     <p className="text-xs text-muted-foreground mb-0.5">טלפון</p>
-                    <p className="font-semibold text-foreground text-sm" dir="ltr">054-552-4516</p>
+                    <p className="font-semibold text-foreground text-sm">054-552-4516</p>
                   </div>
                 </a>
 
@@ -79,6 +78,17 @@ export default function ContactForm() {
                     <p className="font-semibold text-foreground text-sm">inbal@liber.co.il</p>
                   </div>
                 </a>
+                <div
+                  className="flex items-center gap-4 p-4 rounded-xl bg-card/60 border border-border/25"
+                >
+                  <div className="w-10 h-10 rounded-xl bg-primary/6 flex items-center justify-center shrink-0">
+                    <MapPin size={18} className="text-primary" />
+                  </div>
+                  <div className="flex-1">
+                    <p className="text-xs text-muted-foreground mb-0.5">כתובת הקליניקה</p>
+                    <p className="font-semibold text-foreground text-sm">דן 30, אלפי מנשה</p>
+                  </div>
+                </div>
               </div>
             </FadeIn>
           </div>
@@ -152,8 +162,7 @@ export default function ContactForm() {
                           type="tel"
                           placeholder="050-000-0000"
                           required
-                          dir="ltr"
-                          className="h-11 text-sm rounded-xl bg-background/50 border-border/40 focus:border-amber/40 focus:ring-amber/15 transition-colors text-left"
+                          className="h-11 text-sm rounded-xl bg-background/50 border-border/40 focus:border-amber/40 focus:ring-amber/15 transition-colors"
                         />
                       </div>
                     </div>

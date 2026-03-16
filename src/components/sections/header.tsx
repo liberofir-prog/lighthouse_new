@@ -39,7 +39,7 @@ export default function Header() {
 
         {/* ── Logo ── */}
         <a href="#" onClick={(e) => { e.preventDefault(); window.scrollTo({ top: 0 }); }}>
-          <Logo scale={0.72} showTagline={false} />
+          <Logo scale={1} />
         </a>
 
         {/* ── Desktop nav ── */}
