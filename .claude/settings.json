@@ -1,0 +1,9 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(ls \"c:/temp/inbal1\"*)",
+      "Bash(npx npm-check-updates:*)",
+      "Bash(node -e \"const l = require\\(''lucide-react''\\); console.log\\(''Brain'' in l, ''Sparkles'' in l, ''HeartHandshake'' in l, ''Shield'' in l\\)\")"
+    ]
+  }
+}

@@ -49,7 +49,7 @@ export default function Header() {
               key={link.href}
               href={link.href}
               onClick={handleAnchorClick}
-              className="relative text-sm font-medium text-foreground/60 hover:text-primary transition-colors duration-300
+              className="relative text-sm font-medium text-foreground hover:text-primary transition-colors duration-300
                          after:absolute after:bottom-[-4px] after:right-0
                          after:w-0 after:h-[2px] after:bg-amber
                          after:transition-all after:duration-300 hover:after:w-full"
@@ -71,7 +71,7 @@ export default function Header() {
 
         {/* ── Mobile hamburger ── */}
         <button
-          className="md:hidden p-2.5 text-foreground/70 hover:text-primary transition-colors rounded-xl hover:bg-primary/5"
+          className="md:hidden p-2.5 text-foreground/90 hover:text-primary transition-colors rounded-xl hover:bg-primary/5"
           onClick={() => setMobileOpen(!mobileOpen)}
           aria-label="תפריט"
         >
@@ -97,7 +97,7 @@ export default function Header() {
                   initial={{ opacity: 0, x: -10 }}
                   animate={{ opacity: 1, x: 0 }}
                   transition={{ delay: i * 0.08, duration: 0.3 }}
-                  className="text-base font-medium py-3 px-3 rounded-xl text-foreground/70
+                  className="text-base font-medium py-3 px-3 rounded-xl text-foreground/90
                              hover:text-primary hover:bg-primary/5 transition-all duration-200"
                   onClick={(e) => { handleAnchorClick(e); setMobileOpen(false); }}
                 >

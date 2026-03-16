@@ -54,7 +54,7 @@
 
   /* Soft warm gray — muted elements */
   --muted: oklch(0.94 0.008 78);
-  --muted-foreground: oklch(0.48 0.025 50);
+  --muted-foreground: oklch(0.38 0.03 50);
 
   /* Warm accent */
   --accent: oklch(0.91 0.018 72);

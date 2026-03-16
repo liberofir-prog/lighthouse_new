@@ -76,7 +76,7 @@ export default function Testimonials() {
                   <Stars />
 
                   {/* Quote */}
-                  <p className="text-foreground/75 leading-[1.85] mt-5 mb-6 flex-1 text-[0.95rem]">
+                  <p className="text-foreground/90 leading-[1.85] mt-5 mb-6 flex-1 text-[0.95rem]">
                     &ldquo;{t.text}&rdquo;
                   </p>
 
@@ -84,7 +84,7 @@ export default function Testimonials() {
                   <div className="flex items-center gap-3 pt-5 border-t border-border/30">
                     {/* Avatar placeholder */}
                     <div className="w-10 h-10 rounded-full bg-gradient-to-br from-amber/15 to-primary/10 flex items-center justify-center">
-                      <span className="text-sm font-bold text-primary/60">
+                      <span className="text-sm font-bold text-primary/80">
                         {t.author.charAt(0)}
                       </span>
                     </div>

@@ -9,7 +9,7 @@ import { motion } from "framer-motion";
 import { handleAnchorClick } from "@/lib/smooth-scroll";
 
 const WHATSAPP_URL =
-  "https://wa.me/972501234567?text=%D7%A9%D7%9C%D7%95%D7%9D%2C%20%D7%90%D7%A9%D7%9E%D7%97%20%D7%9C%D7%A7%D7%91%D7%9C%20%D7%A4%D7%A8%D7%98%D7%99%D7%9D%20%D7%A0%D7%95%D7%A1%D7%A4%D7%99%D7%9D";
+  "https://wa.me/972545524516?text=%D7%A9%D7%9C%D7%95%D7%9D%2C%20%D7%90%D7%A9%D7%9E%D7%97%20%D7%9C%D7%A7%D7%91%D7%9C%20%D7%A4%D7%A8%D7%98%D7%99%D7%9D%20%D7%A0%D7%95%D7%A1%D7%A4%D7%99%D7%9D";
 
 function WhatsAppIcon({ className }: { className?: string }) {
   return (
@@ -79,12 +79,12 @@ export default function Hero() {
             {/* Headline */}
             <FadeIn delay={0.2}>
               <h1 className="text-[2.5rem] md:text-5xl lg:text-[3.5rem] font-bold leading-[1.15] tracking-tight">
-                <span className="text-primary">ליווי רגשי ורוחני</span>
+                <span className="text-primary">תמיכה וליווי לילדים</span>
                 <br />
-                <span className="text-foreground/85">בזמנים הקשים</span>
+                <span className="text-foreground">במצבי משבר, אובדן</span>
                 <br />
-                <span className="relative inline-block text-foreground/85">
-                  ביותר
+                <span className="relative inline-block text-foreground">
+                  וטראומה
                   <svg
                     className="absolute -bottom-2 right-0 w-full h-3 text-amber/40"
                     viewBox="0 0 200 12"
@@ -104,11 +104,12 @@ export default function Hero() {
 
             {/* Subtext */}
             <FadeIn delay={0.35}>
-              <p className="text-lg md:text-xl text-muted-foreground leading-relaxed max-w-[480px]">
-                טיפול רגשי, ליווי רוחני והדרכת הורים לילדים ומשפחות
-                המתמודדים עם משברי חיים, מחלות קשות ואובדן.
-                <span className="block mt-2 text-primary/70 font-medium text-base">
-                  כי גם ברגעים הכי חשוכים, אפשר למצוא אור.
+              <p className="text-lg md:text-xl text-muted-foreground leading-relaxed max-w-[520px]">
+                תמיכה רגשית, ליווי רוחני והדרכת הורים לילדים ובני משפחותיהם
+                המתמודדים עם משבר בריאותי, שינויים מהותיים בחיים, קשיים
+                התנהגותיים, מחלות קשות ואובדן.
+                <span className="block mt-2 text-primary/90 font-medium text-base">
+                  מגדלור — תמיכה בילדים והכוונה למשפחות ברגעים הקשים עד להגעה לחוף מבטחים.
                 </span>
               </p>
             </FadeIn>
@@ -144,12 +145,12 @@ export default function Hero() {
 
               <div className="flex items-center gap-6 mt-5">
                 <div className="text-center">
-                  <p className="text-2xl font-bold text-primary">15+</p>
+                  <p className="text-2xl font-bold text-primary">8</p>
                   <p className="text-xs text-muted-foreground">שנות ניסיון</p>
                 </div>
                 <div className="w-px h-8 bg-border/60" />
                 <div className="text-center">
-                  <p className="text-2xl font-bold text-primary">500+</p>
+                  <p className="text-2xl font-bold text-primary">+250</p>
                   <p className="text-xs text-muted-foreground">משפחות שלוו</p>
                 </div>
                 <div className="w-px h-8 bg-border/60" />
