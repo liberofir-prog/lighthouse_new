@@ -72,7 +72,7 @@ export default function Hero() {
             <FadeIn delay={0.1} direction="none">
               <span className="inline-flex items-center gap-2 text-sm font-semibold text-primary/80 bg-primary/6 px-4 py-2 rounded-full w-fit border border-primary/12 shadow-sm">
                 <span className="w-2 h-2 rounded-full bg-amber" />
-                קליניקת מגדלור — ענבל ליבר
+                קליניקת מגדלור - ענבל ליבר
               </span>
             </FadeIn>
 
@@ -109,7 +109,7 @@ export default function Hero() {
                 בריאותי, שינויים מהותיים בחיים, קשיים התנהגותיים או רגשיים
                 ובהתמודדות עם מחלות קשות ואובדן.
                 <span className="block mt-2 text-primary/90 font-medium text-base">
-                  מגדלור — תמיכה בילדים והכוונה למשפחות ברגעים הקשים עד להגעה לחוף מבטחים.
+                  מגדלור - תמיכה בילדים והכוונה למשפחות ברגעים הקשים עד להגעה לחוף מבטחים.
                 </span>
               </p>
             </FadeIn>
@@ -171,7 +171,7 @@ export default function Hero() {
               <div className="relative aspect-[3/4] rounded-[2rem] overflow-hidden shadow-warm-lg ring-1 ring-border/30">
                 <Image
                   src="/inbal.png"
-                  alt="ענבל ליבר – מטפלת רגשית ומלווה רוחנית"
+                  alt="ענבל ליבר - מטפלת רגשית ומלווה רוחנית"
                   fill
                   className="object-cover object-top"
                   sizes="(max-width: 768px) 100vw, 40vw"

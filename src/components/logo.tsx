@@ -17,7 +17,7 @@ export default function Logo({ scale = 1 }: LogoProps) {
     >
       <Image
         src="/logo.png"
-        alt="מגדלור — ענבל ליבר"
+        alt="מגדלור - ענבל ליבר"
         width={180}
         height={80}
         className="h-auto w-[90px] md:w-[110px]"

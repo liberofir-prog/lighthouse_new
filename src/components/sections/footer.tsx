@@ -17,7 +17,7 @@ export default function Footer() {
             {/* Logo */}
             <div className="flex items-center gap-2">
               <span className="text-xl font-bold text-primary">מגדלור</span>
-              <span className="text-muted-foreground/40">—</span>
+              <span className="text-muted-foreground/40">-</span>
               <span className="text-sm text-muted-foreground">ענבל ליבר</span>
             </div>
 
