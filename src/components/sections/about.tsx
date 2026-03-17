@@ -22,15 +22,15 @@ const experience = [
 
 const lectures = [
   {
-    title: "ליווי רוחני לילדים ובני משפחותיהם",
-    url: "https://www.youtube.com/watch?v=y4ZGHgc1F-8",
-    thumbnail: "https://i.ytimg.com/vi/y4ZGHgc1F-8/hqdefault.jpg",
-    channel: "Rambam Pro",
-  },
-  {
     title: "ביקור בארץ לעולם-לא - ליווי רוחני",
     url: "https://www.youtube.com/watch?v=K2QHA5qWR6c",
     thumbnail: "https://i.ytimg.com/vi/K2QHA5qWR6c/hqdefault.jpg",
+    channel: "Rambam Pro",
+  },
+  {
+    title: "ליווי רוחני לילדים ובני משפחותיהם",
+    url: "https://www.youtube.com/watch?v=y4ZGHgc1F-8",
+    thumbnail: "https://i.ytimg.com/vi/y4ZGHgc1F-8/hqdefault.jpg",
     channel: "Rambam Pro",
   },
 ];
