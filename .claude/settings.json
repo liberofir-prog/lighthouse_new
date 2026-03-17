@@ -3,7 +3,11 @@
     "allow": [
       "Bash(ls \"c:/temp/inbal1\"*)",
       "Bash(npx npm-check-updates:*)",
-      "Bash(node -e \"const l = require\\(''lucide-react''\\); console.log\\(''Brain'' in l, ''Sparkles'' in l, ''HeartHandshake'' in l, ''Shield'' in l\\)\")"
+      "Bash(node -e \"const l = require\\(''lucide-react''\\); console.log\\(''Brain'' in l, ''Sparkles'' in l, ''HeartHandshake'' in l, ''Shield'' in l\\)\")",
+      "WebFetch(domain:www.youtube.com)",
+      "WebFetch(domain:www.haaretz.co.il)",
+      "WebFetch(domain:www.ynet.co.il)",
+      "WebFetch(domain:www.mako.co.il)"
     ]
   }
 }
