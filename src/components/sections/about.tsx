@@ -238,8 +238,50 @@ export default function About() {
             ROW 3 — Media: Lectures | Press
             ═══════════════════════════════════════════ */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-          {/* הרצאות */}
+          {/* כתבו עלינו */}
           <FadeIn delay={0.15}>
+            <div className="bg-card/40 rounded-xl p-5 md:p-6 border border-border/25 h-full">
+              <div className="flex items-center gap-2 mb-5">
+                <Newspaper size={18} className="text-amber" />
+                <h3 className="text-base font-bold text-primary">כתבו עלינו</h3>
+              </div>
+              <div className="space-y-3">
+                {pressArticles.map((article, i) => (
+                  <motion.a
+                    key={i}
+                    href={article.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    initial={{ opacity: 0, x: -12 }}
+                    whileInView={{ opacity: 1, x: 0 }}
+                    viewport={{ once: true }}
+                    transition={{
+                      delay: 0.15 + i * 0.06,
+                      duration: 0.4,
+                      ease: [0.22, 1, 0.36, 1],
+                    }}
+                    className="group flex items-center gap-4 p-4 rounded-xl bg-card/60 backdrop-blur-sm border border-border/30 shadow-warm hover:shadow-warm-lg hover:-translate-y-0.5 transition-all duration-500"
+                  >
+                    <div className="shrink-0 w-14 h-14 rounded-xl bg-amber/8 flex items-center justify-center">
+                      <span className="text-sm font-bold text-amber">{article.source}</span>
+                    </div>
+                    <div className="flex-1 min-w-0">
+                      <p className="text-[0.9rem] font-semibold text-primary leading-snug group-hover:text-amber transition-colors duration-300">
+                        {article.title}
+                      </p>
+                      <div className="flex items-center gap-1 mt-1.5">
+                        <ExternalLink size={12} className="text-muted-foreground" />
+                        <span className="text-xs text-muted-foreground">קראו את הכתבה</span>
+                      </div>
+                    </div>
+                  </motion.a>
+                ))}
+              </div>
+            </div>
+          </FadeIn>
+
+          {/* הרצאות */}
+          <FadeIn delay={0.2}>
             <div className="bg-card/40 rounded-xl p-5 md:p-6 border border-border/25 h-full">
               <div className="flex items-center gap-2 mb-5">
                 <Play size={18} className="text-amber" />
@@ -283,48 +325,6 @@ export default function About() {
                       <p className="text-xs text-muted-foreground mt-1">
                         {lecture.channel}
                       </p>
-                    </div>
-                  </motion.a>
-                ))}
-              </div>
-            </div>
-          </FadeIn>
-
-          {/* כתבו עלינו */}
-          <FadeIn delay={0.2}>
-            <div className="bg-card/40 rounded-xl p-5 md:p-6 border border-border/25 h-full">
-              <div className="flex items-center gap-2 mb-5">
-                <Newspaper size={18} className="text-amber" />
-                <h3 className="text-base font-bold text-primary">כתבו עלינו</h3>
-              </div>
-              <div className="space-y-3">
-                {pressArticles.map((article, i) => (
-                  <motion.a
-                    key={i}
-                    href={article.url}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    initial={{ opacity: 0, x: -12 }}
-                    whileInView={{ opacity: 1, x: 0 }}
-                    viewport={{ once: true }}
-                    transition={{
-                      delay: 0.15 + i * 0.06,
-                      duration: 0.4,
-                      ease: [0.22, 1, 0.36, 1],
-                    }}
-                    className="group flex items-center gap-4 p-4 rounded-xl bg-card/60 backdrop-blur-sm border border-border/30 shadow-warm hover:shadow-warm-lg hover:-translate-y-0.5 transition-all duration-500"
-                  >
-                    <div className="shrink-0 w-14 h-14 rounded-xl bg-amber/8 flex items-center justify-center">
-                      <span className="text-sm font-bold text-amber">{article.source}</span>
-                    </div>
-                    <div className="flex-1 min-w-0">
-                      <p className="text-[0.9rem] font-semibold text-primary leading-snug group-hover:text-amber transition-colors duration-300">
-                        {article.title}
-                      </p>
-                      <div className="flex items-center gap-1 mt-1.5">
-                        <ExternalLink size={12} className="text-muted-foreground" />
-                        <span className="text-xs text-muted-foreground">קראו את הכתבה</span>
-                      </div>
                     </div>
                   </motion.a>
                 ))}
