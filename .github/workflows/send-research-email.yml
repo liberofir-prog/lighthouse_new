@@ -19,7 +19,7 @@ jobs:
             -H "Authorization: Bearer ${{ secrets.RESEND_API_KEY }}" \
             -H "Content-Type: application/json" \
             -d "{
-              \"from\": \"עוזר המחקר של ענבל <onboarding@resend.dev>\",
+              \"from\": \"עוזר המחקר של ענבל <research@liber.co.il>\",
               \"to\": [\"inbal@liber.co.il\", \"liber.ofir@gmail.com\"],
               \"subject\": \"סיכום חודשי - ליווי רוחני לילדים\",
               \"html\": $JSON_CONTENT
