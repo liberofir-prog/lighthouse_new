@@ -12,6 +12,23 @@ export const metadata: Metadata = {
   title: "מגדלור | ענבל ליבר - ליווי רגשי ורוחני",
   description:
     "קליניקת מגדלור - טיפול רגשי, ליווי רוחני והדרכת הורים לילדים ומשפחות סביב משברי חיים, מחלות קשות ואובדן.",
+  openGraph: {
+    title: "מגדלור | ענבל ליבר - ליווי רגשי ורוחני",
+    description:
+      "קליניקת מגדלור - טיפול רגשי, ליווי רוחני והדרכת הורים לילדים ומשפחות סביב משברי חיים, מחלות קשות ואובדן.",
+    url: "https://migdalor.me",
+    siteName: "קליניקת מגדלור",
+    images: [
+      {
+        url: "https://migdalor.me/logo.png",
+        width: 512,
+        height: 512,
+        alt: "לוגו קליניקת מגדלור",
+      },
+    ],
+    locale: "he_IL",
+    type: "website",
+  },
 };
 
 export default function RootLayout({
