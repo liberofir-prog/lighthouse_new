@@ -104,7 +104,7 @@ export default function About() {
             </FadeIn>
             <FadeIn delay={0.15}>
               <p className="text-base md:text-lg text-primary/70 font-medium max-w-2xl mx-auto">
-                מדריכת הורים, מלווה רוחנית ופסיכותרפיסטית בהתמחות (שנה שנייה) בגישת Play Therapy
+                מדריכת הורים, מלווה רוחנית ומתמחה בפסיכותרפיה (שנה שנייה) בגישת Play Therapy
               </p>
             </FadeIn>
           </div>
@@ -176,7 +176,7 @@ export default function About() {
                   </div>
                   <div className="space-y-3 text-foreground/90 leading-[1.8] text-[0.95rem]">
                     <p>
-                      גישת העבודה במגדלור משלבת ליווי רוחני עם הבעה, יצירה ומשחק.
+                      גישת העבודה במגדלור משלבת טיפול באמצעות הבעה, יצירה ומשחק עם ליווי רוחני.
                     </p>
                     <p>
                       טיפול במשחק (Play Therapy) מאפשר לילדים לבטא את עולמם הפנימי

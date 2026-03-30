@@ -79,7 +79,7 @@ export default function Hero() {
             {/* Headline */}
             <FadeIn delay={0.2}>
               <h1 className="text-[2.5rem] md:text-5xl lg:text-[3.5rem] font-bold leading-[1.15] tracking-tight">
-                <span className="text-primary">תמיכה וליווי לילדים</span>
+                <span className="text-primary">תמיכה וטיפול רגשי לילדים</span>
                 <br />
                 <span className="text-foreground">במצבי משבר, אובדן</span>
                 <br />
@@ -105,12 +105,9 @@ export default function Hero() {
             {/* Subtext */}
             <FadeIn delay={0.35}>
               <p className="text-lg md:text-xl text-muted-foreground leading-relaxed max-w-[520px]">
-                תמיכה רגשית וליווי רוחני לילדים והדרכת הורים במצבים של משבר
+                טיפול רגשי וליווי רוחני לילדים והדרכת הורים במצבים של משבר
                 בריאותי, שינויים מהותיים בחיים, קשיים התנהגותיים או רגשיים
                 ובהתמודדות עם מחלות קשות ואובדן.
-                <span className="block mt-2 text-primary/90 font-medium text-base">
-                  מגדלור - תמיכה בילדים והכוונה למשפחות ברגעים הקשים עד להגעה לחוף מבטחים.
-                </span>
               </p>
             </FadeIn>
 
