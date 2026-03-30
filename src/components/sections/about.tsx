@@ -171,12 +171,12 @@ export default function About() {
                   <div className="flex items-center gap-2.5 mb-4">
                     <Sparkles size={18} className="text-amber" />
                     <h3 className="text-lg font-bold text-primary">
-                      מה מייחד את הליווי במגדלור
+                      מה מייחד את הטיפול בקליניקת מגדלור
                     </h3>
                   </div>
                   <div className="space-y-3 text-foreground/90 leading-[1.8] text-[0.95rem]">
                     <p>
-                      גישת העבודה במגדלור משלבת טיפול באמצעות הבעה, יצירה ומשחק עם ליווי רוחני.
+                      קליניקת מגדלור משלבת בין טיפול באמצעות הבעה, יצירה ומשחק ובין ליווי רוחני.
                     </p>
                     <p>
                       טיפול במשחק (Play Therapy) מאפשר לילדים לבטא את עולמם הפנימי
