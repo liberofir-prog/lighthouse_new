@@ -58,11 +58,6 @@ export default function Testimonials() {
               מה אומרים עלינו
             </h2>
           </FadeIn>
-          <FadeIn delay={0.2}>
-            <p className="text-muted-foreground text-lg">
-              מילים מלקוחות שליווינו בדרך
-            </p>
-          </FadeIn>
         </div>
 
         {/* Testimonials grid */}

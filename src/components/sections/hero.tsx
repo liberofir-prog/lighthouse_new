@@ -79,7 +79,7 @@ export default function Hero() {
             {/* Headline */}
             <FadeIn delay={0.2}>
               <h1 className="text-[2.5rem] md:text-5xl lg:text-[3.5rem] font-bold leading-[1.15] tracking-tight">
-                <span className="text-primary">תמיכה וטיפול רגשי לילדים</span>
+                <span className="text-primary">תמיכה וטיפול רגשי לילדים ובני משפחותיהם</span>
                 <br />
                 <span className="text-foreground">במצבי משבר, אובדן</span>
                 <br />
