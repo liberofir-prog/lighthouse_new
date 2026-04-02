@@ -20,7 +20,7 @@ jobs:
             -H "Content-Type: application/json" \
             -d "{
               \"from\": \"עוזר המחקר של ענבל <research@liber.co.il>\",
-              \"to\": [\"liber.ofir@gmail.com\"],
-              \"subject\": \"[בדיקה] סיכום חודשי - ליווי רוחני לילדים\",
+              \"to\": [\"inbal@liber.co.il\", \"liber.ofir@gmail.com\"],
+              \"subject\": \"סיכום חודשי - ליווי רוחני לילדים\",
               \"html\": $JSON_CONTENT
             }"
