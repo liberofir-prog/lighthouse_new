@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Heebo } from "next/font/google";
+import { Analytics } from "@vercel/analytics/react";
 import "./globals.css";
 
 const heebo = Heebo({
@@ -74,7 +75,10 @@ export default function RootLayout({
           dangerouslySetInnerHTML={{ __html: JSON.stringify(schemaOrg) }}
         />
       </head>
-      <body className={`${heebo.variable} antialiased`}>{children}</body>
+      <body className={`${heebo.variable} antialiased`}>
+        {children}
+        <Analytics />
+      </body>
     </html>
   );
 }
