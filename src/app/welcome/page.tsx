@@ -207,7 +207,7 @@ export default function WelcomePage() {
 
               <div className="pt-4">
                 <a
-                  href="https://waze.com/ul/hsv8z7f7d"
+                  href="https://waze.com/ul?q=%D7%93%D7%9F+30+%D7%90%D7%9C%D7%A4%D7%99+%D7%9E%D7%A0%D7%A9%D7%94&navigate=yes"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="inline-flex items-center gap-4 text-white px-10 py-4 rounded-full font-black text-xl hover:scale-105 transition-all shadow-lg"
