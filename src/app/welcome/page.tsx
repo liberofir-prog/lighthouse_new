@@ -28,9 +28,9 @@ export default function WelcomePage() {
             <Image
               src="/logo.png"
               alt="לוגו קליניקת מגדלור"
-              width={600}
-              height={240}
-              className="w-full max-w-[600px] h-auto"
+              width={240}
+              height={96}
+              className="w-full max-w-[240px] h-auto"
               style={{ filter: "drop-shadow(0 12px 25px rgba(0,0,0,0.08))" }}
               priority
             />
