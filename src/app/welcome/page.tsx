@@ -192,7 +192,7 @@ export default function WelcomePage() {
             <div className="space-y-10 text-right">
               {[
                 { icon: <MapPin size={24} style={{ color: "#c8922a" }} />, label: "איפה הקליניקה?", value: "דן 30, אלפי מנשה" },
-                { icon: <Timer size={24} style={{ color: "#c8922a" }} />, label: "משך המפגש", value: "45 דקות" },
+                { icon: <Timer size={24} style={{ color: "#c8922a" }} />, label: "משך המפגש", value: "50 דקות" },
               ].map((item, i) => (
                 <div key={i} className="flex items-center gap-6">
                   <div className="w-14 h-14 rounded-full flex items-center justify-center shadow-sm" style={{ backgroundColor: "rgba(200,146,42,0.08)" }}>
