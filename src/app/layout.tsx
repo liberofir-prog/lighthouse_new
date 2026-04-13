@@ -1,7 +1,10 @@
 import type { Metadata } from "next";
 import { Heebo } from "next/font/google";
 import { Analytics } from "@vercel/analytics/react";
+import Script from "next/script";
 import "./globals.css";
+
+const GA_ID = "AW-18083758679";
 
 const heebo = Heebo({
   variable: "--font-heebo",
@@ -76,6 +79,18 @@ export default function RootLayout({
         />
       </head>
       <body className={`${heebo.variable} antialiased`}>
+        <Script
+          src={`https://www.googletagmanager.com/gtag/js?id=${GA_ID}`}
+          strategy="afterInteractive"
+        />
+        <Script id="google-ads" strategy="afterInteractive">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', '${GA_ID}');
+          `}
+        </Script>
         {children}
         <Analytics />
       </body>
