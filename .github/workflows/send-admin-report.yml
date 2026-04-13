@@ -1,0 +1,26 @@
+name: Send Admin SEO Report
+
+on:
+  push:
+    paths:
+      - 'research-reports/admin-report.html'
+
+jobs:
+  send-email:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Send via Resend
+        run: |
+          CONTENT=$(cat research-reports/admin-report.html)
+          JSON_CONTENT=$(echo "$CONTENT" | python3 -c 'import json,sys; print(json.dumps(sys.stdin.read()))')
+          curl -s -X POST https://api.resend.com/emails \
+            -H "Authorization: Bearer ${{ secrets.RESEND_API_KEY }}" \
+            -H "Content-Type: application/json" \
+            -d "{
+              \"from\": \"מערכת מגדלור <research@liber.co.il>\",
+              \"to\": [\"liber.ofir@gmail.com\"],
+              \"subject\": \"דוח מנהל - מגדלור SEO\",
+              \"html\": $JSON_CONTENT
+            }"
