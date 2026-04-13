@@ -1,38 +1,19 @@
-name: Admin SEO Report — Migdalor
+name: שלח דוח חודשי — אופיר
 
 on:
   workflow_dispatch:
 
 jobs:
-  generate-report:
+  send-report:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
 
-      - name: Set up Python
-        uses: actions/setup-python@v5
-        with:
-          python-version: '3.11'
-
-      - name: Install dependencies
-        run: pip install requests
-
-      - name: Generate SEO Report
-        run: python3 scripts/generate_admin_report.py
-
-      - name: Send Email via Resend
+      - name: Send latest report to Ofir
         run: |
-          CONTENT=$(cat research-reports/admin-report.html)
+          CONTENT=$(cat research-reports/latest.html)
           JSON_CONTENT=$(echo "$CONTENT" | python3 -c 'import json,sys; print(json.dumps(sys.stdin.read()))')
           curl -s -X POST https://api.resend.com/emails \
             -H "Authorization: Bearer ${{ secrets.RESEND_API_KEY }}" \
             -H "Content-Type: application/json" \
-            -d "{\"from\": \"מערכת מגדלור <research@liber.co.il>\", \"to\": [\"liber.ofir@gmail.com\"], \"subject\": \"דוח מנהל SEO - מגדלור\", \"html\": $JSON_CONTENT}"
-
-      - name: Commit report
-        run: |
-          git config user.email "research-agent@liber.co.il"
-          git config user.name "Research Agent"
-          git add research-reports/admin-report.html
-          git commit -m "Admin SEO report $(date +%Y-%m-%d)" || echo "No changes"
-          git push || echo "Nothing to push"
+            -d "{\"from\": \"מערכת מגדלור <research@liber.co.il>\", \"to\": [\"liber.ofir@gmail.com\"], \"subject\": \"דוח חודשי — מגדלור (על פי דרישה)\", \"html\": $JSON_CONTENT}"
