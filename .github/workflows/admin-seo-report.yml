@@ -1,0 +1,126 @@
+name: Admin SEO Report — Migdalor
+
+on:
+  workflow_dispatch:
+
+jobs:
+  generate-report:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install dependencies
+        run: pip install anthropic requests
+
+      - name: Generate SEO Report
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+        run: |
+          python3 << 'PYEOF'
+          import anthropic
+          import requests
+          import json
+          from datetime import datetime
+
+          # Fetch migdalor.me
+          try:
+              site = requests.get("https://migdalor.me", timeout=10).text[:8000]
+          except:
+              site = "Could not fetch site"
+
+          # Fetch PageSpeed
+          try:
+              ps = requests.get(
+                  "https://www.googleapis.com/pagespeedonline/v5/runPagespeed?url=https://migdalor.me&strategy=mobile",
+                  timeout=15
+              ).json()
+              perf_score = int(ps.get("lighthouseResult", {}).get("categories", {}).get("performance", {}).get("score", 0) * 100)
+          except:
+              perf_score = "לא זמין"
+
+          # Fetch robots + sitemap
+          try:
+              robots = requests.get("https://migdalor.me/robots.txt", timeout=5).text[:500]
+          except:
+              robots = "לא נמצא"
+          try:
+              sitemap_status = requests.get("https://migdalor.me/sitemap.xml", timeout=5).status_code
+              sitemap = "תקין ✅" if sitemap_status == 200 else f"שגיאה {sitemap_status}"
+          except:
+              sitemap = "לא נמצא ❌"
+
+          month_he = {
+              1:"ינואר",2:"פברואר",3:"מרץ",4:"אפריל",5:"מאי",6:"יוני",
+              7:"יולי",8:"אוגוסט",9:"ספטמבר",10:"אוקטובר",11:"נובמבר",12:"דצמבר"
+          }
+          now = datetime.now()
+          month_str = f"{month_he[now.month]} {now.year}"
+
+          prompt = f"""אתה אנליסט SEO ושיווק. צור דוח HTML מקיף בעברית עבור אופיר — מנהל מערכת של קליניקת מגדלור.
+
+נתונים שאספת:
+- PageSpeed Mobile: {perf_score}/100
+- robots.txt: {robots[:200]}
+- sitemap.xml: {sitemap}
+- תוכן האתר (חלקי): {site[:3000]}
+
+חודש הדוח: {month_str}
+
+צור דוח HTML מלא עם:
+1. סיכום מנהל (3-4 נקודות מפתח)
+2. ניתוח SEO טכני (PageSpeed, robots, sitemap, המלצות מיידיות)
+3. ניתוח מתחרים — בדוק מי מתחרה על מילים כמו "טיפול רגשי לילדים אלפי מנשה", "Play therapy שרון"
+4. הזדמנויות מילות מפתח (טבלה: מילה | כוונה | עדיפות)
+5. המלצות לחודש הקרוב (ממוספרות לפי עדיפות)
+
+עיצוב HTML:
+- dir=rtl, font-family: Arial, background: #f9f7f4
+- h1: color #5a3e1b, כולל "{month_str}"
+- h2: color #8B6914, border-bottom: 2px solid #d4a853
+- טבלאות עם zebra rows (#fff8ed / white)
+- highlight boxes: background #fff8ed, border-right: 4px solid #d4a853, padding 12px, margin 10px 0
+- footer: color #999, font-size 12px — "דוח מנהל אוטומטי | מגדלור | נשלח לאופיר בלבד"
+
+החזר HTML מלא בלבד, ללא הסברים."""
+
+          client = anthropic.Anthropic()
+          message = client.messages.create(
+              model="claude-opus-4-6",
+              max_tokens=4096,
+              messages=[{"role": "user", "content": prompt}]
+          )
+
+          html = message.content[0].text
+          import os
+          os.makedirs("research-reports", exist_ok=True)
+          with open("research-reports/admin-report.html", "w", encoding="utf-8") as f:
+              f.write(html)
+          print("Report generated successfully")
+          PYEOF
+
+      - name: Send Email via Resend
+        run: |
+          CONTENT=$(cat research-reports/admin-report.html)
+          JSON_CONTENT=$(echo "$CONTENT" | python3 -c 'import json,sys; print(json.dumps(sys.stdin.read()))')
+          curl -s -X POST https://api.resend.com/emails \
+            -H "Authorization: Bearer ${{ secrets.RESEND_API_KEY }}" \
+            -H "Content-Type: application/json" \
+            -d "{
+              \"from\": \"מערכת מגדלור <research@liber.co.il>\",
+              \"to\": [\"liber.ofir@gmail.com\"],
+              \"subject\": \"דוח מנהל SEO — מגדלור\",
+              \"html\": $JSON_CONTENT
+            }"
+
+      - name: Commit report
+        run: |
+          git config user.email "research-agent@liber.co.il"
+          git config user.name "Research Agent"
+          git add research-reports/admin-report.html
+          git commit -m "Admin SEO report $(date +%Y-%m-%d)" || echo "No changes"
+          git push || echo "Nothing to push"
