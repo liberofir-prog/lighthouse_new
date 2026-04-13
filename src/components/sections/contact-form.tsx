@@ -89,6 +89,20 @@ export default function ContactForm() {
                     <p className="font-semibold text-foreground text-sm">דן 30, אלפי מנשה</p>
                   </div>
                 </div>
+
+                {/* Google Maps embed */}
+                <div className="rounded-xl overflow-hidden border border-border/25 shadow-sm mt-1">
+                  <iframe
+                    src="https://maps.google.com/maps?q=דן+30+אלפי+מנשה&output=embed&hl=he"
+                    width="100%"
+                    height="200"
+                    style={{ border: 0 }}
+                    allowFullScreen
+                    loading="lazy"
+                    referrerPolicy="no-referrer-when-downgrade"
+                    title="מפת הגעה לקליניקת מגדלור, דן 30 אלפי מנשה"
+                  />
+                </div>
               </div>
             </FadeIn>
           </div>

@@ -72,7 +72,7 @@ export default function Hero() {
             <FadeIn delay={0.1} direction="none">
               <span className="inline-flex items-center gap-2 text-sm font-semibold text-primary/80 bg-primary/6 px-4 py-2 rounded-full w-fit border border-primary/12 shadow-sm">
                 <span className="w-2 h-2 rounded-full bg-amber" />
-                קליניקת מגדלור - ענבל ליבר
+                קליניקת מגדלור | טיפול רגשי לילדים — אלפי מנשה
               </span>
             </FadeIn>
 
