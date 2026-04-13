@@ -1,19 +1,28 @@
-name: שלח דוח חודשי — אופיר
+name: שלח דוחות חודשיים — אופיר בלבד
 
 on:
   workflow_dispatch:
 
 jobs:
-  send-report:
+  send-reports:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
 
-      - name: Send latest report to Ofir
+      - name: Send Migdalor report to Ofir
         run: |
           CONTENT=$(cat research-reports/latest.html)
           JSON_CONTENT=$(echo "$CONTENT" | python3 -c 'import json,sys; print(json.dumps(sys.stdin.read()))')
           curl -s -X POST https://api.resend.com/emails \
             -H "Authorization: Bearer ${{ secrets.RESEND_API_KEY }}" \
             -H "Content-Type: application/json" \
-            -d "{\"from\": \"מערכת מגדלור <research@liber.co.il>\", \"to\": [\"liber.ofir@gmail.com\"], \"subject\": \"דוח חודשי — מגדלור (על פי דרישה)\", \"html\": $JSON_CONTENT}"
+            -d "{\"from\": \"מערכת מגדלור <research@liber.co.il>\", \"to\": [\"liber.ofir@gmail.com\"], \"subject\": \"דוח מגדלור — על פי דרישה\", \"html\": $JSON_CONTENT}"
+
+      - name: Send Keshev Halev report to Ofir
+        run: |
+          CONTENT=$(cat research-reports/cbt-latest.html)
+          JSON_CONTENT=$(echo "$CONTENT" | python3 -c 'import json,sys; print(json.dumps(sys.stdin.read()))')
+          curl -s -X POST https://api.resend.com/emails \
+            -H "Authorization: Bearer ${{ secrets.RESEND_API_KEY }}" \
+            -H "Content-Type: application/json" \
+            -d "{\"from\": \"מערכת מגדלור <research@liber.co.il>\", \"to\": [\"liber.ofir@gmail.com\"], \"subject\": \"דוח קשב הלב — על פי דרישה\", \"html\": $JSON_CONTENT}"
