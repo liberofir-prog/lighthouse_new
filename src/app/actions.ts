@@ -25,19 +25,29 @@ export async function submitContactForm(
     return { success: false, message: "נא להזין שם מלא" };
   }
 
-  await resend.emails.send({
-    from: "אתר מגדלור <noreply@liber.co.il>",
-    to: "inbal@liber.co.il",
-    subject: `פנייה חדשה מהאתר — ${name}`,
-    html: `
-      <div dir="rtl" style="font-family: sans-serif; max-width: 480px;">
-        <h2 style="color: #333;">פנייה חדשה מהאתר</h2>
-        <p><strong>שם:</strong> ${name}</p>
-        <p><strong>טלפון:</strong> ${phone}</p>
-        ${subject ? `<p><strong>נושא:</strong> ${subject}</p>` : ""}
-      </div>
-    `,
-  });
+  try {
+    const result = await resend.emails.send({
+      from: "אתר מגדלור <noreply@liber.co.il>",
+      to: "inbal@liber.co.il",
+      subject: `פנייה חדשה מהאתר — ${name}`,
+      html: `
+        <div dir="rtl" style="font-family: sans-serif; max-width: 480px;">
+          <h2 style="color: #333;">פנייה חדשה מהאתר</h2>
+          <p><strong>שם:</strong> ${name}</p>
+          <p><strong>טלפון:</strong> ${phone}</p>
+          ${subject ? `<p><strong>נושא:</strong> ${subject}</p>` : ""}
+        </div>
+      `,
+    });
+
+    if (result.error) {
+      console.error("Resend error:", result.error);
+      return { success: false, message: "אירעה שגיאה בשליחה, נסו שוב או צרו קשר ישירות." };
+    }
+  } catch (err) {
+    console.error("Resend exception:", err);
+    return { success: false, message: "אירעה שגיאה בשליחה, נסו שוב או צרו קשר ישירות." };
+  }
 
   return { success: true, message: "הפרטים נשלחו בהצלחה! נחזור אליך בהקדם." };
 }
