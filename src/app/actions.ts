@@ -1,12 +1,13 @@
 "use server";
 
+import { Resend } from "resend";
+
 interface FormState {
   success: boolean;
   message: string;
-  whatsappUrl?: string;
 }
 
-const CLINIC_PHONE = "972545524516"; // 054-552-4516
+const resend = new Resend(process.env.RESEND_API_KEY);
 
 export async function submitContactForm(
   _prevState: FormState | null,
@@ -24,15 +25,19 @@ export async function submitContactForm(
     return { success: false, message: "נא להזין שם מלא" };
   }
 
-  const lines = [
-    `שלום ענבל, פנייה חדשה מהאתר:`,
-    `שם: ${name}`,
-    `טלפון: ${phone}`,
-  ];
-  if (subject?.trim()) lines.push(`נושא: ${subject.trim()}`);
+  await resend.emails.send({
+    from: "אתר מגדלור <noreply@migdalor.me>",
+    to: "inbal@liber.co.il",
+    subject: `פנייה חדשה מהאתר — ${name}`,
+    html: `
+      <div dir="rtl" style="font-family: sans-serif; max-width: 480px;">
+        <h2 style="color: #333;">פנייה חדשה מהאתר</h2>
+        <p><strong>שם:</strong> ${name}</p>
+        <p><strong>טלפון:</strong> ${phone}</p>
+        ${subject ? `<p><strong>נושא:</strong> ${subject}</p>` : ""}
+      </div>
+    `,
+  });
 
-  const text = encodeURIComponent(lines.join("\n"));
-  const whatsappUrl = `https://wa.me/${CLINIC_PHONE}?text=${text}`;
-
-  return { success: true, message: "הפרטים נשלחו בהצלחה! נחזור אליך בהקדם.", whatsappUrl };
+  return { success: true, message: "הפרטים נשלחו בהצלחה! נחזור אליך בהקדם." };
 }
