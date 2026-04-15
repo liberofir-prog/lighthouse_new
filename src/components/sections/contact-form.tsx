@@ -1,6 +1,6 @@
 "use client";
 
-import { useActionState } from "react";
+import { useActionState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
@@ -14,6 +14,12 @@ export default function ContactForm() {
     submitContactForm,
     null
   );
+
+  useEffect(() => {
+    if (state?.success && state.whatsappUrl) {
+      window.open(state.whatsappUrl, "_blank");
+    }
+  }, [state]);
 
   return (
     <section id="contact" className="relative py-20 md:py-28">
