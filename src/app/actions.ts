@@ -7,8 +7,6 @@ interface FormState {
   message: string;
 }
 
-const resend = new Resend(process.env.RESEND_API_KEY);
-
 export async function submitContactForm(
   _prevState: FormState | null,
   formData: FormData
@@ -24,6 +22,8 @@ export async function submitContactForm(
   if (!name || name.trim().length < 2) {
     return { success: false, message: "נא להזין שם מלא" };
   }
+
+  const resend = new Resend(process.env.RESEND_API_KEY);
 
   try {
     const result = await resend.emails.send({
