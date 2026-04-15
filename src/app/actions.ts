@@ -23,9 +23,8 @@ export async function submitContactForm(
     return { success: false, message: "נא להזין שם מלא" };
   }
 
-  const resend = new Resend(process.env.RESEND_API_KEY);
-
   try {
+    const resend = new Resend(process.env.RESEND_API_KEY);
     const result = await resend.emails.send({
       from: "אתר מגדלור <noreply@liber.co.il>",
       to: "inbal@liber.co.il",
