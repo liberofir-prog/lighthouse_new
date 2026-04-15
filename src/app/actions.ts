@@ -26,7 +26,7 @@ export async function submitContactForm(
   }
 
   await resend.emails.send({
-    from: "אתר מגדלור <noreply@migdalor.me>",
+    from: "אתר מגדלור <noreply@liber.co.il>",
     to: "inbal@liber.co.il",
     subject: `פנייה חדשה מהאתר — ${name}`,
     html: `
