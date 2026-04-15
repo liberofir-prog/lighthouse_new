@@ -1,25 +1,47 @@
 "use client";
 
-import { useActionState, useEffect } from "react";
+import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { FadeIn } from "@/lib/motion";
-import { submitContactForm } from "@/app/actions";
 import { Phone, Mail, Send, CheckCircle2, MessageCircle, MapPin } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 
-export default function ContactForm() {
-  const [state, formAction, isPending] = useActionState(
-    submitContactForm,
-    null
-  );
+const CLINIC_PHONE = "972545524516";
 
-  useEffect(() => {
-    if (state?.success && state.whatsappUrl) {
-      window.open(state.whatsappUrl, "_blank");
+export default function ContactForm() {
+  const [success, setSuccess] = useState(false);
+  const [error, setError] = useState("");
+  const [isPending, setIsPending] = useState(false);
+
+  function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
+    e.preventDefault();
+    const form = e.currentTarget;
+    const name = (form.elements.namedItem("name") as HTMLInputElement).value.trim();
+    const phone = (form.elements.namedItem("phone") as HTMLInputElement).value.trim();
+    const subject = (form.elements.namedItem("subject") as HTMLTextAreaElement).value.trim();
+
+    if (!name || name.length < 2) {
+      setError("נא להזין שם מלא");
+      return;
     }
-  }, [state]);
+    if (!phone || phone.replace(/\D/g, "").length < 9) {
+      setError("נא להזין מספר טלפון תקין");
+      return;
+    }
+
+    setError("");
+    setIsPending(true);
+
+    const lines = ["שלום ענבל, פנייה חדשה מהאתר:", `שם: ${name}`, `טלפון: ${phone}`];
+    if (subject) lines.push(`נושא: ${subject}`);
+    const url = `https://wa.me/${CLINIC_PHONE}?text=${encodeURIComponent(lines.join("\n"))}`;
+
+    window.open(url, "_blank");
+    setSuccess(true);
+    setIsPending(false);
+  }
 
   return (
     <section id="contact" className="relative py-20 md:py-28">
@@ -128,7 +150,7 @@ export default function ContactForm() {
               </div>
 
               <AnimatePresence mode="wait">
-                {state?.success ? (
+                {success ? (
                   <motion.div
                     key="success"
                     initial={{ opacity: 0, scale: 0.95 }}
@@ -148,7 +170,7 @@ export default function ContactForm() {
                 ) : (
                   <motion.form
                     key="form"
-                    action={formAction}
+                    onSubmit={handleSubmit}
                     className="flex flex-col gap-4"
                   >
                     {/* Name + Phone side by side */}
@@ -216,13 +238,13 @@ export default function ContactForm() {
                       {isPending ? "שולח..." : "שליחה"}
                     </Button>
 
-                    {state?.success === false && (
+                    {error && (
                       <motion.p
                         initial={{ opacity: 0, y: 5 }}
                         animate={{ opacity: 1, y: 0 }}
                         className="text-center text-red-600 bg-red-50 rounded-xl py-2.5 px-4 text-sm"
                       >
-                        {state.message}
+                        {error}
                       </motion.p>
                     )}
                   </motion.form>
