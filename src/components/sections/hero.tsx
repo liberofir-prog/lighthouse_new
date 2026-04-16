@@ -79,12 +79,8 @@ export default function Hero() {
             {/* Headline */}
             <FadeIn delay={0.2}>
               <h1 className="text-[2.5rem] md:text-5xl lg:text-[3.5rem] font-bold leading-[1.15] tracking-tight">
-                <span className="text-primary">תמיכה וטיפול רגשי לילדים ובני משפחותיהם</span>
-                <br />
-                <span className="text-foreground">במצבי משבר, אובדן</span>
-                <br />
-                <span className="relative inline-block text-foreground">
-                  וטראומה
+                <span className="relative inline-block text-primary">
+                  תמיכה וטיפול רגשי לילדים ובני משפחותיהם
                   <svg
                     className="absolute -bottom-2 right-0 w-full h-3 text-amber/40"
                     viewBox="0 0 200 12"
@@ -105,9 +101,9 @@ export default function Hero() {
             {/* Subtext */}
             <FadeIn delay={0.35}>
               <p className="text-lg md:text-xl text-muted-foreground leading-relaxed max-w-[520px]">
-                טיפול רגשי והדרכת הורים במצבים של משבר בריאותי, שינויים מהותיים
-                בחיים, קשיים התנהגותיים או רגשיים ובהתמודדות עם מחלות קשות,
-                סוף חיים ואובדן (ליווי רוחני).
+                טיפול רגשי לילדים והדרכת הורים במצבים של קשיים התנהגותיים או
+                רגשיים, שינויים מהותיים בחיים. כמו כן התמקצעות בהתמודדות עם
+                משבר רפואי, מחלות קשות ואובדן.
               </p>
             </FadeIn>
 
