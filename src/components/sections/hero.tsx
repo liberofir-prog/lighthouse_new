@@ -80,7 +80,7 @@ export default function Hero() {
             <FadeIn delay={0.2}>
               <h1 className="text-[2.5rem] md:text-5xl lg:text-[3.5rem] font-bold leading-[1.15] tracking-tight">
                 <span className="relative inline-block text-primary">
-                  תמיכה וטיפול רגשי לילדים ובני משפחותיהם
+                  טיפול רגשי לילדים ובני משפחותיהם
                   <svg
                     className="absolute -bottom-2 right-0 w-full h-3 text-amber/40"
                     viewBox="0 0 200 12"
