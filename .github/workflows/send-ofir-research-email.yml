@@ -1,0 +1,41 @@
+name: Send On-Demand Research Email (Ofir Only)
+
+on:
+  push:
+    paths:
+      - 'research-reports/ofir-report.html'
+      - 'research-reports/ofir-cbt-report.html'
+
+jobs:
+  send-email:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Send Spiritual Care Report
+        run: |
+          CONTENT=$(cat research-reports/ofir-report.html)
+          JSON_CONTENT=$(echo "$CONTENT" | python3 -c 'import json,sys; print(json.dumps(sys.stdin.read()))')
+          curl -s -X POST https://api.resend.com/emails \
+            -H "Authorization: Bearer ${{ secrets.RESEND_API_KEY }}" \
+            -H "Content-Type: application/json" \
+            -d "{
+            \"from\": \"עוזר המחקר <research@liber.co.il>\",
+            \"to\": [\"liber.ofir@gmail.com\"],
+            \"subject\": \"[לפי דרישה] ליווי רוחני וטיפול במשחק\",
+            \"html\": $JSON_CONTENT
+          }"
+
+      - name: Send CBT Report
+        run: |
+          CONTENT=$(cat research-reports/ofir-cbt-report.html)
+          JSON_CONTENT=$(echo "$CONTENT" | python3 -c 'import json,sys; print(json.dumps(sys.stdin.read()))')
+          curl -s -X POST https://api.resend.com/emails \
+            -H "Authorization: Bearer ${{ secrets.RESEND_API_KEY }}" \
+            -H "Content-Type: application/json" \
+            -d "{
+            \"from\": \"עוזר המחקר <research@liber.co.il>\",
+            \"to\": [\"liber.ofir@gmail.com\"],
+            \"subject\": \"[לפי דרישה] מחקר CBT לילדים ונוער\",
+            \"html\": $JSON_CONTENT
+          }"
