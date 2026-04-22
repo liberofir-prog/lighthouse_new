@@ -8,10 +8,11 @@ export interface Newsletter {
 
 export const newsletters: Newsletter[] = [
   {
-    id: "placeholder-1",
-    date: "יש להזין תאריך",
-    title: "יש להזין כותרת גיליון",
-    excerpt: "יש להזין תיאור קצר של הגיליון...",
-    url: "#",
+    id: "april-2025",
+    date: "אפריל 2025",
+    title: "מחקר חדש על Play Therapy, רגע מהקליניקה, וזווית הורית",
+    excerpt:
+      "מה אומר המחקר העדכני על יעילות Play Therapy? כשמשחק הופך לשפה — סיפור מהקליניקה. ואיך הורים יכולים לתמוך בתהליך בין הפגישות.",
+    url: "/metataplim/gliyon/april-2025",
   },
 ];
