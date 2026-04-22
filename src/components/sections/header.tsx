@@ -78,7 +78,7 @@ export default function Header() {
             מיגדלור <strong>למטפלים</strong>
           </Link>
 
-          <
+          <a
             {...anchorProps("/#contact")}
             className={cn(
               buttonVariants({ size: "sm" }),
