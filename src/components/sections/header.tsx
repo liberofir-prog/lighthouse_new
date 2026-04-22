@@ -7,6 +7,7 @@ import { cn } from "@/lib/utils";
 import { motion, AnimatePresence } from "framer-motion";
 import Logo from "@/components/logo";
 import { handleAnchorClick } from "@/lib/smooth-scroll";
+import Link from "next/link";
 
 const navLinks = [
   { label: "תחומי מומחיות", href: "#expertise" },
@@ -58,6 +59,16 @@ export default function Header() {
               {link.label}
             </a>
           ))}
+          <Link
+            href="/metataplim"
+            className="relative text-[0.95rem] font-semibold text-foreground/95 hover:text-primary transition-colors duration-300
+                       drop-shadow-[0_1px_2px_rgba(255,255,255,0.6)]
+                       after:absolute after:bottom-[-4px] after:right-0
+                       after:w-0 after:h-[2px] after:bg-amber
+                       after:transition-all after:duration-300 hover:after:w-full"
+          >
+            מיגדלור <strong>למטפלים</strong>
+          </Link>
           <a
             href="#contact"
             onClick={handleAnchorClick}
@@ -105,11 +116,25 @@ export default function Header() {
                   {link.label}
                 </motion.a>
               ))}
+              <motion.div
+                initial={{ opacity: 0, x: -10 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ delay: navLinks.length * 0.08, duration: 0.3 }}
+              >
+                <Link
+                  href="/metataplim"
+                  className="block text-base font-semibold py-3 px-3 rounded-xl text-foreground
+                             hover:text-primary hover:bg-primary/5 transition-all duration-200"
+                  onClick={() => setMobileOpen(false)}
+                >
+                  מיגדלור <strong>למטפלים</strong>
+                </Link>
+              </motion.div>
               <motion.a
                 href="#contact"
                 initial={{ opacity: 0, x: -10 }}
                 animate={{ opacity: 1, x: 0 }}
-                transition={{ delay: 0.25, duration: 0.3 }}
+                transition={{ delay: 0.25 + 0.08, duration: 0.3 }}
                 onClick={(e) => { handleAnchorClick(e); setMobileOpen(false); }}
                 className={cn(
                   buttonVariants({ size: "lg" }),
