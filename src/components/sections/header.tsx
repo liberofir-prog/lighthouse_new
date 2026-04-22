@@ -54,18 +54,6 @@ export default function Header() {
         {/* ── Desktop nav ── */}
         <nav className="hidden md:flex items-center gap-8">
 
-          {/* מיגדלור למטפלים — ראשון, עם highlight */}
-          <Link
-            href="/metataplim"
-            className="inline-flex items-center gap-1.5 text-[0.95rem] font-semibold text-primary
-                       bg-amber/10 hover:bg-amber/18 border border-amber/25 hover:border-amber/40
-                       px-4 py-1.5 rounded-full transition-all duration-300"
-          >
-            מיגדלור <strong>למטפלים</strong>
-          </Link>
-
-          <div className="w-px h-5 bg-border/50" />
-
           {navLinks.map((link) => (
             <a
               key={link.href}
@@ -80,7 +68,17 @@ export default function Header() {
             </a>
           ))}
 
-          <a
+          {/* מיגדלור למטפלים — לפני צרו קשר, עם highlight */}
+          <Link
+            href="/metataplim"
+            className="inline-flex items-center gap-1.5 text-[0.95rem] font-semibold text-primary
+                       bg-amber/10 hover:bg-amber/18 border border-amber/25 hover:border-amber/40
+                       px-4 py-1.5 rounded-full transition-all duration-300"
+          >
+            מיגדלור <strong>למטפלים</strong>
+          </Link>
+
+          <
             {...anchorProps("/#contact")}
             className={cn(
               buttonVariants({ size: "sm" }),
@@ -113,23 +111,6 @@ export default function Header() {
           >
             <div className="flex flex-col gap-1 px-5 py-5">
 
-              {/* מיגדלור למטפלים — ראשון במובייל */}
-              <motion.div
-                initial={{ opacity: 0, x: -10 }}
-                animate={{ opacity: 1, x: 0 }}
-                transition={{ delay: 0, duration: 0.3 }}
-              >
-                <Link
-                  href="/metataplim"
-                  className="flex items-center gap-2 text-base font-semibold py-3 px-3 rounded-xl
-                             text-primary bg-amber/8 border border-amber/20
-                             hover:bg-amber/15 transition-all duration-200"
-                  onClick={() => setMobileOpen(false)}
-                >
-                  מיגדלור <strong>למטפלים</strong>
-                </Link>
-              </motion.div>
-
               {navLinks.map((link, i) => (
                 <motion.a
                   key={link.href}
@@ -144,6 +125,23 @@ export default function Header() {
                   {link.label}
                 </motion.a>
               ))}
+
+              {/* מיגדלור למטפלים — לפני צרו קשר */}
+              <motion.div
+                initial={{ opacity: 0, x: -10 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ delay: navLinks.length * 0.08, duration: 0.3 }}
+              >
+                <Link
+                  href="/metataplim"
+                  className="flex items-center gap-2 text-base font-semibold py-3 px-3 rounded-xl
+                             text-primary bg-amber/8 border border-amber/20
+                             hover:bg-amber/15 transition-all duration-200"
+                  onClick={() => setMobileOpen(false)}
+                >
+                  מיגדלור <strong>למטפלים</strong>
+                </Link>
+              </motion.div>
 
               <motion.a
                 href={isHome ? "#contact" : "/#contact"}
