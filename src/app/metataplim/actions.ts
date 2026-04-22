@@ -38,6 +38,7 @@ export async function subscribeToNewsletter(
           firstName: firstName.trim(),
           lastName:  lastName.trim(),
           phone:     phone?.trim() ?? "",
+          active:    true,
           date:      new Date().toISOString(),
         }),
       });
