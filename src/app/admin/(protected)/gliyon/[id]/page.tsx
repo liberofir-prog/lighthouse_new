@@ -19,7 +19,8 @@ export default function AdminReviewPage({
   const [subject, setSubject] = useState(draft.emailSubject);
   const [intro, setIntro] = useState(draft.intro);
   const [teasers, setTeasers] = useState(draft.teasers.join("\n"));
-  const [showEmail, setShowEmail] = useState(false);
+  const [showEmail, setShowEmail] = useState(true);
+  const [notes, setNotes] = useState("");
 
   const [result, action, isPending] = useActionState(approveDraft, null);
 
@@ -185,11 +186,29 @@ export default function AdminReviewPage({
             <input type="hidden" name="intro" value={intro} />
             <input type="hidden" name="teasers" value={teasers} />
             <input type="hidden" name="newsletterUrl" value={draft.newsletterUrl} />
+            <input type="hidden" name="notes" value={notes} />
 
             <p className="text-muted-foreground text-sm mb-4 leading-relaxed">
-              קראת את הגיליון ואת המייל ואישרת שהכל תקין? לחיצה על אשר שולחת הודעה
-              לאופיר שהגיליון מוכן לשליחה.
+              קראת את הגיליון ואת המייל ואישרת שהכל תקין? אם יש דברים שצריך לשנות
+              או להסיר כתבי אותם בשדה ההערות, והם יישלחו לאופיר יחד עם האישור.
             </p>
+
+            <div className="mb-4">
+              <label className="block text-sm font-semibold text-foreground mb-1.5">
+                הערות לאופיר
+                <span className="text-muted-foreground font-normal text-xs mr-2">(אופציונלי — שינויים, הסרות, תיקונים)</span>
+              </label>
+              <textarea
+                value={notes}
+                onChange={(e) => setNotes(e.target.value)}
+                rows={4}
+                placeholder="לדוגמה: ממצא 03 לא מדויק, אנא שנה... / הסר את הציטוט בסוף..."
+                className="w-full px-3 py-2.5 rounded-xl border border-border bg-secondary/40
+                           text-sm text-foreground focus:outline-none focus:border-amber
+                           focus:ring-2 focus:ring-amber/20 resize-none leading-relaxed
+                           placeholder:text-muted-foreground/50 transition-colors"
+              />
+            </div>
 
             {result?.ok === false && (
               <p className="text-destructive bg-destructive/8 border border-destructive/20

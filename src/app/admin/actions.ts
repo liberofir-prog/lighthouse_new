@@ -71,6 +71,7 @@ export async function approveDraft(
   const intro = formData.get("intro") as string;
   const teasersRaw = formData.get("teasers") as string;
   const newsletterUrl = formData.get("newsletterUrl") as string;
+  const notes = (formData.get("notes") as string ?? "").trim();
   const teasers = teasersRaw.split("\n").map((t) => t.trim()).filter(Boolean);
 
   const baseUrl = process.env.NEXT_PUBLIC_BASE_URL ?? "https://migdalor.me";
@@ -124,6 +125,12 @@ export async function approveDraft(
       html: `
         <div dir="rtl" style="font-family:sans-serif;max-width:560px;color:#333;">
           <h2 style="color:#5a3e1b;">גיליון ${id} אושר על ידי ענבל</h2>
+          ${notes ? `
+          <div style="background:#fff8e6;border:1px solid #f0d080;border-radius:8px;padding:16px;margin-bottom:20px;">
+            <p style="font-weight:bold;color:#9b7020;margin:0 0 8px;">הערות לתיקון לפני שליחה:</p>
+            <p style="white-space:pre-wrap;color:#5a3e1b;margin:0;">${notes}</p>
+          </div>
+          ` : ""}
           <p>תוכן המייל שאושר לשליחה:</p>
           <hr style="border-color:#e0d0b8;">
           ${emailHtml}

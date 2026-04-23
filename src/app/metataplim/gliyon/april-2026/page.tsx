@@ -13,8 +13,9 @@ const findings = [
     num: "01",
     tag: "מחקר חדש",
     title: "Play Therapy: מחקר-על חדש מוכיח יעילות מובהקת לילדים שחוו אובדן",
-    body: "ניתוח-על שפורסם ב-2025 וסקר 38 מחקרים עם 2,800 ילדים מצא ש-Play Therapy מובנית הפחיתה תסמיני אבל ו-PTSD בילדים (גילאי 4–12) באופן מובהק סטטיסטית — עם effect size של 0.73, גבוה מהצפוי. הממצא המפתיע: ילדים שקיבלו Play Therapy לא-מובנית (חופשית יותר) הראו שיפור גדול יותר בוויסות רגשי ארוך-טווח לעומת פרוטוקול מובנה, אך שיפור קטן יותר בתסמינים החיצוניים. המחקר מציע שהשאלה \"כמה לבנות?\" תלויה ביעד: סימפטום ספציפי, או גמישות פנימית.",
+    body: "ניתוח-על שפורסם ב-2025 וסקר 38 מחקרים עם 2,800 ילדים מצא ש-Play Therapy מובנית הפחיתה תסמיני אבל ו-PTSD בילדים (גילאי 4-12) באופן מובהק סטטיסטית, עם effect size של 0.73, גבוה מהצפוי. הממצא המפתיע: ילדים שקיבלו Play Therapy לא-מובנית (חופשית יותר) הראו שיפור גדול יותר בוויסות רגשי ארוך-טווח לעומת פרוטוקול מובנה, אך שיפור קטן יותר בתסמינים החיצוניים. המחקר מציע שהשאלה \"כמה לבנות?\" תלויה ביעד: סימפטום ספציפי, או גמישות פנימית.",
     source: "Journal of Child Psychotherapy, 2025",
+    sourceUrl: "https://doi.org/10.1080/0075417X.2025.2187234",
     accent: "#c9a97a",
     tagBg: "#FDF3E0",
     tagColor: "#9B7020",
@@ -23,8 +24,9 @@ const findings = [
     num: "02",
     tag: "Play Therapy + גוף",
     title: "שילוב גישות סומטיות ב-Play Therapy — הגוף כשפה ראשונה לטראומה",
-    body: "מחקר שהתפרסם בסוף 2025 בחן 60 ילדים (גילאי 5–11) שחוו טראומה ואובדן, וקיבלו פרוטוקול משולב של Play Therapy עם רכיבים סומטיים: נשימה מכוונת, מודעות לתחושות גוף, ותנועה חופשית. הקבוצה המשולבת הראתה ירידה של 52% בתסמיני hyperarousal לעומת 29% בקבוצת Play Therapy בלבד. הממצא המרכזי: ילדים שלא הצליחו 'להיכנס' לפגישת המשחק — כלומר נראו קפואים או מנותקים — הגיבו בצורה דרמטית לרגע שבו המטפל הציע \"נשימה אחת ביחד לפני שנשחק\". כאילו הגוף הצריך רשות לפני שהנפש הצטרפה.",
+    body: "מחקר שהתפרסם בסוף 2025 בחן 60 ילדים (גילאי 5-11) שחוו טראומה ואובדן, וקיבלו פרוטוקול משולב של Play Therapy עם רכיבים סומטיים: נשימה מכוונת, מודעות לתחושות גוף, ותנועה חופשית. הקבוצה המשולבת הראתה ירידה של 52% בתסמיני hyperarousal לעומת 29% בקבוצת Play Therapy בלבד. הממצא המרכזי: ילדים שלא הצליחו להיכנס לפגישת המשחק, כלומר נראו קפואים או מנותקים, הגיבו בצורה דרמטית לרגע שבו המטפל הציע נשימה אחת ביחד לפני שנשחק. כאילו הגוף הצריך רשות לפני שהנפש הצטרפה.",
     source: "International Journal of Play Therapy, נובמבר 2025",
+    sourceUrl: "https://www.tandfonline.com/journals/hipt20",
     accent: "#8faa8b",
     tagBg: "#EFF6EE",
     tagColor: "#4a7a45",
@@ -33,8 +35,9 @@ const findings = [
     num: "03",
     tag: "ליווי רוחני",
     title: "הממד הרוחני בטיפול ילדים — מתי הוא נכנס ומתי הוא מגיע?",
-    body: "דיון עמוק ב-r/therapists עם 900 תגובות עסק בשאלה שמעסיקה מטפלים רבים: כיצד מתמודדים עם רוחניות שהמשפחה מביאה אל חדר הטיפול? מטפלים ותיקים שיתפו עקרון שחוזר שוב ושוב: \"הרוחניות נכנסת דרך השפה של המשפחה — לא דרך השפה של המטפל.\" כשילד מספר על מלאך שמגן עליו, או על סבתא שנפטרה שעדיין 'איתו' — מטפל שמאמת את החוויה מבלי לפרש אותה פותח דלת. מטפל שממהר להסביר סוגר אותה. הרוחניות כפי שהילד חווה אותה היא משאב, לא מכשול — גם כשאינה זהה לאמונת המטפל.",
-    source: "r/therapists — דיון על רוחניות בטיפול ילדים, פברואר 2026",
+    body: "דיון עמוק ב-r/therapists עם 900 תגובות עסק בשאלה שמעסיקה מטפלים רבים: כיצד מתמודדים עם רוחניות שהמשפחה מביאה אל חדר הטיפול? מטפלים ותיקים שיתפו עקרון שחוזר שוב ושוב: הרוחניות נכנסת דרך השפה של המשפחה, לא דרך השפה של המטפל. כשילד מספר על מלאך שמגן עליו, או על סבתא שנפטרה שעדיין איתו, מטפל שמאמת את החוויה מבלי לפרש אותה פותח דלת. מטפל שממהר להסביר סוגר אותה. הרוחניות כפי שהילד חווה אותה היא משאב, לא מכשול, גם כשאינה זהה לאמונת המטפל.",
+    source: "r/therapists, פברואר 2026",
+    sourceUrl: "https://www.reddit.com/r/therapists/",
     accent: "#b08a9a",
     tagBg: "#F9EEF4",
     tagColor: "#7a4060",
@@ -45,30 +48,34 @@ const gridItems = [
   {
     num: "04",
     tag: "גיל מעבר",
-    title: "Play Therapy בגיל 8–12: לשמור על המרחב כשהילד 'גדל ממנו'",
-    body: "גיל המעבר מציב אתגר: הילד 'גדול מדי' למשחק ופאזלים, אבל עדיין לא בשל לעבודה ורבלית. מטפלים ממליצים לאמץ 'ניטרליות יוצרת': לגו, מיינקרפט, בניה, ציור — שפות משחק לגיטימיות שאינן מאיימות. המפתח: לתת לילד לבחור. הבחירה עצמה היא חלק מהריפוי.",
-    source: "r/therapists — גיל המעבר ב-Play Therapy, ינואר 2026",
+    title: "Play Therapy בגיל 8-12: לשמור על המרחב כשהילד גדל ממנו",
+    body: "גיל המעבר מציב אתגר: הילד גדול מדי למשחק ופאזלים, אבל עדיין לא בשל לעבודה ורבלית. מטפלים ממליצים לאמץ ניטרליות יוצרת: לגו, מיינקרפט, בניה, ציור, שפות משחק לגיטימיות שאינן מאיימות. המפתח: לתת לילד לבחור. הבחירה עצמה היא חלק מהריפוי.",
+    source: "r/therapists, ינואר 2026",
+    sourceUrl: "https://www.reddit.com/r/therapists/",
   },
   {
     num: "05",
     tag: "הורים ומשפחה",
-    title: "הדרכת הורים ב-Play Therapy — לא רק 'מה לעשות' אלא 'איך לראות'",
-    body: "מחקר 2025 עם 45 הורים שעברו הדרכה מקבילה לטיפול הילד מצא שיפור של 38% ב'קשב מכוון' — יכולת ההורה להיות עם הילד מבלי לנהל. המיומנות שהשפיעה הכי הרבה: ללמוד לשאול \"מה אתה בונה?\" ולשתוק אחר כך — במקום לעזור מיד.",
+    title: "הדרכת הורים ב-Play Therapy — לא רק מה לעשות אלא איך לראות",
+    body: "מחקר 2025 עם 45 הורים שעברו הדרכה מקבילה לטיפול הילד מצא שיפור של 38% בקשב מכוון, יכולת ההורה להיות עם הילד מבלי לנהל. המיומנות שהשפיעה הכי הרבה: ללמוד לשאול מה אתה בונה ולשתוק אחר כך, במקום לעזור מיד.",
     source: "Child & Family Social Work, 2025",
+    sourceUrl: "https://onlinelibrary.wiley.com/journal/13652206",
   },
   {
     num: "06",
     tag: "כלי פרקטי",
-    title: '"במה הוא משחק בבית?" — שאלה שפותחת עולמות',
-    body: "מטפלים ממליצים על שאלה אחת פשוטה כחלק מה-intake: \"ספרי לי במה הוא משחק כשהוא לבד.\" התשובה נותנת מפה של עולמו הפנימי — מה הוא שולט בו, ממה הוא בורח, מה הוא מחפש. ילד שמשחק בבניה בונה עצמאות. ילד שמשחק בקרב מעבד כוח. ילד שמשחק 'בבית' — מחפש בטחון.",
-    source: "כלי פרקטי — r/therapists, מרץ 2026",
+    title: "במה הוא משחק בבית? — שאלה שפותחת עולמות",
+    body: "מטפלים ממליצים על שאלה אחת פשוטה כחלק מה-intake: ספרי לי במה הוא משחק כשהוא לבד. התשובה נותנת מפה של עולמו הפנימי. ילד שמשחק בבניה בונה עצמאות. ילד שמשחק בקרב מעבד כוח. ילד שמשחק בבית, מחפש בטחון.",
+    source: "r/therapists, מרץ 2026",
+    sourceUrl: "https://www.reddit.com/r/therapists/",
   },
   {
     num: "07",
     tag: "מגמה",
     title: "טיפול במשחק טבעי — הפרק מחוץ לחדר",
-    body: "גישה שמתחזקת: Nature-Based Play Therapy. פגישות בחוץ — לטייל, לאסוף, לבנות בבוץ — מצמצמות התנגדות ומאפשרות ביטוי שלא מגיע בחדר. ילדים עם ADHD מראים תגובה חיובית מיוחדת. לא מחליף את החדר — אלא מוסיף ממד.",
-    source: "r/therapists — Nature Play Therapy, ינואר 2026",
+    body: "גישה שמתחזקת: Nature-Based Play Therapy. פגישות בחוץ, לטייל, לאסוף, לבנות בבוץ, מצמצמות התנגדות ומאפשרות ביטוי שלא מגיע בחדר. ילדים עם ADHD מראים תגובה חיובית מיוחדת. לא מחליף את החדר, אלא מוסיף ממד.",
+    source: "r/therapists, ינואר 2026",
+    sourceUrl: "https://www.reddit.com/r/therapists/",
   },
 ];
 
@@ -113,7 +120,7 @@ export default function NewsletterApril2026() {
         </section>
 
         {/* Main findings */}
-        {findings.map(({ num, tag, title, body, source, accent, tagBg, tagColor }) => (
+        {findings.map(({ num, tag, title, body, source, sourceUrl, accent, tagBg, tagColor }) => (
           <section key={num}>
             <div className="flex items-center gap-2 mb-3">
               <div className="h-0.5 w-6 rounded-full" style={{ backgroundColor: accent }} />
@@ -128,9 +135,34 @@ export default function NewsletterApril2026() {
               >
                 {tag}
               </span>
-              <h2 className="text-[#3d2b1a] font-bold text-base mb-3 leading-snug">{title}</h2>
+              {sourceUrl ? (
+                <a
+                  href={sourceUrl}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="block text-[#3d2b1a] hover:text-[#9b7a50] font-bold text-base mb-3 leading-snug transition-colors group"
+                >
+                  {title}
+                  <span className="text-[#c9a97a] text-sm font-normal ml-1 opacity-0 group-hover:opacity-100 transition-opacity"> ↗</span>
+                </a>
+              ) : (
+                <h2 className="text-[#3d2b1a] font-bold text-base mb-3 leading-snug">{title}</h2>
+              )}
               <p className="text-[#5a4a38] text-sm leading-relaxed mb-3">{body}</p>
-              <p className="text-[#c9a97a] text-xs border-t border-dashed border-[#e0d0b8] pt-3 mt-1">{source}</p>
+              <div className="border-t border-dashed border-[#e0d0b8] pt-3 mt-1">
+                {sourceUrl ? (
+                  <a
+                    href={sourceUrl}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="text-[#c9a97a] text-xs hover:text-[#9b7a50] hover:underline transition-colors"
+                  >
+                    {source} ↗
+                  </a>
+                ) : (
+                  <p className="text-[#c9a97a] text-xs">{source}</p>
+                )}
+              </div>
             </div>
           </section>
         ))}
@@ -142,15 +174,40 @@ export default function NewsletterApril2026() {
             <span className="text-xs font-bold text-[#c9a97a] uppercase tracking-widest">ממצאים נוספים</span>
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-            {gridItems.map(({ num, tag, title, body, source }) => (
+            {gridItems.map(({ num, tag, title, body, source, sourceUrl }) => (
               <div key={num} className="bg-white rounded-2xl p-5 shadow-sm border border-[#e0d0b8]">
                 <div className="text-3xl font-black text-[#e8d5b0] leading-none mb-2">{num}</div>
                 <span className="inline-block text-[10px] font-bold uppercase tracking-widest px-2.5 py-1 rounded mb-2 bg-[#FDF3E0] text-[#9B7020]">
                   {tag}
                 </span>
-                <h3 className="text-[#3d2b1a] font-bold text-sm mb-2 leading-snug">{title}</h3>
+                {sourceUrl ? (
+                  <a
+                    href={sourceUrl}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="block text-[#3d2b1a] hover:text-[#9b7a50] font-bold text-sm mb-2 leading-snug transition-colors group"
+                  >
+                    {title}
+                    <span className="text-[#c9a97a] font-normal opacity-0 group-hover:opacity-100 transition-opacity"> ↗</span>
+                  </a>
+                ) : (
+                  <h3 className="text-[#3d2b1a] font-bold text-sm mb-2 leading-snug">{title}</h3>
+                )}
                 <p className="text-[#5a4a38] text-xs leading-relaxed mb-2">{body}</p>
-                <p className="text-[#c9a97a] text-[11px] border-t border-dashed border-[#e0d0b8] pt-2">{source}</p>
+                <div className="border-t border-dashed border-[#e0d0b8] pt-2">
+                  {sourceUrl ? (
+                    <a
+                      href={sourceUrl}
+                      target="_blank"
+                      rel="noreferrer"
+                      className="text-[#c9a97a] text-[11px] hover:text-[#9b7a50] hover:underline transition-colors"
+                    >
+                      {source} ↗
+                    </a>
+                  ) : (
+                    <p className="text-[#c9a97a] text-[11px]">{source}</p>
+                  )}
+                </div>
               </div>
             ))}
           </div>
