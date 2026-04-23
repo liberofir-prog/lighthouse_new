@@ -20,6 +20,7 @@ export default function AdminReviewPage({
   const [intro, setIntro] = useState(draft.intro);
   const [teasers, setTeasers] = useState(draft.teasers.join("\n"));
   const [showEmail, setShowEmail] = useState(true);
+  const [withLinks, setWithLinks] = useState(false);
   const [notes, setNotes] = useState("");
 
   const [result, action, isPending] = useActionState(approveDraft, null);
@@ -134,6 +135,28 @@ export default function AdminReviewPage({
                                  transition-colors"
                     />
                   </div>
+
+                  {/* Source links toggle */}
+                  <label className="flex items-center gap-3 cursor-pointer select-none group">
+                    <div
+                      onClick={() => setWithLinks(!withLinks)}
+                      className={`relative w-10 h-5 rounded-full transition-colors duration-200 shrink-0
+                        ${withLinks ? "bg-amber" : "bg-border"}`}
+                    >
+                      <div className={`absolute top-0.5 w-4 h-4 rounded-full bg-white shadow transition-transform duration-200
+                        ${withLinks ? "translate-x-5" : "translate-x-0.5"}`} />
+                    </div>
+                    <div>
+                      <p className="text-xs font-semibold text-foreground">
+                        {withLinks ? "עם לינקים ישירים למראי מקום" : "ללא לינקים למראי מקום"}
+                      </p>
+                      <p className="text-[11px] text-muted-foreground mt-0.5">
+                        {withLinks && draft.findings
+                          ? "כל טיזר יהיה לינק ישיר למאמר המקורי"
+                          : "טיזרים כטקסט בלבד, ללא קישורים"}
+                      </p>
+                    </div>
+                  </label>
                 </div>
 
                 {/* Email preview */}
@@ -148,9 +171,24 @@ export default function AdminReviewPage({
                       <p className="text-foreground/80 text-xs leading-relaxed">{intro}</p>
                       <p className="font-bold text-foreground text-xs">והפעם:</p>
                       <ul className="space-y-1">
-                        {teaserList.map((t, i) => (
-                          <li key={i} className="text-foreground/70 text-xs leading-relaxed">- {t}</li>
-                        ))}
+                        {teaserList.map((t, i) => {
+                          const finding = draft.findings?.[i];
+                          return (
+                            <li key={i} className="text-foreground/70 text-xs leading-relaxed">
+                              {"- "}
+                              {withLinks && finding?.sourceUrl ? (
+                                <a
+                                  href={finding.sourceUrl}
+                                  target="_blank"
+                                  rel="noreferrer"
+                                  className="text-amber hover:underline"
+                                >
+                                  {t}
+                                </a>
+                              ) : t}
+                            </li>
+                          );
+                        })}
                       </ul>
                       <p className="text-muted-foreground text-xs">ועוד הרבה דברים אחרים בגיליון המלא</p>
                       <div className="text-center pt-1">
@@ -187,6 +225,8 @@ export default function AdminReviewPage({
             <input type="hidden" name="teasers" value={teasers} />
             <input type="hidden" name="newsletterUrl" value={draft.newsletterUrl} />
             <input type="hidden" name="notes" value={notes} />
+            <input type="hidden" name="withSourceLinks" value={withLinks ? "1" : "0"} />
+            <input type="hidden" name="findings" value={JSON.stringify(draft.findings ?? [])} />
 
             <p className="text-muted-foreground text-sm mb-4 leading-relaxed">
               קראת את הגיליון ואת המייל ואישרת שהכל תקין? אם יש דברים שצריך לשנות

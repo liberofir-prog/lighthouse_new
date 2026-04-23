@@ -46,18 +46,31 @@ export async function subscribeToNewsletter(
 
     const resend = new Resend(process.env.RESEND_API_KEY);
     await resend.emails.send({
-      from: "מיגדלור <inbal@liber.co.il>",
+      from: "מגדלור <inbal@liber.co.il>",
       to: email.trim(),
-      subject: "ברוכה הבאה לניוזלטר מיגדלור ✨",
+      subject: "ברוכים הבאים לניוזלטר מגדלור ✨",
       html: `
-        <div dir="rtl" style="font-family: sans-serif; max-width: 500px; color: #333;">
-          <h2 style="color: #5a3e1b;">שלום ${firstName.trim()},</h2>
-          <p>תודה שנרשמת לניוזלטר החודשי של <strong>מגדלור</strong>.</p>
-          <p>בכל חודש תקבלי עדכונים ותובנות בתחום play therapy וליווי רוחני, ישר למייל שלך.</p>
-          <p style="margin-top: 24px; color: #888; font-size: 13px;">
-            ענבל ליבר | קליניקת מגדלור | inbal@liber.co.il
-          </p>
-        </div>
+        <table width="100%" cellpadding="0" cellspacing="0" style="background:#f8f3ea;">
+          <tr>
+            <td align="center" style="padding:32px 16px;">
+              <div dir="rtl" style="font-family:Arial,sans-serif;max-width:500px;width:100%;
+                                    background:#fff;border-radius:10px;padding:32px;
+                                    text-align:right;color:#333;border:1px solid #e8ddd0;">
+                <div style="background:#3d2b1a;margin:-32px -32px 28px;padding:24px 28px;
+                            border-radius:10px 10px 0 0;text-align:center;">
+                  <p style="color:#c9a97a;font-size:11px;letter-spacing:2px;margin:0 0 4px;">מגדלור | ענבל ליבר</p>
+                  <h1 style="color:#e8d5b0;font-size:22px;margin:0;">ברוכים הבאים לניוזלטר</h1>
+                </div>
+                <h2 style="color:#5a3e1b;margin:0 0 12px;">שלום ${firstName.trim()},</h2>
+                <p style="line-height:1.7;margin:0 0 12px;">תודה שנרשמת לניוזלטר החודשי של <strong>מגדלור</strong>.</p>
+                <p style="line-height:1.7;margin:0 0 24px;">בכל חודש תקבלו עדכונים ותובנות בתחום play therapy וליווי רוחני, ישר למייל שלכם.</p>
+                <p style="color:#aaa;font-size:12px;border-top:1px solid #e8ddd0;padding-top:16px;margin:0;">
+                  ענבל ליבר | קליניקת מגדלור | <a href="mailto:inbal@liber.co.il" style="color:#c9a97a;">inbal@liber.co.il</a>
+                </p>
+              </div>
+            </td>
+          </tr>
+        </table>
       `,
     });
   } catch (err) {
@@ -67,6 +80,6 @@ export async function subscribeToNewsletter(
 
   return {
     success: true,
-    message: `${firstName.trim()}, ברוכה הבאה! מייל אישור נשלח אליך.`,
+    message: `${firstName.trim()}, ברוכים הבאים! מייל אישור נשלח אליך.`,
   };
 }

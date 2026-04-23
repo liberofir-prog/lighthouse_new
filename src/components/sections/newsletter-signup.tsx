@@ -134,7 +134,7 @@ export default function NewsletterSignup() {
                       <div className="w-16 h-16 mx-auto rounded-full bg-emerald-50 border border-emerald-100 flex items-center justify-center mb-5">
                         <CheckCircle2 size={30} className="text-emerald-500" />
                       </div>
-                      <h3 className="text-xl font-bold text-foreground mb-2">ברוכה הבאה!</h3>
+                      <h3 className="text-xl font-bold text-foreground mb-2">ברוכים הבאים!</h3>
                       <p className="text-muted-foreground text-sm max-w-[230px] mx-auto leading-relaxed">
                         {state.message}
                       </p>

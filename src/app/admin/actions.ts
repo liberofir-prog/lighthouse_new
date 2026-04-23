@@ -72,13 +72,25 @@ export async function approveDraft(
   const teasersRaw = formData.get("teasers") as string;
   const newsletterUrl = formData.get("newsletterUrl") as string;
   const notes = (formData.get("notes") as string ?? "").trim();
+  const withSourceLinks = formData.get("withSourceLinks") === "1";
+  const findingsRaw = (formData.get("findings") as string ?? "[]");
+  const findings: Array<{ title: string; source: string; sourceUrl: string }> = JSON.parse(findingsRaw);
+
   const teasers = teasersRaw.split("\n").map((t) => t.trim()).filter(Boolean);
 
   const baseUrl = process.env.NEXT_PUBLIC_BASE_URL ?? "https://migdalor.me";
   const fullUrl = `${baseUrl}${newsletterUrl}`;
 
   const teaserLines = teasers
-    .map((t) => `<tr><td style="padding:6px 0;font-size:14px;color:#4a3020;direction:rtl;">- ${t}</td></tr>`)
+    .map((t, i) => {
+      const finding = findings[i];
+      const linked = withSourceLinks && finding?.sourceUrl;
+      const text = linked
+        ? `<a href="${finding.sourceUrl}" style="color:#c9a97a;text-decoration:underline;">${t}</a>
+           <span style="font-size:11px;color:#aaa;display:block;margin-top:2px;">${finding.source}</span>`
+        : t;
+      return `<tr><td style="padding:6px 0;font-size:14px;color:#4a3020;direction:rtl;">- ${text}</td></tr>`;
+    })
     .join("");
 
   const emailHtml = `
