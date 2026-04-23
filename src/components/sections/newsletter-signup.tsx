@@ -4,8 +4,8 @@ import { useActionState } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { FadeIn, StaggerContainer, StaggerItem } from "@/lib/motion";
-import { subscribeToNewsletter } from "@/app/metataplim/actions";
-import { CheckCircle2, Mail, BookOpen, Users, CalendarDays } from "lucide-react";
+import { subscribeToNewsletter, unsubscribeFromNewsletter } from "@/app/metataplim/actions";
+import { CheckCircle2, Mail, BookOpen, Users, CalendarDays, UserMinus } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 
 const features = [
@@ -29,6 +29,10 @@ const features = [
 export default function NewsletterSignup() {
   const [state, formAction, isPending] = useActionState(
     subscribeToNewsletter,
+    null
+  );
+  const [unsubState, unsubFormAction, unsubPending] = useActionState(
+    unsubscribeFromNewsletter,
     null
   );
 
@@ -233,6 +237,58 @@ export default function NewsletterSignup() {
             </div>
           </FadeIn>
         </div>
+
+        {/* ── Unsubscribe ── */}
+        <FadeIn delay={0.35} direction="none">
+          <div className="mt-8 max-w-md mx-auto md:mr-0 md:ml-auto">
+            <div className="bg-card/50 border border-border/20 rounded-2xl px-6 py-5">
+              <div className="flex items-center gap-2 mb-3">
+                <UserMinus size={14} className="text-muted-foreground/60" />
+                <p className="text-xs font-semibold text-muted-foreground/70">הסרה מרשימת תפוצה</p>
+              </div>
+              <AnimatePresence mode="wait">
+                {unsubState?.success ? (
+                  <motion.p
+                    key="unsub-success"
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    className="text-sm text-muted-foreground"
+                  >
+                    {unsubState.message}
+                  </motion.p>
+                ) : (
+                  <motion.form
+                    key="unsub-form"
+                    action={unsubFormAction}
+                    className="flex gap-2"
+                  >
+                    <Input
+                      name="unsubEmail"
+                      type="email"
+                      placeholder="your@email.com"
+                      dir="ltr"
+                      required
+                      className="h-9 text-sm rounded-xl bg-background border-border/40 focus:border-amber/40 text-right flex-1"
+                    />
+                    <Button
+                      type="submit"
+                      variant="outline"
+                      size="sm"
+                      disabled={unsubPending}
+                      className="h-9 rounded-xl text-xs border-border/40 text-muted-foreground hover:text-foreground shrink-0"
+                    >
+                      {unsubPending ? "..." : "הסרה"}
+                    </Button>
+                  </motion.form>
+                )}
+              </AnimatePresence>
+              {unsubState?.success === false && (
+                <p className="text-xs text-red-500 mt-2">{unsubState.message}</p>
+              )}
+            </div>
+          </div>
+        </FadeIn>
+
       </div>
     </section>
   );

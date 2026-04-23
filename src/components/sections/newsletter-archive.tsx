@@ -1,6 +1,7 @@
+import Link from "next/link";
 import { FadeIn, StaggerContainer, StaggerItem } from "@/lib/motion";
 import { newsletters } from "@/data/newsletters";
-import { ExternalLink, Calendar, BookOpen } from "lucide-react";
+import { ArrowLeft, Calendar, BookOpen } from "lucide-react";
 
 export default function NewsletterArchive() {
   if (newsletters.length === 0) return null;
@@ -27,10 +28,8 @@ export default function NewsletterArchive() {
         <StaggerContainer className="grid sm:grid-cols-2 gap-5">
           {newsletters.map((nl) => (
             <StaggerItem key={nl.id}>
-              <a
+              <Link
                 href={nl.url}
-                target="_blank"
-                rel="noopener noreferrer"
                 className="group flex flex-col gap-4 p-6 bg-card/80 rounded-2xl border border-border/25 shadow-sm hover:shadow-warm hover:border-amber/20 transition-all duration-300 h-full"
               >
                 {/* Top row */}
@@ -56,10 +55,10 @@ export default function NewsletterArchive() {
 
                 {/* Footer */}
                 <div className="flex items-center gap-1.5 text-sm font-medium text-primary/70 group-hover:text-amber transition-colors duration-300 mt-1">
-                  <ExternalLink size={13} />
+                  <ArrowLeft size={13} className="rotate-180" />
                   לקריאה
                 </div>
-              </a>
+              </Link>
             </StaggerItem>
           ))}
         </StaggerContainer>
