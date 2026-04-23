@@ -37,6 +37,7 @@ export default function NewsletterSignup() {
   );
 
   return (
+    <>
     <section
       id="newsletter"
       className="relative min-h-[100dvh] flex items-center pt-16 pb-12 grain overflow-hidden"
@@ -238,58 +239,128 @@ export default function NewsletterSignup() {
           </FadeIn>
         </div>
 
-        {/* ── Unsubscribe ── */}
-        <FadeIn delay={0.35} direction="none">
-          <div className="mt-8 max-w-md mx-auto md:mr-0 md:ml-auto">
-            <div className="bg-card/50 border border-border/20 rounded-2xl px-6 py-5">
-              <div className="flex items-center gap-2 mb-3">
-                <UserMinus size={14} className="text-muted-foreground/60" />
-                <p className="text-xs font-semibold text-muted-foreground/70">הסרה מרשימת תפוצה</p>
-              </div>
-              <AnimatePresence mode="wait">
-                {unsubState?.success ? (
-                  <motion.p
-                    key="unsub-success"
-                    initial={{ opacity: 0 }}
-                    animate={{ opacity: 1 }}
-                    className="text-sm text-muted-foreground"
-                  >
-                    {unsubState.message}
-                  </motion.p>
-                ) : (
-                  <motion.form
-                    key="unsub-form"
-                    action={unsubFormAction}
-                    className="flex gap-2"
-                  >
-                    <Input
-                      name="unsubEmail"
-                      type="email"
-                      placeholder="your@email.com"
-                      dir="ltr"
-                      required
-                      className="h-9 text-sm rounded-xl bg-background border-border/40 focus:border-amber/40 text-right flex-1"
-                    />
-                    <Button
-                      type="submit"
-                      variant="outline"
-                      size="sm"
-                      disabled={unsubPending}
-                      className="h-9 rounded-xl text-xs border-border/40 text-muted-foreground hover:text-foreground shrink-0"
-                    >
-                      {unsubPending ? "..." : "הסרה"}
-                    </Button>
-                  </motion.form>
-                )}
-              </AnimatePresence>
-              {unsubState?.success === false && (
-                <p className="text-xs text-red-500 mt-2">{unsubState.message}</p>
-              )}
-            </div>
-          </div>
-        </FadeIn>
-
       </div>
     </section>
+
+    {/* ── Unsubscribe section ── */}
+    <section className="relative py-16 grain overflow-hidden">
+      <div className="absolute inset-0 bg-gradient-to-b from-secondary/20 via-background to-background" />
+
+      <div className="relative z-10 mx-auto max-w-6xl px-5 w-full">
+        <div className="grid md:grid-cols-[1fr_1.2fr] gap-10 lg:gap-16 items-center">
+
+          {/* Right — explanation */}
+          <div className="flex flex-col gap-5">
+            <FadeIn direction="none">
+              <span className="inline-flex items-center gap-2 text-sm font-semibold text-muted-foreground/70 bg-secondary/60 px-4 py-2 rounded-full w-fit border border-border/20 shadow-sm">
+                <span className="w-2 h-2 rounded-full bg-muted-foreground/40" />
+                ניהול הרשמה
+              </span>
+            </FadeIn>
+
+            <FadeIn delay={0.1}>
+              <h2 className="text-3xl md:text-4xl font-bold leading-tight tracking-tight text-primary">
+                הסרה מרשימת{" "}
+                <span className="text-muted-foreground">התפוצה</span>
+              </h2>
+            </FadeIn>
+
+            <FadeIn delay={0.2}>
+              <p className="text-muted-foreground text-base leading-relaxed max-w-md">
+                רוצה להפסיק לקבל את הניוזלטר? הזיני את כתובת האימייל שלך
+                ונסיר אותך מרשימת התפוצה תוך יום עסקים.
+              </p>
+            </FadeIn>
+          </div>
+
+          {/* Left — unsubscribe card */}
+          <FadeIn delay={0.2} direction="left">
+            <div className="bg-card rounded-3xl shadow-warm-lg border border-border/30 overflow-hidden">
+
+              {/* Header bar */}
+              <div className="bg-secondary px-7 py-5">
+                <div className="flex items-center gap-3">
+                  <div className="w-10 h-10 rounded-xl bg-muted-foreground/10 flex items-center justify-center shrink-0">
+                    <UserMinus size={18} className="text-muted-foreground" />
+                  </div>
+                  <div>
+                    <p className="font-bold text-foreground text-base leading-tight">
+                      הסרה מרשימת תפוצה
+                    </p>
+                    <p className="text-muted-foreground text-xs mt-0.5">
+                      הכניסי את האימייל שבו נרשמת
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              {/* Form body */}
+              <div className="px-7 py-7">
+                <AnimatePresence mode="wait">
+                  {unsubState?.success ? (
+                    <motion.div
+                      key="unsub-success"
+                      initial={{ opacity: 0, scale: 0.95 }}
+                      animate={{ opacity: 1, scale: 1 }}
+                      className="text-center py-10"
+                    >
+                      <div className="w-16 h-16 mx-auto rounded-full bg-secondary/60 border border-border/30 flex items-center justify-center mb-5">
+                        <CheckCircle2 size={30} className="text-muted-foreground" />
+                      </div>
+                      <h3 className="text-xl font-bold text-foreground mb-2">הוסרת בהצלחה</h3>
+                      <p className="text-muted-foreground text-sm max-w-[230px] mx-auto leading-relaxed">
+                        {unsubState.message}
+                      </p>
+                    </motion.div>
+                  ) : (
+                    <motion.form key="unsub-form" action={unsubFormAction} className="flex flex-col gap-4">
+
+                      <div>
+                        <label htmlFor="unsub-email" className="block text-sm font-semibold text-foreground mb-1.5">
+                          אימייל <span className="text-amber">*</span>
+                        </label>
+                        <Input
+                          id="unsub-email"
+                          name="unsubEmail"
+                          type="email"
+                          placeholder="your@email.com"
+                          required
+                          dir="ltr"
+                          className="h-11 text-sm rounded-xl bg-background border-border/50 focus:border-amber/50 focus:ring-amber/15 text-right"
+                        />
+                      </div>
+
+                      <div className="border-t border-border/30 pt-1" />
+
+                      <Button
+                        type="submit"
+                        variant="outline"
+                        size="lg"
+                        disabled={unsubPending}
+                        className="h-12 rounded-xl text-base font-bold border-border/50 hover:border-amber/30 hover:bg-secondary/50 gap-2 transition-all duration-300"
+                      >
+                        <UserMinus size={17} />
+                        {unsubPending ? "מסירה..." : "הסרה מרשימת התפוצה"}
+                      </Button>
+
+                      {unsubState?.success === false && (
+                        <motion.p
+                          initial={{ opacity: 0, y: 5 }}
+                          animate={{ opacity: 1, y: 0 }}
+                          className="text-center text-red-600 bg-red-50 rounded-xl py-2.5 px-4 text-sm border border-red-100"
+                        >
+                          {unsubState.message}
+                        </motion.p>
+                      )}
+                    </motion.form>
+                  )}
+                </AnimatePresence>
+              </div>
+            </div>
+          </FadeIn>
+        </div>
+      </div>
+    </section>
+    </>
   );
 }
