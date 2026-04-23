@@ -8,11 +8,11 @@ export interface Newsletter {
 
 export const newsletters: Newsletter[] = [
   {
-    id: "april-2025",
-    date: "אפריל 2025",
-    title: "מחקר חדש על Play Therapy, רגע מהקליניקה, וזווית הורית",
+    id: "april-2026",
+    date: "אפריל 2026",
+    title: "Play Therapy וליווי רוחני — מה חדש בשדה",
     excerpt:
-      "מה אומר המחקר העדכני על יעילות Play Therapy? כשמשחק הופך לשפה — סיפור מהקליניקה. ואיך הורים יכולים לתמוך בתהליך בין הפגישות.",
-    url: "/metataplim/gliyon/april-2025",
+      "מחקר-על חדש מוכיח יעילות מובהקת של Play Therapy לילדים שחוו אובדן, שילוב גישות סומטיות, הממד הרוחני בטיפול ילדים, וכלים מהשדה.",
+    url: "/metataplim/gliyon/april-2026",
   },
 ];
