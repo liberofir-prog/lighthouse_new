@@ -9,7 +9,7 @@ export default function TherapistsPage() {
   return (
     <>
       <Header />
-      <main>
+      <main className="pt-16">
         <NewsletterSignup />
         <NewsletterUnsubscribe />
         <NewsletterArchive />
