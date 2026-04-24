@@ -37,7 +37,7 @@ export default function NewsletterSignup() {
   return (
     <section
       id="newsletter"
-      className="relative min-h-[100dvh] flex items-start md:items-center pt-32 pb-12 grain overflow-hidden"
+      className="relative min-h-[100dvh] flex items-start md:items-center pt-40 md:pt-16 pb-12 grain overflow-hidden"
     >
       {/* Background */}
       <div className="absolute inset-0 bg-gradient-to-bl from-amber/8 via-background to-secondary/40" />
