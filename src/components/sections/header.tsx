@@ -39,7 +39,7 @@ export default function Header() {
       animate={{ y: 0,   opacity: 1 }}
       transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
       className={`fixed top-0 inset-x-0 z-50 transition-all duration-500 ${
-        scrolled
+        scrolled || !isHome
           ? "bg-background/85 backdrop-blur-xl shadow-warm border-b border-border/40"
           : "bg-transparent"
       }`}
