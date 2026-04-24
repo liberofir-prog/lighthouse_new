@@ -91,7 +91,11 @@ export default function Header() {
 
         {/* ── Mobile hamburger ── */}
         <button
-          className="md:hidden p-2.5 text-foreground/90 hover:text-primary transition-colors rounded-xl hover:bg-primary/5"
+          className={`md:hidden p-2.5 rounded-xl transition-all duration-300 ${
+            scrolled || mobileOpen
+              ? "text-foreground/90 hover:text-primary hover:bg-primary/5"
+              : "text-white bg-black/25 backdrop-blur-sm hover:bg-black/40 shadow-sm"
+          }`}
           onClick={() => setMobileOpen(!mobileOpen)}
           aria-label="תפריט"
         >
