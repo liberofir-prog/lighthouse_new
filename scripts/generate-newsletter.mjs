@@ -300,6 +300,39 @@ function updateDraftsTs(draftEntry) {
   console.log("✓ Updated src/data/drafts.ts");
 }
 
+function updateNewslettersTs({ slug, monthHe, yearStr, data }) {
+  const nlPath = path.join(ROOT, "src", "data", "newsletters.ts");
+  let content = fs.readFileSync(nlPath, "utf-8");
+
+  // Skip if already present
+  if (content.includes(`id: "${slug}"`)) {
+    console.log("⚠  newsletters.ts already contains this slug — skipping");
+    return;
+  }
+
+  const title = data.findings?.[0]?.title ?? data.emailSubject ?? "";
+  const excerpt = data.intro ?? "";
+  const entry = `  {
+    id: "${slug}",
+    date: "${monthHe} ${yearStr}",
+    title: "${title.replace(/"/g, '\\"')}",
+    excerpt: "${excerpt.replace(/"/g, '\\"')}",
+    url: "/metataplim/gliyon/${slug}",
+  }`;
+
+  const marker = "export const newsletters: Newsletter[] = [";
+  const markerIdx = content.indexOf(marker);
+  if (markerIdx === -1) throw new Error("Could not find newsletters array in newsletters.ts");
+
+  const insertAt = markerIdx + marker.length;
+  const before = content.slice(0, insertAt);
+  const after = content.slice(insertAt).replace(/^\n/, "");
+  content = before + "\n" + entry + ",\n" + after;
+
+  fs.writeFileSync(nlPath, content, "utf-8");
+  console.log("✓ Updated src/data/newsletters.ts");
+}
+
 // ─── Email notification ────────────────────────────────────────────────────
 
 async function sendNotification({ slug, monthHe, yearStr, data }) {
@@ -384,9 +417,10 @@ async function main() {
   fs.writeFileSync(pagePath, pageContent, "utf-8");
   console.log(`✓ Created ${pagePath}`);
 
-  // Update drafts.ts
+  // Update drafts.ts + newsletters.ts
   const draftEntry = buildDraftEntry({ slug, monthHe, yearStr, data });
   updateDraftsTs(draftEntry);
+  updateNewslettersTs({ slug, monthHe, yearStr, data });
 
   // Send email
   await sendNotification({ slug, monthHe, yearStr, data });
