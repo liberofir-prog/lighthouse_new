@@ -29,6 +29,26 @@ export async function subscribeToNewsletter(
     return { success: false, message: "נא להזין כתובת אימייל תקינה" };
   }
 
+  // Duplicate check via Airtable REST API
+  const apiToken = process.env.AIRTABLE_API_TOKEN;
+  const baseId   = process.env.AIRTABLE_BASE_ID;
+  const tableName = process.env.AIRTABLE_TABLE_NAME ?? "Subscribers";
+  if (apiToken && baseId) {
+    try {
+      const filter = encodeURIComponent(`{Email}="${email.trim()}"`);
+      const res = await fetch(
+        `https://api.airtable.com/v0/${baseId}/${encodeURIComponent(tableName)}?filterByFormula=${filter}&maxRecords=1`,
+        { headers: { Authorization: `Bearer ${apiToken}` } }
+      );
+      const data = await res.json();
+      if (data.records?.length > 0) {
+        return { success: false, message: "נראה שאתה כבר מנוי לניוזלטר שלנו." };
+      }
+    } catch {
+      // If duplicate check fails, proceed with subscription
+    }
+  }
+
   try {
     const webhookUrl = process.env.AIRTABLE_WEBHOOK_URL;
     if (webhookUrl) {
