@@ -13,16 +13,19 @@ const features = [
     icon: Mail,
     title: "ניוזלטר חודשי",
     desc: "מחקרים, תובנות ועדכונים מהשדה — ישר למייל שלך",
+    href: "#newsletter",
   },
   {
     icon: BookOpen,
     title: "ארכיון גיליונות",
     desc: "כל הגיליונות הקודמים פתוחים לקריאה חופשית",
+    href: "#archive",
   },
   {
     icon: Users,
     title: "ייעוץ והפניות",
     desc: "ייעוץ קולגיאלי והפניות מקצועיות בין מטפלות",
+    href: "#connect",
   },
 ];
 
@@ -83,9 +86,9 @@ export default function NewsletterSignup() {
             </FadeIn>
 
             <StaggerContainer className="flex flex-col gap-3">
-              {features.map(({ icon: Icon, title, desc }) => (
+              {features.map(({ icon: Icon, title, desc, href }) => (
                 <StaggerItem key={title}>
-                  <div className="flex items-start gap-4 p-4 bg-card/70 border border-border/25 rounded-2xl shadow-sm hover:shadow-warm hover:border-amber/20 transition-all duration-300 group">
+                  <a href={href} className="flex items-start gap-4 p-4 bg-card/70 border border-border/25 rounded-2xl shadow-sm hover:shadow-warm hover:border-amber/20 transition-all duration-300 group cursor-pointer">
                     <div className="w-10 h-10 rounded-xl bg-amber/10 group-hover:bg-amber/15 flex items-center justify-center shrink-0 transition-colors">
                       <Icon size={18} className="text-amber" />
                     </div>
@@ -93,7 +96,7 @@ export default function NewsletterSignup() {
                       <p className="font-bold text-foreground text-sm mb-0.5">{title}</p>
                       <p className="text-muted-foreground text-xs leading-relaxed">{desc}</p>
                     </div>
-                  </div>
+                  </a>
                 </StaggerItem>
               ))}
             </StaggerContainer>

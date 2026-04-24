@@ -23,7 +23,7 @@ function WhatsAppIcon() {
 
 export default function ProfessionalConnect() {
   return (
-    <section className="relative py-20 md:py-24">
+    <section id="connect" className="relative py-20 md:py-24">
       <div className="absolute inset-0 bg-gradient-to-b from-background to-secondary/20" />
       <div className="absolute top-0 left-0 right-0 divider-warm" />
 
