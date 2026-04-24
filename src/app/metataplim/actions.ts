@@ -35,7 +35,7 @@ export async function subscribeToNewsletter(
   const tableName = process.env.AIRTABLE_TABLE_NAME ?? "Subscribers";
   if (apiToken && baseId) {
     try {
-      const filter = encodeURIComponent(`{Email}="${email.trim()}"`);
+      const filter = encodeURIComponent(`{כתובת מייל}="${email.trim()}"`);
       const res = await fetch(
         `https://api.airtable.com/v0/${baseId}/${encodeURIComponent(tableName)}?filterByFormula=${filter}&maxRecords=1`,
         { headers: { Authorization: `Bearer ${apiToken}` } }
