@@ -11,7 +11,7 @@ import { motion, AnimatePresence } from "framer-motion";
 const features = [
   {
     icon: Mail,
-    title: "ניוזלטר חודשי",
+    title: "רישום לניוזלטר החודשי",
     desc: "מחקרים, תובנות ועדכונים מהשדה — ישר למייל שלך",
     href: "#signup-form",
   },
