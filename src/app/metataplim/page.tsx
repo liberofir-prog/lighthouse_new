@@ -1,4 +1,4 @@
-import Header from "@/components/sections/header";
+import FloatingMenu from "@/components/floating-menu";
 import Footer from "@/components/sections/footer";
 import NewsletterSignup from "@/components/sections/newsletter-signup";
 import NewsletterUnsubscribe from "@/components/sections/newsletter-unsubscribe";
@@ -8,8 +8,8 @@ import ProfessionalConnect from "@/components/sections/professional-connect";
 export default function TherapistsPage() {
   return (
     <>
-      <Header />
-      <main className="pt-16">
+      <FloatingMenu />
+      <main>
         <NewsletterSignup />
         <NewsletterUnsubscribe />
         <NewsletterArchive />
