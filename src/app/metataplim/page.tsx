@@ -1,3 +1,4 @@
+import Header from "@/components/sections/header";
 import FloatingMenu from "@/components/floating-menu";
 import Footer from "@/components/sections/footer";
 import NewsletterSignup from "@/components/sections/newsletter-signup";
@@ -8,7 +9,10 @@ import ProfessionalConnect from "@/components/sections/professional-connect";
 export default function TherapistsPage() {
   return (
     <>
-      <FloatingMenu />
+      {/* desktop nav */}
+      <div className="hidden md:block"><Header /></div>
+      {/* mobile floating hamburger */}
+      <div className="md:hidden"><FloatingMenu /></div>
       <main>
         <NewsletterSignup />
         <NewsletterUnsubscribe />
