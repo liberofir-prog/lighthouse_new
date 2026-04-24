@@ -20,7 +20,7 @@ export default function FloatingMenu() {
     <>
       {/* Floating hamburger button */}
       <button
-        className="fixed top-4 right-4 z-50 p-2.5 rounded-xl text-white bg-black/25 backdrop-blur-sm hover:bg-black/40 shadow-sm transition-all duration-300"
+        className="fixed top-4 left-4 z-50 p-2.5 rounded-xl text-white bg-black/25 backdrop-blur-sm hover:bg-black/40 shadow-sm transition-all duration-300"
         onClick={() => setOpen(!open)}
         aria-label="תפריט"
       >
