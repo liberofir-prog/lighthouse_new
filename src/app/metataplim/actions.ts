@@ -33,20 +33,22 @@ export async function subscribeToNewsletter(
   const apiToken = process.env.AIRTABLE_API_TOKEN;
   const baseId   = process.env.AIRTABLE_BASE_ID;
   const tableName = process.env.AIRTABLE_TABLE_NAME ?? "Subscribers";
-  if (apiToken && baseId) {
-    try {
-      const filter = encodeURIComponent(`{כתובת מייל}="${email.trim()}"`);
-      const res = await fetch(
-        `https://api.airtable.com/v0/${baseId}/${encodeURIComponent(tableName)}?filterByFormula=${filter}&maxRecords=1`,
-        { headers: { Authorization: `Bearer ${apiToken}` } }
-      );
-      const data = await res.json();
-      if (data.records?.length > 0) {
-        return { success: false, message: "נראה שאתה כבר מנוי לניוזלטר שלנו." };
-      }
-    } catch {
-      // If duplicate check fails, proceed with subscription
+  if (!apiToken || !baseId) {
+    return { success: false, message: `[debug] חסרים env vars: token=${!!apiToken} base=${!!baseId}` };
+  }
+  try {
+    const filter = encodeURIComponent(`{כתובת מייל}="${email.trim()}"`);
+    const url = `https://api.airtable.com/v0/${baseId}/${encodeURIComponent(tableName)}?filterByFormula=${filter}&maxRecords=1`;
+    const res = await fetch(url, { headers: { Authorization: `Bearer ${apiToken}` } });
+    const data = await res.json();
+    if (!res.ok) {
+      return { success: false, message: `[debug] Airtable error: ${JSON.stringify(data?.error)}` };
     }
+    if (data.records?.length > 0) {
+      return { success: false, message: "נראה שאתה כבר מנוי לניוזלטר שלנו." };
+    }
+  } catch (err) {
+    return { success: false, message: `[debug] fetch error: ${err}` };
   }
 
   try {
