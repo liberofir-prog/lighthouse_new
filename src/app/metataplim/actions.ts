@@ -42,7 +42,7 @@ export async function subscribeToNewsletter(
     const res = await fetch(url, { headers: { Authorization: `Bearer ${apiToken}` } });
     const data = await res.json();
     if (!res.ok) {
-      return { success: false, message: `[debug] Airtable error: ${JSON.stringify(data?.error)}` };
+      return { success: false, message: `[debug] base=${baseId?.slice(0,8)} table="${tableName}" error: ${JSON.stringify(data?.error)}` };
     }
     if (data.records?.length > 0) {
       return { success: false, message: "נראה שאתה כבר מנוי לניוזלטר שלנו." };
