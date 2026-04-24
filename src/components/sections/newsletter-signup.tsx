@@ -55,14 +55,14 @@ export default function NewsletterSignup() {
 
           {/* ── Right — intro + feature cards ── */}
           <div className="flex flex-col gap-6">
-            <FadeIn direction="none">
+            <FadeIn direction="none" viewport={{ once: true, margin: "200px" }}>
               <span className="inline-flex items-center gap-2 text-sm font-semibold text-primary/80 bg-primary/6 px-4 py-2 rounded-full w-fit border border-primary/12 shadow-sm">
                 <span className="w-2 h-2 rounded-full bg-amber" />
                 מרחב מקצועי למטפלים
               </span>
             </FadeIn>
 
-            <FadeIn delay={0.1}>
+            <FadeIn delay={0.1} viewport={{ once: true, margin: "200px" }}>
               <h1 className="text-[2.4rem] md:text-5xl font-bold leading-[1.15] tracking-tight text-primary">
                 מיגדלור{" "}
                 <span className="relative inline-block">
@@ -78,7 +78,7 @@ export default function NewsletterSignup() {
               </h1>
             </FadeIn>
 
-            <FadeIn delay={0.2}>
+            <FadeIn delay={0.2} viewport={{ once: true, margin: "200px" }}>
               <p className="text-muted-foreground text-lg leading-relaxed max-w-md">
                 מרחב מקצועי לחיבור והשראה. הצטרפי לניוזלטר החודשי של ענבל
                 ליבר — תוכן שנוצר במיוחד למטפלות שבוחרות להמשיך ולצמוח.
