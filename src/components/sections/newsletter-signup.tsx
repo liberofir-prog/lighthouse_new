@@ -13,7 +13,7 @@ const features = [
     icon: Mail,
     title: "ניוזלטר חודשי",
     desc: "מחקרים, תובנות ועדכונים מהשדה — ישר למייל שלך",
-    href: "#newsletter",
+    href: "#signup-form",
   },
   {
     icon: BookOpen,
@@ -104,7 +104,7 @@ export default function NewsletterSignup() {
 
           {/* ── Left — form card ── */}
           <FadeIn delay={0.2} direction="left">
-            <div className="bg-card rounded-3xl shadow-warm-lg border border-border/30 overflow-hidden">
+            <div id="signup-form" className="bg-card rounded-3xl shadow-warm-lg border border-border/30 overflow-hidden">
 
               {/* Header bar */}
               <div className="bg-primary px-7 py-5">
