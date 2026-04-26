@@ -236,13 +236,13 @@ export default function About() {
                 {experience.map((item, i) => (
                   <CredentialItem key={i} index={i}>
                     {item.url ? (
-                      <span className="flex flex-col gap-1.5">
-                        <span>{item.text}</span>
+                      <span className="flex items-center justify-between gap-3 w-full">
+                        <span className="flex-1">{item.text}</span>
                         <a
                           href={item.url}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="inline-flex items-center gap-1.5 self-start px-3 py-1 rounded-full bg-amber/12 border border-amber/30 text-amber text-[0.75rem] font-semibold hover:bg-amber/22 hover:border-amber/50 transition-all duration-200"
+                          className="inline-flex items-center gap-1 shrink-0 px-2 py-0.5 rounded-full bg-amber text-white text-[0.62rem] font-semibold hover:bg-amber/80 transition-all duration-200 shadow-sm"
                         >
                           <ExternalLink size={11} />
                           לקריאה
