@@ -13,10 +13,18 @@ const education = [
   "סטאז\u05F3רית (שנה שנייה) בפסיכותרפיה במשחק מטעם אוניברסיטת בר־אילן (היחידה ללימודי תעודה) ובית הספר לפסיכותרפיה במשחק",
 ];
 
-const experience = [
-  "בית חולים לילדים רות רפפורט - ליווי רוחני לילדים ובני משפחותיהם",
-  "מרכז אלה - ליווי בתהליכי אובדן ושכול טראומטיים",
-  "קליניקה פרטית \"מגדלור\" (ביישוב אלפי מנשה) - ליווי רגשי, רוחני והדרכת הורים",
+const experience: { text: string; url?: string }[] = [
+  { text: "בית חולים לילדים רות רפפורט - ליווי רוחני לילדים ובני משפחותיהם" },
+  { text: "מרכז אלה - ליווי בתהליכי אובדן ושכול טראומטיים" },
+  { text: "קליניקה פרטית \"מגדלור\" (ביישוב אלפי מנשה) - ליווי רגשי, רוחני והדרכת הורים" },
+  {
+    text: "שותפה לכתיבת נייר עמדה מטעם הר\"י – האיגוד הישראלי לנאונטולוגיה: טיפול תומך ביילוד הנוטה למות (12.2024)",
+    url: "https://ima-contentfiles.s3.amazonaws.com/Ne249_Supportivecareforanewbornwho.pdf",
+  },
+  {
+    text: "מאמר: ענבל ליבר, \"אל תשליכני לעת לידה (ניהול היריון, לידה והמהלך הבתר-לידתי במצבים שבהם לעובר אבחנה של מצב סופני)\", רפואה ומשפט 52, (אוגוסט, 2021), 58.",
+    url: "https://www.nevo.co.il/UserControls/#",
+  },
 ];
 
 const lectures = [
@@ -225,8 +233,21 @@ export default function About() {
                 ענבל משלבת עבודה במערכת הציבורית לצד קליניקה פרטית:
               </p>
               <ul className="space-y-3">
-                {experience.map((item: string, i: number) => (
-                  <CredentialItem key={i} index={i}>{item}</CredentialItem>
+                {experience.map((item, i) => (
+                  <CredentialItem key={i} index={i}>
+                    {item.url ? (
+                      <a
+                        href={item.url}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="hover:text-amber transition-colors duration-200 underline underline-offset-2 decoration-amber/40 hover:decoration-amber"
+                      >
+                        {item.text}
+                      </a>
+                    ) : (
+                      item.text
+                    )}
+                  </CredentialItem>
                 ))}
               </ul>
             </div>
