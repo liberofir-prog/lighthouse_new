@@ -97,6 +97,9 @@ export default function Hero() {
                   </svg>
                 </span>
               </h1>
+              <p className="text-sm md:text-base font-medium text-primary/70 mt-3 tracking-wide">
+                מומחית מרמב&quot;ם-רות רפופורט | טיפול רגשי לילדים ומשפחות
+              </p>
             </FadeIn>
 
             {/* Subtext */}
@@ -122,7 +125,7 @@ export default function Hero() {
                   )}
                 >
                   <WhatsAppIcon />
-                  שלחו הודעה בוואטסאפ
+                  לתיאום פגישת היכרות ← ווצאפ
                 </a>
 
                 <a
