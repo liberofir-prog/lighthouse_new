@@ -97,7 +97,7 @@ export default function Hero() {
                   </svg>
                 </span>
               </h1>
-              <p className="text-sm md:text-base font-medium text-primary/70 mt-3 tracking-wide">
+              <p className="text-base md:text-lg font-bold text-primary mt-3 tracking-wide">
                 מומחית מרמב&quot;ם-רות רפופורט | טיפול רגשי לילדים ומשפחות
               </p>
             </FadeIn>
