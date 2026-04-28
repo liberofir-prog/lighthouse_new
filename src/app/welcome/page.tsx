@@ -7,6 +7,7 @@ import {
   Users, Gamepad2, ChevronDown, MapPin, Timer,
   Map, Phone, Mail, Globe, Navigation,
 } from "lucide-react";
+import { trackWhatsAppConversion } from "@/lib/gtag";
 
 export default function WelcomePage() {
   return (
@@ -265,6 +266,7 @@ export default function WelcomePage() {
           href="https://wa.me/972545524516"
           target="_blank"
           rel="noopener noreferrer"
+          onClick={trackWhatsAppConversion}
           className="w-20 h-20 rounded-full flex items-center justify-center text-white shadow-2xl hover:scale-110 transition-transform animate-pulse"
           style={{ backgroundColor: "#25D366" }}
         >

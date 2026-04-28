@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
+import { trackWhatsAppConversion } from "@/lib/gtag";
 
 const WHATSAPP_URL =
   "https://wa.me/972545524516?text=%D7%A9%D7%9C%D7%95%D7%9D%2C%20%D7%90%D7%A9%D7%9E%D7%97%20%D7%9C%D7%A7%D7%91%D7%9C%20%D7%A4%D7%A8%D7%98%D7%99%D7%9D%20%D7%A0%D7%95%D7%A1%D7%A4%D7%99%D7%9D";
@@ -26,6 +27,7 @@ export default function WhatsAppFab() {
       target="_blank"
       rel="noopener noreferrer"
       aria-label="שלחו הודעת וואטסאפ"
+      onClick={trackWhatsAppConversion}
       className="fixed bottom-6 left-6 z-50 flex items-center justify-center w-[3.75rem] h-[3.75rem] rounded-full bg-whatsapp text-white wa-pulse hover:scale-110 transition-transform duration-200"
       initial={{ scale: 0, opacity: 0 }}
       animate={{ scale: 1, opacity: 1 }}
