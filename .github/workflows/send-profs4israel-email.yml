@@ -1,0 +1,27 @@
+name: Send Profs4Israel Newsletter
+
+on:
+  push:
+    paths:
+      - 'research-reports/profs4israel-latest.html'
+
+jobs:
+  send-email:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Send via Resend
+        run: |
+          MONTH=$(date +%Y-%m)
+          CONTENT=$(cat research-reports/profs4israel-latest.html)
+          JSON_CONTENT=$(echo "$CONTENT" | python3 -c 'import json,sys; print(json.dumps(sys.stdin.read()))')
+          curl -s -X POST https://api.resend.com/emails \
+            -H "Authorization: Bearer ${{ secrets.RESEND_API_KEY }}" \
+            -H "Content-Type: application/json" \
+            -d "{
+              \"from\": \"סוכן מחקר חוג הפרופסורים <research@liber.co.il>\",
+              \"to\": [\"liber.ofir@gmail.com\", \"elirohn@gmail.com\"],
+              \"subject\": \"דוח חוג הפרופסורים לחוסן לאומי — $MONTH\",
+              \"html\": $JSON_CONTENT
+            }"
