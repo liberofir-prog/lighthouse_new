@@ -6,6 +6,7 @@ import Testimonials from "@/components/sections/testimonials";
 import ContactForm from "@/components/sections/contact-form";
 import Footer from "@/components/sections/footer";
 import WhatsAppFab from "@/components/sections/whatsapp-fab";
+import FirstVisitPopup from "@/components/sections/first-visit-popup";
 
 export default function Home() {
   return (
@@ -20,6 +21,7 @@ export default function Home() {
       </main>
       <Footer />
       <WhatsAppFab />
+      <FirstVisitPopup />
     </div>
   );
 }
