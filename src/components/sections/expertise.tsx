@@ -1,6 +1,6 @@
 "use client";
 
-import { Heart, Users, HandHeart, Brain } from "lucide-react";
+import { Heart, Users, HandHeart, Brain, UsersRound } from "lucide-react";
 import { StaggerContainer, StaggerItem, FadeIn } from "@/lib/motion";
 
 const areas = [
@@ -36,6 +36,18 @@ const areas = [
     accentColor: "bg-blue-400",
     iconBg: "bg-blue-50",
     iconColor: "text-blue-400",
+  },
+  {
+    icon: UsersRound,
+    title: "קבוצות חברתיות",
+    isNew: true,
+    description:
+      "קבוצות טיפוליות לילדים לפיתוח מיומנויות חברתיות, חיזוק ביטחון עצמי ובניית תחושת שייכות. בסביבה מוגנת ומובנית, הילדים לומדים דרך משחק וחוויה משותפת לתקשר, לשתף פעולה ולהכיר את עצמם ואת האחר. הקבוצה מהווה מרחב צמיחה אמיתי — לא רק לימוד חברתי אלא חיבור אמיתי.",
+    examples:
+      "קשיים בהשתלבות עם בני גיל, בדידות וחרדה חברתית, קושי בתקשורת ובשיתוף פעולה, ילדים הזקוקים לחיזוק הביטחון העצמי וכישורי החיים החברתיים.",
+    accentColor: "bg-teal-400",
+    iconBg: "bg-teal-50",
+    iconColor: "text-teal-500",
   },
   {
     icon: Users,
@@ -79,7 +91,7 @@ export default function Expertise() {
         </div>
 
         {/* Cards — 2×2 grid */}
-        <StaggerContainer className="grid grid-cols-1 md:grid-cols-2 gap-5 lg:gap-6">
+        <StaggerContainer className="grid grid-cols-1 md:grid-cols-2 gap-5 lg:gap-6 [&>*:last-child:nth-child(odd)]:md:col-span-2">
           {areas.map((area) => (
             <StaggerItem key={area.title}>
               <div className="group relative h-full">
@@ -98,9 +110,16 @@ export default function Expertise() {
                       >
                         <area.icon size={22} className={area.iconColor} strokeWidth={1.5} />
                       </div>
-                      <h3 className="text-lg font-bold text-foreground leading-snug">
-                        {area.title}
-                      </h3>
+                      <div className="flex items-center gap-2 flex-wrap">
+                        <h3 className="text-lg font-bold text-foreground leading-snug">
+                          {area.title}
+                        </h3>
+                        {"isNew" in area && area.isNew && (
+                          <span className="inline-block bg-amber-400 text-white text-[0.7rem] font-bold px-2 py-0.5 rounded-full tracking-wide">
+                            ✨ חדש
+                          </span>
+                        )}
+                      </div>
                     </div>
 
                     {/* Description */}
