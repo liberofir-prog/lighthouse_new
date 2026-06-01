@@ -18,6 +18,27 @@ export interface NewsletterDraft {
 
 export const drafts: NewsletterDraft[] = [
   {
+    id: "june-2026",
+    date: "יוני 2026",
+    title: "משחק ממוקד-משמעות מגביר רגישות רוחנית בילדים",
+    emailSubject: "מגדלור יוני 2026 | כשהמשחק הופך ללוויה רוחנית",
+    intro: "ביוני 2026, מחקרים חדשים מכל רחבי העולם מחזקים את הקשר שבין משחק לצמיחה רוחנית אצל ילדים — מסביבות אונקולוגיות ועד גן הילדים. הגיליון הזה מביא ממצאים עדכניים שיכולים להעשיר את עבודתכם הקלינית בנושא ליווי רוחני ו-play therapy.",
+    teasers: [
+      "משחק ממוקד-משמעות מגביר רגישות רוחנית בילדים",
+      "מיינדפולנס מבוסס-משחק לגיל הרך — עדויות חיוביות חדשות",
+      "CCPT לילדים עם סרטן — שיפור בחמלה עצמית ובויסות רגשי"
+    ],
+    findings: [
+      { title: "משחק ממוקד-משמעות מגביר רגישות רוחנית בילדים", source: "NCBI PubMed Central", sourceUrl: "https://pmc.ncbi.nlm.nih.gov/articles/PMC8724725/" },
+      { title: "מיינדפולנס מבוסס-משחק לגיל הרך — עדויות חיוביות חדשות", source: "NCBI PubMed Central — ינואר 2026", sourceUrl: "https://pmc.ncbi.nlm.nih.gov/articles/PMC12840435/" },
+      { title: "RFP-C: פסיכותרפיה ממוקדת-ויסות לילדים — פרוטוקול פסיכודינמי קצר-טווח", source: "NCBI PubMed Central — Korean Academy of Child and Adolescent Psychiatry, 2026", sourceUrl: "https://pmc.ncbi.nlm.nih.gov/articles/PMC12782995/" },
+      { title: "CCPT לילדים עם סרטן — שיפור בחמלה עצמית ובויסות רגשי", source: "ResearchGate — International Journal of Modern Education Studies, 2025", sourceUrl: "https://www.researchgate.net/publication/393271404_The_Effect_of_Child-Centered_Play_Therapy_on_Self-Compassion_and_Emotion_Regulation_Skills_in_Children_with_Cancer" },
+      { title: "ארבע פרספקטיבות לתמיכה בילדים אונקולוגיים — המשחק כמסגרת אינטגרטיבית", source: "Frontiers in Psychology — מרץ 2026", sourceUrl: "https://www.frontiersin.org/journals/psychology/articles/10.3389/fpsyg.2026.1730525/full" }
+    ],
+    newsletterUrl: "/metataplim/gliyon/june-2026",
+    createdAt: "2026-06-01T05:14:24.224Z",
+  },
+  {
     id: "may-2026",
     date: "מאי 2026",
     title: "טיפול CCPT בסביבה חיצונית — שיפור מובהק בקשב ובמיומנויות חברתיות-רגשיות",
