@@ -1,0 +1,856 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>חוג הפרופסורים לחוסן לאומי — דוח חודשי יוני 2026}</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'David', 'Arial Hebrew', Arial, sans-serif;
+      background: #f0f2f5;
+      color: #1a1a2e;
+      direction: rtl;
+      line-height: 1.6;
+    }
+
+    .wrapper {
+      max-width: 780px;
+      margin: 0 auto;
+      background: #fff;
+    }
+
+    /* ── HEADER ── */
+    .header {
+      background: #fff;
+      border-bottom: 4px solid #c8922a;
+    }
+    .header-logo-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 24px 36px 20px;
+    }
+    .header-logo img {
+      height: 88px;
+      width: auto;
+    }
+    .header-report-info {
+      text-align: left;
+    }
+    .header-eyebrow {
+      font-size: 11px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: #c8922a;
+      margin-bottom: 6px;
+    }
+    .header-month {
+      font-size: 26px;
+      font-weight: 700;
+      color: #1a3a5c;
+      line-height: 1.2;
+    }
+    .header-subtitle {
+      font-size: 13px;
+      color: #6b7c93;
+      margin-top: 4px;
+    }
+    .header-meta {
+      background: #1a3a5c;
+      color: #a8c4e0;
+      padding: 11px 36px;
+      font-size: 13px;
+      border-top: 1px solid rgba(200,146,42,0.4);
+    }
+
+    /* ── STATS BAR ── */
+    .stats-bar {
+      background: #f8f9fc;
+      border-bottom: 1px solid #e1e5eb;
+      padding: 20px 36px;
+      display: flex;
+      gap: 0;
+      flex-wrap: wrap;
+    }
+    .stat-item {
+      flex: 1;
+      min-width: 120px;
+      text-align: center;
+      padding: 10px 16px;
+      border-left: 1px solid #dde1e8;
+    }
+    .stat-item:last-child { border-left: none; }
+    .stat-num {
+      font-size: 28px;
+      font-weight: 700;
+      color: #1a3a5c;
+      display: block;
+    }
+    .stat-label {
+      font-size: 12px;
+      color: #6b7c93;
+      margin-top: 2px;
+    }
+
+    /* ── BODY ── */
+    .body { padding: 28px 36px 36px; }
+
+    /* ── SECTION ── */
+    .section {
+      margin-bottom: 32px;
+      border-radius: 8px;
+      border: 1px solid #e1e5eb;
+      overflow: hidden;
+    }
+    .section-header {
+      background: #1a3a5c;
+      color: #fff;
+      padding: 14px 20px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .section-icon { font-size: 18px; }
+    .section-title { font-size: 16px; font-weight: 700; }
+    .section-url {
+      font-size: 12px;
+      color: #a8c4e0;
+      margin-right: auto;
+      direction: ltr;
+    }
+
+    .section-body { padding: 4px 0; }
+
+    /* ── ITEM (article / post / tweet) ── */
+    .item {
+      padding: 14px 20px;
+      border-bottom: 1px solid #f0f2f5;
+    }
+    .item:last-child { border-bottom: none; }
+
+    .item-title {
+      font-size: 15px;
+      font-weight: 600;
+      color: #1a3a5c;
+      text-decoration: none;
+      line-height: 1.4;
+    }
+    .item-title:hover { text-decoration: underline; }
+
+    .item-meta {
+      font-size: 12px;
+      color: #8a96a3;
+      margin-top: 4px;
+    }
+    .item-date { color: #c8922a; font-weight: 600; }
+    .item-domain { margin-right: 8px; }
+
+    .item-summary {
+      font-size: 13px;
+      color: #4a5568;
+      margin-top: 6px;
+      line-height: 1.5;
+    }
+
+    .item-link {
+      display: inline-block;
+      margin-top: 6px;
+      font-size: 12px;
+      color: #1a3a5c;
+      text-decoration: none;
+      border-bottom: 1px dashed #c8922a;
+    }
+    .item-link:hover { color: #c8922a; }
+
+    /* ── TWEET ITEM ── */
+    .tweet-item {
+      padding: 14px 20px;
+      border-bottom: 1px solid #f0f2f5;
+      display: flex;
+      gap: 12px;
+    }
+    .tweet-item:last-child { border-bottom: none; }
+    .tweet-avatar {
+      width: 36px; height: 36px;
+      background: #1a3a5c;
+      border-radius: 50%;
+      flex-shrink: 0;
+      display: flex; align-items: center; justify-content: center;
+      color: #fff; font-size: 14px; font-weight: 700;
+    }
+    .tweet-body { flex: 1; }
+    .tweet-handle { font-size: 13px; color: #1a3a5c; font-weight: 600; }
+    .tweet-text { font-size: 14px; color: #2d3748; margin-top: 4px; line-height: 1.5; }
+    .tweet-stats {
+      font-size: 12px; color: #8a96a3; margin-top: 6px;
+      display: flex; gap: 16px;
+    }
+    .tweet-stat { display: flex; align-items: center; gap: 4px; }
+
+    /* ── EMPTY STATE ── */
+    .empty-state {
+      padding: 20px;
+      background: #f8f9fc;
+      color: #8a96a3;
+      font-size: 14px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .empty-icon { font-size: 20px; }
+
+    .limited-state {
+      padding: 16px 20px;
+      background: #fff8e6;
+      color: #7a5c00;
+      font-size: 13px;
+      border-right: 3px solid #c8922a;
+      margin: 8px 16px;
+      border-radius: 4px;
+    }
+
+    /* ── X SUMMARY BANNER ── */
+    .x-summary {
+      background: linear-gradient(90deg, #0f1923 0%, #1a2e40 100%);
+      color: #fff;
+      padding: 16px 20px;
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      border-bottom: 1px solid #2a4060;
+    }
+    .x-count { font-size: 36px; font-weight: 700; color: #c8922a; }
+    .x-count-label { font-size: 13px; color: #a8c4e0; }
+
+    /* ── FOOTER ── */
+    .footer {
+      background: #1a2e40;
+      color: #7ea8cc;
+      padding: 24px 36px;
+      font-size: 12px;
+      line-height: 1.8;
+      border-top: 3px solid #c8922a;
+    }
+    .footer a { color: #c8922a; text-decoration: none; }
+    .footer-terms {
+      margin-top: 10px;
+      padding-top: 10px;
+      border-top: 1px solid rgba(255,255,255,0.08);
+      font-size: 11px;
+      color: #5a7898;
+    }
+
+    /* ── PRINT / PDF ── */
+    @media print {
+      body { background: #fff; }
+      .wrapper { max-width: 100%; }
+    }
+  </style>
+</head>
+<body>
+<div class="wrapper">
+
+  <!-- HEADER -->
+  <div class="header">
+    <div class="header-logo-row">
+      <div class="header-logo">
+        <img src="data:image/jpeg;base64,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t7i5usLDxMXGx8jJytLT1NXW19jZ2uHi4+Tl5ufo6erx8vP09fb3+Pn6/8QAHwEAAwEBAQEBAQEBAQAAAAAAAAECAwQFBgcICQoL/8QAtREAAgECBAQDBAcFBAQAAQJ3AAECAxEEBSExBhJBUQdhcRMiMoEIFEKRobHBCSMzUvAVYnLRChYkNOEl8RcYGRomJygpKjU2Nzg5OkNERUZHSElKU1RVVldYWVpjZGVmZ2hpanN0dXZ3eHl6goOEhYaHiImKkpOUlZaXmJmaoqOkpaanqKmqsrO0tba3uLm6wsPExcbHyMnK0tPU1dbX2Nna4uPk5ebn6Onq8vP09fb3+Pn6/9oADAMBAAIRAxEAPwD9/KKACigAooAKKACigAooAKKACigAooAKKACigAooAKKACigAooAKKACigAooAKKACigAooAKKACigAooAKKACigAooAKKACigAooAKKACigAooAKKACigAooAKKACigAooAKKACigAooAKKACigAooAKKACigAooAKKACigAooAKKACigAooAKKACigAooAKKACigAooAKKACigAooAKKACigAooAKKACigAooAKKACigAooAKKACigAooAKKACigAooAKKACigAooAKKACigDmfif8AF/4ffB7RP7d8feII7ONsiGHBaWY+iIOT/Kvlf4mf8FOPFs93JafC3wTaWdt0jutXzJMffYjBV+mTX5H4ieJlPhWX1HAxU8S1d3+GCe17Wu3ul21fS/6dwH4e1OJv9rxbcKCdlb4pvra97JdX30XW3j2u/tvftP6pcPcf8LSurfc2RFa28SKvsPlz+ZNV9C/4KHftU+Eb77RL46h1WPvb6tYo6/mgVv1r8PwfihxtHGe2linLX4WlyvysktPR38z92j4X8F4jDeweGtpbmTfN63bevqmvI9r+Cv8AwVv8L6tex6J8ePCH9jtI2F1fSd0tuv8Avxkl1+oLfQV9eeF/FXhzxtoNt4o8Ja1b6hp95GJLa8tZA6SKfQj+XUV/SXBPGuH4swjUkoV4fFHo1/NHy7rdH4D4geH+M4LxUZxbnh6nwy6p/wAsraX7dGtuqNCivuj85CigAooAKKACigAooAKKACigAooAKKACigAooAKKACigAooAKKACigAooAKKACigAooAKKACigAooAKKACigAooAKKACigAooAKKACigAooAKKACigAooAKKACigAooAKKACigArgf2h/jvofwH8ENr94i3GoXGY9LsN2DNJjqfRV6k/h3rxeIs4o8P5JXzCrtTi3bu9or5tpfM9TJcsqZxmtHBU95ySv2XV/JXZ+e/xK+IHi74neJ5/FnjPWZLy7mYkbz8sS5yEQdFUZ4A/xrkbvILcV/B2Nx2JzLGVMViJc05tyb7tv+rdj+zcswlDA4Onh6EbQgkkvJGbc1gavy5+lLD/AMQ+kwvxnP6qu44r0n9kn9szx7+yl40je3nmvvDN5MP7Y0N5PkIPBljyDtkA9PvYwe2P0HhXNq+S5pSxdP7L1XeLtdfNf57l8QcPYbijIa+XV/tx91/yyWsZL0dvVXR+sngHx54V+J3g7T/HvgnVo77S9UtlntLiM8Mp7H0IPBB5BBBrYr+xqNaniKMatN3jJJp+TV0f5/4rC1sFip4esrTg3GS7NOzX3hRWpzhRQAUUAFFABRQAUUAFFABRQAUUAFFABRQAUUAFFABRQAUUAFFABRQAUUAFFABRQAUUAFFABRQAUUAFFABRQAUUAFFABRQAUUAFFABRQAUUAFFABRQAUUAFFABRQAUUAFFAAzBFLMcAck+lfnn+1L8WLj4t/FXUNYjuWk06zkNrpce75REvG4e7HLH6/Svw3x2zSWG4fw+Bi7OrUu/OMFf7uaUX8j9W8JcCq+dVcU1/DhZeTk/8k/vPK7vrWXdnk8V/LcT+lKGxm3NYGr8OR7V1Yf8AiHtYT4jA1LJeuf1RV+Y19Xl/xI+nwvQ+0f8AgjZ+0bcaZ4t1T9mvxBes1tqUcmpaD5khOydAPNiUf7SDf/2zb1r9E6/q3w/xjxnDNJN6wbj92q/Bo/irxoymOV8fV5RVo1lGov8At5Wl98oyYUV9oflIUUAFFABRQAUUAFFABRQAUUAFFABRQAUUAFFABRQAUUAFFABRQAUUAFFABRQAUUAFFABRQAUUAFFABRQAUUAFFABRQAUUAFFABRQAUUAFFABRQAUUAFFABRQAUUAFFABRQByXx38SyeEPg74i8QQSMkkGlyCFl6q7DYp/AsK/N264yAe1fy749YjmzvB0P5abl/4FK3/tp+9eENHly3E1e80vuV//AG4zrv734Vl3mMnivwtH7hQ+FGbc9K5/V/vnj+GurD/xD2sJ8Rg6iea5/U+d1fVZf8SPqML0Oj/Zf8fXPwx/aT8F+Nbd2H2XxDbrIFOMpI3lsPphzX7gg5GRX9HeFdW+X4il2kn96t+h/MP0jcKoZxgMR/NTlH/wGV//AG8KK/VD+cQooAKKACigAooAKKACigAooAKKACigAooAKKACigAooAKKACigAooAKKACigAooAKKACigAooAKKACigAooAKKACigAooAKKACigAooAKKACigAooAKKACigAooAKKACigDzz9q63muv2e/E0cClmFkrYX0EqE/oDX553Wea/lPx4jL/WjDS6exX/pcz+gvCOS/sSuv+nj/wDSYmdd9c+1Zd3nJxX4sj9oobGbc1gav98/SunD/wAQ9rC/EYGojmuf1P8Air6rL/iR9RhOg34e2k+ofE/w7Y2qFpJtfskRV6kmdBX7yoCEUH0r+iPClf7Pin5w/KR/Nv0kJL61lsf7tX86f+QtFfrR/MoUUAFFABRQAUUAFFABRQAUUAFFABRQAUUAFFABRQAUUAFFABRQAUUAFFABRQAUUAFFABRQAUUAFFABRQAUUAFFABRQAUUAFFABRQAUUAFFABRQAUUAFFABRQAUUAFFABRQBneL/D1v4t8K6l4YuziPULKS3c+gdSM/rX5neKND1Dw3rF5oGqxGO6s7h4Z4z2ZTg/yr+bvH7ByVTA4tbWnB/fFr85fcft3g/io2xWHe/uyX4p/oYN3978Ky7vqwr+e4n75Q+Ezbjv8AhXP6x99sf3a6cP8AxD2sL8Rg6ly/4Vz+p/xfjX1WX/Ej6fCdD2D/AIJs/CW6+LH7YPhxDbeZZaA0mr6g23KhIhhAfrI8Y/Xsa/YSv6a8MMO6eR1Kr+3N/ckl+dz+TvpCY6OI4uoYZP8Ah0Vf1lKT/LlCiv0g/BQooAKKACigAooAKKACigAooAKKACigAooAKKACigAooAKKACigAooAKKACigAooAKKACigAooAKKACigAooAKKACigAooAKKACigAooAKKACigAooAKKACigAooAKKACigAr5H/b5+ANzYak3xp8L2TNbXRVdbjjX/AFUgACy4HZgME+vPevzLxbyWWccG1ZQV50Wqi9I3Uv8AyVt/JH3Xhzmkct4opqbtGqnB/Ozj/wCTJL5nyvd/e/Csu76sa/jZH9YUPhRm3Nc/q/3yf9murD/xD28J8Rg6lw3PpWFc211e3K2dlC00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" alt="חוג הפרופסורים לחוסן לאומי">
+      </div>
+      <div class="header-report-info">
+        <div class="header-eyebrow">דוח מעקב חודשי אוטומטי</div>
+        <div class="header-month">יוני 2026</div>
+        <div class="header-subtitle">Profs4Israel · Professors for National Resilience</div>
+      </div>
+    </div>
+    <div class="header-meta">
+      תקופת הדוח: 01/06/2026 – 30/06/2026 &nbsp;|&nbsp;
+      נוצר אוטומטית בתאריך: 02/06/2026 12:14
+    </div>
+  </div>
+
+  <!-- STATS BAR -->
+  <div class="stats-bar">
+    <div class="stat-item">
+      <span class="stat-num">0</span>
+      <span class="stat-label">ציוצים ב-X החודש</span>
+    </div>
+    <div class="stat-item">
+      <span class="stat-num">3</span>
+      <span class="stat-label">כתבות inn.co.il</span>
+    </div>
+    <div class="stat-item">
+      <span class="stat-num">7</span>
+      <span class="stat-label">פרסומי פייסבוק</span>
+    </div>
+    <div class="stat-item">
+      <span class="stat-num">0</span>
+      <span class="stat-label">כתבות אתרי חדשות</span>
+    </div>
+    <div class="stat-item">
+      <span class="stat-num">11</span>
+      <span class="stat-label">אזכורים ברשת</span>
+    </div>
+    <div class="stat-item">
+      <span class="stat-num">21</span>
+      <span class="stat-label">סה"כ פריטים</span>
+    </div>
+  </div>
+
+  <div class="body">
+
+    <!-- X / TWITTER SECTION -->
+    <div class="section">
+      <div class="section-header">
+        <span class="section-icon">𝕏</span>
+        <span class="section-title">X / Twitter — @profs4israel</span>
+        <a href="https://x.com/profs4israel" class="section-url">x.com/profs4israel</a>
+      </div>
+
+      <!-- Timeline summary banner -->
+      <div class="x-summary">
+        <div>
+          <div class="x-count">0</div>
+          <div class="x-count-label">ציוצים מ-@profs4israel החודש</div>
+        </div>
+        
+      </div>
+
+      <div class="section-body">
+        
+          <div class="empty-state">
+            <span class="empty-icon">📭</span>
+            <span>לא נמצאו ציוצים מ-@profs4israel בחודש זה</span>
+          </div>
+        
+
+        
+      </div>
+    </div>
+
+    <!-- INN.CO.IL SECTION -->
+    <div class="section">
+      <div class="section-header">
+        <span class="section-icon">📰</span>
+        <span class="section-title">ערוץ 7 / inn.co.il</span>
+        <a href="https://www.inn.co.il" class="section-url">inn.co.il</a>
+      </div>
+      <div class="section-body">
+        
+          
+          <div class="item">
+            <a href="https://www.inn.co.il/tags/חוג_הפרופסורים_לחוסן_מדיני_וכלכלי" class="item-title">חוג הפרופסורים לחוסן מדיני וכלכלי | ערוץ 7</a>
+            <div class="item-meta">
+              
+            </div>
+            <div class="item-summary">ד&#34;ר רונן שובל (34) נבחר ליו&#34;ר חוג הפרופסורים לחוסן לאומי-כלכלי.</div>
+            <a href="https://www.inn.co.il/tags/חוג_הפרופסורים_לחוסן_מדיני_וכלכלי" class="item-link">→ לכתבה המלאה</a>
+          </div>
+          
+          <div class="item">
+            <a href="https://www.inn.co.il/news/666968" class="item-title">לעזרת אנוסי האקדמיה | ערוץ 7</a>
+            <div class="item-meta">
+              
+            </div>
+            <div class="item-summary">החיידק הפוליטי־ציבורי של פרופ&#39; עמיהוד אמיר, יושב ראש חוג הפרופסורים לחוסן לאומי, התחיל לקנן אצלו בזמן הפגנות &#34;קיסינג&#39;ר גו הום&#34; ב־1973, ...</div>
+            <a href="https://www.inn.co.il/news/666968" class="item-link">→ לכתבה המלאה</a>
+          </div>
+          
+          <div class="item">
+            <a href="https://www.inn.co.il/news/669245" class="item-title">ארגוני ימין: &#34;לא מדובר בסיוע הומניטרי אלא בתחמושת&#34; | ערוץ 7</a>
+            <div class="item-meta">
+              
+            </div>
+            <div class="item-summary">May 19, 2025 - ד&#34;ר יהודה שלם, סגן יו&#34;ר חוג הפרופסורים לחוסן לאומי, הוסיף: &#34;כל סיוע לעזה לפני שחרור חטופינו – הוא כשל מוסרי ואסטרטגי.</div>
+            <a href="https://www.inn.co.il/news/669245" class="item-link">→ לכתבה המלאה</a>
+          </div>
+          
+        
+      </div>
+    </div>
+
+    <!-- FACEBOOK SECTIONS -->
+    
+    
+    <div class="section">
+      <div class="section-header">
+        <span class="section-icon">📘</span>
+        <span class="section-title">דף פייסבוק — Profs4Israel</span>
+        <a href="https://www.facebook.com/Profs4Israel/" class="section-url">https://www.facebook.com/Profs4Israel/</a>
+      </div>
+      <div class="section-body">
+        
+          
+          <div class="item">
+            <div class="item-title">חוג הפרופסורים לחוסן לאומי Professors for Strong Israelחוג הפרופסורים לחוסן מדיני וכלכלי Professors for Strong Israelחוג</div>
+            
+            
+              <div class="item-summary">Feb 1, 2026 · חוג הפרופסורים לחוסן לאומי Professors for Strong Israel. 589 likes · 1 talking about this. חוג הפרופסורים לחוסן מדיני וכלכלי הוא עמותה לא מפלגתית הפועלת למען ביטחונה של מדינת ישראל ולצביונה... חוג הפרופסורים לחוסן מדיני וכלכלי Professors for Strong Israel Dec 4, 2023 · Like Comment חוג</div>
+            
+            <a href="https://www.facebook.com/Profs4Israel/" class="item-link">→ לפרסום המקורי</a>
+          </div>
+          
+          <div class="item">
+            <div class="item-title">חוג הפרופסורים לחוסן מדיני וכלכלי Professors for Strong Israel</div>
+            
+            
+            <a href="https://www.facebook.com/Profs4Israel/groups/" class="item-link">→ לפרסום המקורי</a>
+          </div>
+          
+          <div class="item">
+            <div class="item-title">חוג הפרופסורים לחוסן מדיני וכלכלי Professors for Strong ...</div>
+            
+            
+              <div class="item-summary">Dec 4, 2023 · Like Comment חוג הפרופסורים לחוסן מדיני וכלכלי Professors for Strong Israel updated their bio.</div>
+            
+            <a href="https://www.facebook.com/Profs4Israel/posts/733354185489239/" class="item-link">→ לפרסום המקורי</a>
+          </div>
+          
+          <div class="item">
+            <div class="item-title">חוג הפרופסורים לחוסן מדיני וכלכלי Professors for Strong Israel</div>
+            
+            
+              <div class="item-summary">Feb 12, 2023 · חוג הפרופסורים לחוסן מדיני וכלכלי Professors for Strong Israel. 215 likes. חוג הפרופסורים לחוסן מדיני וכלכלי הוא עמותה לא מפלגתית הפועלת למען ביטחונה של מדינת ישראל ולצביונה היהודי. חברי החוג הם...</div>
+            
+            <a href="https://www.facebook.com/Profs4Israel/posts/561831879308138/" class="item-link">→ לפרסום המקורי</a>
+          </div>
+          
+          <div class="item">
+            <div class="item-title">חוג הפרופסורים לחוסן מדיני וכלכלי Professors for Strong Israel</div>
+            
+            
+              <div class="item-summary">Nov 8, 2022 · חוג הפרופסורים לחוסן מדיני וכלכלי Professors for Strong Israel. 217 likes · 1 talking about this. חוג הפרופסורים לחוסן מדיני וכלכלי הוא עמותה לא מפלגתית הפועלת למען ביטחונה של מדינת ישראל...</div>
+            
+            <a href="https://www.facebook.com/Profs4Israel/posts/494009642757029/" class="item-link">→ לפרסום המקורי</a>
+          </div>
+          
+          <div class="item">
+            <div class="item-title">חוג - שלום רב, חוג הפרופסורים לחוסן מדיני וכלכלי עוקב בדאגה ...</div>
+            
+            
+              <div class="item-summary">Jun 21, 2023 · דיקלה לוי 1 חוג הפרופסורים לחוסן לאומי Professors for Strong Israel Oct 16 ידידיה שיר and Noam Levin 2 חוג הפרופסורים לחוסן לאומי Professors for Strong Israel Oct 14 Elchanan Rotman and 3 others 4 1 סיפורים מאז ...</div>
+            
+            <a href="https://www.facebook.com/Profs4Israel/photos/שלום-רב-חוג-הפרופסורים-לחוסן-מדיני-וכלכלי-עוקב-בדאגה-אחר-מפגנים-ומופעים-אנטי-ציו/637860778371914/" class="item-link">→ לפרסום המקורי</a>
+          </div>
+          
+          <div class="item">
+            <div class="item-title">חוג הפרופסורים לחוסן לאומי Professors for Strong Israel ...</div>
+            
+            
+              <div class="item-summary">May 24, 2022 · חוג הפרופסורים לחוסן לאומי Professors for Strong Israel. 587 likes. חוג הפרופסורים לחוסן מדיני וכלכלי הוא עמותה לא מפלגתית הפועלת למען ביטחונה של מדינת ישראל ולצביונה היהודי. חברי החוג הם...</div>
+            
+            <a href="https://www.facebook.com/Profs4Israel/posts/5536580229694945/" class="item-link">→ לפרסום המקורי</a>
+          </div>
+          
+        
+      </div>
+    </div>
+    
+    
+
+    <!-- NEWS SITES SECTIONS -->
+    
+    
+    
+    <div class="section">
+      <div class="section-header">
+        <span class="section-icon">📰</span>
+        <span class="section-title">מקור ראשון</span>
+        <span class="section-url">makorrishon.co.il</span>
+      </div>
+      <div class="section-body">
+        
+          <div class="empty-state">
+            <span class="empty-icon">🔍</span>
+            לא נמצאו אזכורים של החוג באתר זה החודש
+          </div>
+        
+      </div>
+    </div>
+    
+    
+    <div class="section">
+      <div class="section-header">
+        <span class="section-icon">📰</span>
+        <span class="section-title">מידה</span>
+        <span class="section-url">mida.org.il</span>
+      </div>
+      <div class="section-body">
+        
+          <div class="empty-state">
+            <span class="empty-icon">🔍</span>
+            לא נמצאו אזכורים של החוג באתר זה החודש
+          </div>
+        
+      </div>
+    </div>
+    
+    
+    <div class="section">
+      <div class="section-header">
+        <span class="section-icon">📰</span>
+        <span class="section-title">סרוגים</span>
+        <span class="section-url">srugim.co.il</span>
+      </div>
+      <div class="section-body">
+        
+          <div class="empty-state">
+            <span class="empty-icon">🔍</span>
+            לא נמצאו אזכורים של החוג באתר זה החודש
+          </div>
+        
+      </div>
+    </div>
+    
+    
+    <div class="section">
+      <div class="section-header">
+        <span class="section-icon">📰</span>
+        <span class="section-title">ניוז 1</span>
+        <span class="section-url">news1.co.il</span>
+      </div>
+      <div class="section-body">
+        
+          <div class="empty-state">
+            <span class="empty-icon">🔍</span>
+            לא נמצאו אזכורים של החוג באתר זה החודש
+          </div>
+        
+      </div>
+    </div>
+    
+    
+    <div class="section">
+      <div class="section-header">
+        <span class="section-icon">📰</span>
+        <span class="section-title">טוב ניוז</span>
+        <span class="section-url">tovnews.co.il</span>
+      </div>
+      <div class="section-body">
+        
+          <div class="empty-state">
+            <span class="empty-icon">🔍</span>
+            לא נמצאו אזכורים של החוג באתר זה החודש
+          </div>
+        
+      </div>
+    </div>
+    
+    
+    <div class="section">
+      <div class="section-header">
+        <span class="section-icon">📰</span>
+        <span class="section-title">הקול היהודי</span>
+        <span class="section-url">www.hakolhayehudi.co.il</span>
+      </div>
+      <div class="section-body">
+        
+          <div class="empty-state">
+            <span class="empty-icon">🔍</span>
+            לא נמצאו אזכורים של החוג באתר זה החודש
+          </div>
+        
+      </div>
+    </div>
+    
+    
+    <div class="section">
+      <div class="section-header">
+        <span class="section-icon">📰</span>
+        <span class="section-title">ice</span>
+        <span class="section-url">www.ice.co.il</span>
+      </div>
+      <div class="section-body">
+        
+          <div class="empty-state">
+            <span class="empty-icon">🔍</span>
+            לא נמצאו אזכורים של החוג באתר זה החודש
+          </div>
+        
+      </div>
+    </div>
+    
+    
+    <div class="section">
+      <div class="section-header">
+        <span class="section-icon">📰</span>
+        <span class="section-title">מעריב</span>
+        <span class="section-url">www.maariv.co.il</span>
+      </div>
+      <div class="section-body">
+        
+          <div class="empty-state">
+            <span class="empty-icon">🔍</span>
+            לא נמצאו אזכורים של החוג באתר זה החודש
+          </div>
+        
+      </div>
+    </div>
+    
+    
+    <div class="section">
+      <div class="section-header">
+        <span class="section-icon">📰</span>
+        <span class="section-title">ynet</span>
+        <span class="section-url">www.ynet.co.il</span>
+      </div>
+      <div class="section-body">
+        
+          <div class="empty-state">
+            <span class="empty-icon">🔍</span>
+            לא נמצאו אזכורים של החוג באתר זה החודש
+          </div>
+        
+      </div>
+    </div>
+    
+    
+    <div class="section">
+      <div class="section-header">
+        <span class="section-icon">📰</span>
+        <span class="section-title">הארץ</span>
+        <span class="section-url">www.haaretz.co.il</span>
+      </div>
+      <div class="section-body">
+        
+          <div class="empty-state">
+            <span class="empty-icon">🔍</span>
+            לא נמצאו אזכורים של החוג באתר זה החודש
+          </div>
+        
+      </div>
+    </div>
+    
+    
+    <div class="section">
+      <div class="section-header">
+        <span class="section-icon">📰</span>
+        <span class="section-title">ישראל היום</span>
+        <span class="section-url">www.israelhayom.co.il</span>
+      </div>
+      <div class="section-body">
+        
+          <div class="empty-state">
+            <span class="empty-icon">🔍</span>
+            לא נמצאו אזכורים של החוג באתר זה החודש
+          </div>
+        
+      </div>
+    </div>
+    
+    
+    <div class="section">
+      <div class="section-header">
+        <span class="section-icon">📰</span>
+        <span class="section-title">שקוף</span>
+        <span class="section-url">shakuf.co.il</span>
+      </div>
+      <div class="section-body">
+        
+          <div class="empty-state">
+            <span class="empty-icon">🔍</span>
+            לא נמצאו אזכורים של החוג באתר זה החודש
+          </div>
+        
+      </div>
+    </div>
+    
+    
+    <div class="section">
+      <div class="section-header">
+        <span class="section-icon">📰</span>
+        <span class="section-title">mako</span>
+        <span class="section-url">www.mako.co.il</span>
+      </div>
+      <div class="section-body">
+        
+          <div class="empty-state">
+            <span class="empty-icon">🔍</span>
+            לא נמצאו אזכורים של החוג באתר זה החודש
+          </div>
+        
+      </div>
+    </div>
+    
+    
+    <div class="section">
+      <div class="section-header">
+        <span class="section-icon">📰</span>
+        <span class="section-title">JDN</span>
+        <span class="section-url">www.jdn.co.il</span>
+      </div>
+      <div class="section-body">
+        
+          <div class="empty-state">
+            <span class="empty-icon">🔍</span>
+            לא נמצאו אזכורים של החוג באתר זה החודש
+          </div>
+        
+      </div>
+    </div>
+    
+    
+    <div class="section">
+      <div class="section-header">
+        <span class="section-icon">📰</span>
+        <span class="section-title">רוטר</span>
+        <span class="section-url">rotter.net</span>
+      </div>
+      <div class="section-body">
+        
+          <div class="empty-state">
+            <span class="empty-icon">🔍</span>
+            לא נמצאו אזכורים של החוג באתר זה החודש
+          </div>
+        
+      </div>
+    </div>
+    
+    
+
+    <!-- WEB MENTIONS SECTION -->
+    
+    <div class="section">
+      <div class="section-header">
+        <span class="section-icon">🌐</span>
+        <span class="section-title">אזכורים נוספים ברשת</span>
+      </div>
+      <div class="section-body">
+        
+        <div class="item">
+          <a href="http://www.profs4israel.org/" class="item-title">חוג הפרופסורים לחוסן לאומי: בית</a>
+          <div class="item-meta">
+            
+            <span class="item-domain">· profs4israel.org</span>
+          </div>
+          <div class="item-summary">We cannot provide a description for this page right now</div>
+          <a href="http://www.profs4israel.org/" class="item-link">→ לקישור המקורי</a>
+        </div>
+        
+        <div class="item">
+          <a href="https://jewiki.org.il/w/חוג_הפרופסורים_לחוסן_מדיני_וכלכלי" class="item-title">חוג הפרופסורים לחוסן מדיני וכלכלי - האנציקלופדיה היהודית</a>
+          <div class="item-meta">
+            
+            <span class="item-domain">· jewiki.org.il</span>
+          </div>
+          <div class="item-summary">חוג הפרופסורים לחוסן מדיני וכלכלי (השם הרשמי באנגלית: Professors for Strong Israel) היא &#34;עמותה אל-מפלגתית של אקדמאים המאוחדים בדאגה לביטחונה של מדינת ישראל ולצביונה היהודי&#34;[1]. חברי המועצה הם דוקטורים, פרופסורים, חוקרים ומדענים הפעילים במוסדות אקדמיים רבים בכל התחומים העיקריים.</div>
+          <a href="https://jewiki.org.il/w/חוג_הפרופסורים_לחוסן_מדיני_וכלכלי" class="item-link">→ לקישור המקורי</a>
+        </div>
+        
+        <div class="item">
+          <a href="https://grokipedia.com/page/Professors_for_a_Strong_Israel" class="item-title">Professors for a Strong Israel — Grokipedia</a>
+          <div class="item-meta">
+            
+            <span class="item-domain">· grokipedia.com</span>
+          </div>
+          <div class="item-summary">April 14, 2026 - Professors for a Strong Israel (Hebrew: חוג הפרופסורים לחוסן מדיני וכלכלי) is a non-partisan Israeli organization founded in 1988 that unites academics, researchers, scientists, university lecturers, medical professionals, retired senior military officers (colonel rank or above), an</div>
+          <a href="https://grokipedia.com/page/Professors_for_a_Strong_Israel" class="item-link">→ לקישור המקורי</a>
+        </div>
+        
+        <div class="item">
+          <a href="https://www.wikiwand.com/he/articles/חוג_הפרופסורים_לחוסן_מדיני_וכלכלי" class="item-title">חוג הפרופסורים לחוסן מדיני וכלכלי - Wikiwand</a>
+          <div class="item-meta">
+            
+            <span class="item-domain">· ikiwand.com</span>
+          </div>
+          <div class="item-summary">חוג הפרופסורים לחוסן מדיני וכלכלי (השם הרשמי באנגלית: Professors for Strong Israel) הוא &#34;עמותה אל-מפלגתית של אקדמאים המאוחדים בדאגה לביטחונה של מדינת ישראל ולצביונה היהודי&#34;[1] ומטרתם הרשמית היא לקדם ולהפיץ את רעיון זכותו של עם ישראל על ארץ ישראל.</div>
+          <a href="https://www.wikiwand.com/he/articles/חוג_הפרופסורים_לחוסן_מדיני_וכלכלי" class="item-link">→ לקישור המקורי</a>
+        </div>
+        
+        <div class="item">
+          <a href="https://www.profs4israel.org/?lang=en" class="item-title">בית | חוג הפרופסורים לחוסן מדיני וכלכלי</a>
+          <div class="item-meta">
+            
+            <span class="item-domain">· profs4israel.org</span>
+          </div>
+          <div class="item-summary">Professors for a Strong Israel is a non-partisan organization that aims to promote the security and Jewish character of the State of Israel. The forum is comprised of professors, researchers, scientists, university lecturers, senior military personnel and retired justices. Any person with a PhD, as </div>
+          <a href="https://www.profs4israel.org/?lang=en" class="item-link">→ לקישור המקורי</a>
+        </div>
+        
+        <div class="item">
+          <a href="https://21landing.zst.co.il/professors/" class="item-title">חוג הפרופסורים לחוסן לאומי</a>
+          <div class="item-meta">
+            
+            <span class="item-domain">· 21landing.zst.co.il</span>
+          </div>
+          <div class="item-summary">הצטרפו לחוג הפרופסורים – קהילה אקדמית מובילה המשפיעה על השיח המדיני כלכלי</div>
+          <a href="https://21landing.zst.co.il/professors/" class="item-link">→ לקישור המקורי</a>
+        </div>
+        
+        <div class="item">
+          <a href="https://www.hamichlol.org.il/חוג_הפרופסורים_לחוסן_מדיני_וכלכלי" class="item-title">חוג הפרופסורים לחוסן מדיני וכלכלי – המכלול</a>
+          <div class="item-meta">
+            
+            <span class="item-domain">· hamichlol.org.il</span>
+          </div>
+          <div class="item-summary">חוג הפרופסורים לחוסן מדיני וכלכלי (השם הרשמי ב אנגלית: Professors for Strong Israel) היא &#34; עמותה אל-מפלגתית של אקדמאים המאוחדים בדאגה לביטחונה של מדינת ישראל ולצביונה ה יהודי &#34; [1]. חברי החוג הם דוקטורים, פרופסורים, חוקרים ו מדענים ...</div>
+          <a href="https://www.hamichlol.org.il/חוג_הפרופסורים_לחוסן_מדיני_וכלכלי" class="item-link">→ לקישור המקורי</a>
+        </div>
+        
+        <div class="item">
+          <a href="https://www.guidestar.org.il/organization/580243111/contact" class="item-title">חוג הפרופסורים לחוסן לאומי (ע&#34;ר) - יצירת קשר</a>
+          <div class="item-meta">
+            
+            <span class="item-domain">· guidestar.org.il</span>
+          </div>
+          <div class="item-summary">בגיידסטאר תמצאו את המידע המקיף והאמין ביותר אודות העמותה. שם הארגון: חוג הפרופסורים לחוסן לאומי (ע&#34;ר). מספר ארגון: 580243111. מטרות הארגון: לקדם ולהפיץ את רעיון זכותו של עם ישראל על ארץ ישראל. לקדם ולהפיץ רעיונות כלכליים ...</div>
+          <a href="https://www.guidestar.org.il/organization/580243111/contact" class="item-link">→ לקישור המקורי</a>
+        </div>
+        
+        <div class="item">
+          <a href="https://www.nli.org.il/he/items/NNL_ALEPH990023503260205171/NLI" class="item-title">חוג הפרופסורים לחוסן מדיני וכלכלי | ספר | חוג הפרופסורים ...</a>
+          <div class="item-meta">
+            
+            <span class="item-domain">· nli.org.il</span>
+          </div>
+          <div class="item-summary">מידע נוסף כותר חוג הפרופסורים לחוסן מדיני וכלכלי כותרים נוספים Professors for a Strong Israel (PSI) [electronic resource] מקום קשור Jerusalem (Israel)-place of publication מוציא לאור ירושלים : חוג הפרופסורים לחוסן מדיני וכלכלי שנה 2001 ...</div>
+          <a href="https://www.nli.org.il/he/items/NNL_ALEPH990023503260205171/NLI" class="item-link">→ לקישור המקורי</a>
+        </div>
+        
+        <div class="item">
+          <a href="https://t.me/s/profs4israel?before=12" class="item-title">חוג הפרופסורים לחוסן מדיני וכלכלי – Telegram</a>
+          <div class="item-meta">
+            
+            <span class="item-domain">· t.me</span>
+          </div>
+          <div class="item-summary">החוּג מחזק את ידיו של השר בצלאל סמוטריץ׳ על תגובתו האצילית ל׳איחולים׳ ששיגר לעבר משפחתו אביה של חטופה. כולנו, כמו השר סמוטריץ׳, משתדלים להכיל את כאבם וסערת נפשם של משפחות החטופים בשעתם הקשה. עם זאת החוג סבור, כמו השר ...</div>
+          <a href="https://t.me/s/profs4israel?before=12" class="item-link">→ לקישור המקורי</a>
+        </div>
+        
+        <div class="item">
+          <a href="https://www.makorrishon.co.il/news/education/article/248178" class="item-title">חוג הפרופסורים נגד ראשי האוניברסיטאות: &#34;האקדמיה הפכה לעיר ...</a>
+          <div class="item-meta">
+            
+            <span class="item-domain">· makorrishon.co.il</span>
+          </div>
+          <div class="item-summary">Feb 4, 2026 · חוג הפרופסורים לחוסן לאומי יוצא במתקפה חריפה נגד ועד ראשי האוניברסיטאות (ור&#34;ה) וועד ראשי המכללות (ור&#34;מ), בעקבות מכתבם בו הודיעו כי יחרימו את הדיון בכנסת בנושא הסתה לטרור באקדמיה.</div>
+          <a href="https://www.makorrishon.co.il/news/education/article/248178" class="item-link">→ לקישור המקורי</a>
+        </div>
+        
+      </div>
+    </div>
+    
+
+  </div><!-- /body -->
+
+  <!-- FOOTER -->
+  <div class="footer">
+    <div style="margin-bottom:10px;">
+      <strong>להצטרפות לקבוצת ווטסאפ שקטה — חוּג הַפְּרוֹפ' הוֹדָעוֹת לַצִּבּוּר:</strong><br>
+      <a href="https://chat.whatsapp.com/HtFlePmc3PyB4RP2CtLUVF">https://chat.whatsapp.com/HtFlePmc3PyB4RP2CtLUVF</a>
+    </div>
+    <div style="margin-bottom:10px;">
+      <strong>עמוד החוג בפייסבוק:</strong><br>
+      <a href="https://www.facebook.com/Profs4Israel/">https://www.facebook.com/Profs4Israel/</a>
+    </div>
+    <div class="footer-terms">
+      דוח זה נוצר אוטומטית על ידי סוכן מחקר חודשי.
+      כל הקישורים מובילים למקורות המקוריים.
+      נוצר: 02/06/2026 12:14
+    </div>
+  </div>
+
+</div>
+</body>
+</html>
