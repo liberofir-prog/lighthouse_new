@@ -8,7 +8,7 @@ const IMAGES = [
   { src: "/pic/cl1.jfif", alt: "חדר הטיפולים" },
   { src: "/pic/cl2.jfif", alt: "סביבת הטיפול" },
   { src: "/pic/cl3.jfif", alt: "מרחב הקליניקה" },
-  { src: "/pic/cl5.jfif", alt: "חלל הטיפול" },
+  { src: "/pic/cl7.jpeg", alt: "חלל הטיפול" },
 ];
 
 export default function HeroCarousel() {
