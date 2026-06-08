@@ -37,6 +37,7 @@ export default function HeroCarousel() {
             src={IMAGES[current].src}
             alt={IMAGES[current].alt}
             fill
+            unoptimized
             className="object-cover object-top"
             sizes="(max-width: 768px) 100vw, 40vw"
             priority={current === 0}
