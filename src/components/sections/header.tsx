@@ -11,9 +11,10 @@ import { usePathname } from "next/navigation";
 import { handleAnchorClick } from "@/lib/smooth-scroll";
 
 const navLinks = [
-  { label: "תחומי מומחיות", href: "/#expertise"    },
-  { label: "אודות",          href: "/#about"        },
-  { label: "המלצות",         href: "/#testimonials" },
+  { label: "תחומי מומחיות", href: "/#expertise"           },
+  { label: "אודות",          href: "/#about"               },
+  { label: "סביבת הטיפול",   href: "/#treatment-environment" },
+  { label: "המלצות",         href: "/#testimonials"        },
 ];
 
 export default function Header() {

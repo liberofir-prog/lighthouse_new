@@ -175,7 +175,6 @@ export default function Hero() {
                   sizes="(max-width: 768px) 100vw, 40vw"
                   priority
                 />
-                {/* Subtle warm overlay at bottom */}
                 <div className="absolute inset-0 bg-gradient-to-t from-primary/10 via-transparent to-transparent" />
               </div>
 

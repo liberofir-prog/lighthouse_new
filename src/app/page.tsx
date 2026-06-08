@@ -3,6 +3,7 @@ import Hero from "@/components/sections/hero";
 import Expertise from "@/components/sections/expertise";
 import About from "@/components/sections/about";
 import Testimonials from "@/components/sections/testimonials";
+import TreatmentEnvironment from "@/components/sections/treatment-environment";
 import ContactForm from "@/components/sections/contact-form";
 import Footer from "@/components/sections/footer";
 import WhatsAppFab from "@/components/sections/whatsapp-fab";
@@ -16,6 +17,7 @@ export default function Home() {
         <Hero />
         <Expertise />
         <About />
+        <TreatmentEnvironment />
         <Testimonials />
         <ContactForm />
       </main>
