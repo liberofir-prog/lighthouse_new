@@ -15,9 +15,9 @@ export default function Home() {
       <Header />
       <main>
         <Hero />
+        <TreatmentEnvironment />
         <Expertise />
         <About />
-        <TreatmentEnvironment />
         <Testimonials />
         <ContactForm />
       </main>
