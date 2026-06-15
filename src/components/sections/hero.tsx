@@ -1,6 +1,5 @@
 "use client";
 
-import Image from "next/image";
 import { buttonVariants } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 import { FadeIn, ScaleIn } from "@/lib/motion";
@@ -51,22 +50,10 @@ export default function Hero() {
         style={{ animationDelay: "3s", animationName: "float-gentle", animationDuration: "8s", animationTimingFunction: "ease-in-out", animationIterationCount: "infinite" }}
       />
 
-      {/* Mobile background image — visible only below md */}
-      <div className="absolute inset-0 md:hidden">
-        <Image
-          src="/inbal.png"
-          alt=""
-          fill
-          className="object-cover object-top"
-          sizes="100vw"
-          priority
-        />
-        <div className="absolute inset-0 bg-gradient-to-t from-background via-background/85 to-background/50" />
-      </div>
 
       {/* ─── Content ─── */}
       <div className="relative z-10 mx-auto max-w-6xl px-5 w-full">
-        <div className="grid md:grid-cols-[1fr_0.85fr] gap-12 lg:gap-20 items-start">
+        <div className="grid md:grid-cols-[1fr_1.15fr] gap-4 md:gap-10 lg:gap-16 items-center">
           {/* Text content — right side in RTL */}
           <div className="flex flex-col gap-5 md:pt-14">
             {/* Decorative label */}
@@ -113,7 +100,7 @@ export default function Hero() {
 
             {/* CTA Buttons + Trust indicators */}
             <FadeIn delay={0.5}>
-              <div className="flex flex-wrap gap-4">
+              <div className="flex gap-2 md:gap-4">
                 <a
                   href={WHATSAPP_URL}
                   target="_blank"
@@ -121,7 +108,7 @@ export default function Hero() {
                   onClick={trackWhatsAppConversion}
                   className={cn(
                     buttonVariants({ size: "lg" }),
-                    "bg-whatsapp hover:bg-whatsapp/85 text-white gap-2.5 text-base rounded-full px-7 h-12 shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-0.5"
+                    "flex-1 md:flex-none bg-whatsapp hover:bg-whatsapp/85 text-white gap-1.5 md:gap-2.5 text-sm md:text-base rounded-full px-3 md:px-7 h-11 md:h-12 shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-0.5"
                   )}
                 >
                   <WhatsAppIcon />
@@ -133,7 +120,7 @@ export default function Hero() {
                   onClick={handleAnchorClick}
                   className={cn(
                     buttonVariants({ variant: "outline", size: "lg" }),
-                    "gap-2.5 text-base rounded-full px-7 h-12 border-primary/20 hover:border-primary/40 hover:bg-primary/5 transition-all duration-300"
+                    "flex-1 md:flex-none gap-1.5 md:gap-2.5 text-sm md:text-base rounded-full px-3 md:px-7 h-11 md:h-12 border-primary/20 hover:border-primary/40 hover:bg-primary/5 transition-all duration-300"
                   )}
                 >
                   <ArrowDown size={16} className="animate-bounce" />
@@ -141,7 +128,7 @@ export default function Hero() {
                 </a>
               </div>
 
-              <div className="flex items-center gap-6 mt-5">
+              <div className="flex items-center justify-center md:justify-start gap-6 mt-5">
                 <div className="text-center">
                   <p className="text-2xl font-bold text-primary">+8</p>
                   <p className="text-xs text-muted-foreground">שנות ניסיון</p>
@@ -160,22 +147,46 @@ export default function Hero() {
             </FadeIn>
           </div>
 
-          {/* Atmosphere image — left side in RTL */}
-          <ScaleIn delay={0.3} className="hidden md:block mt-10">
+          {/* Cinematic video card — left side in RTL */}
+          <ScaleIn delay={0.3} className="block">
             <div className="relative">
-              {/* Decorative amber glow behind image */}
-              <div className="absolute -inset-4 rounded-[2rem] bg-gradient-to-br from-amber/10 via-transparent to-primary/5 blur-2xl" />
 
-              <div className="relative aspect-[3/4] rounded-[2rem] overflow-hidden shadow-warm-lg ring-1 ring-border/30">
-                <Image
-                  src="/inbal.png"
-                  alt="ענבל ליבר - מטפלת רגשית ומלווה רוחנית"
-                  fill
-                  className="object-cover object-top"
-                  sizes="(max-width: 768px) 100vw, 40vw"
-                  priority
+              {/* Outer breathing amber halo — desktop only to avoid mobile overflow */}
+              <div
+                className="hidden md:block absolute -inset-6 rounded-[2.5rem] blur-3xl animate-pulse"
+                style={{
+                  background: "radial-gradient(ellipse, oklch(0.78 0.115 75 / 0.18) 0%, transparent 70%)",
+                  animationDuration: "4s",
+                }}
+              />
+
+              {/* Inner warm glow */}
+              <div className="absolute -inset-2 rounded-[2.2rem] bg-gradient-to-br from-amber/12 via-transparent to-primary/6 blur-xl" />
+
+              {/* Video container */}
+              <div className="relative aspect-video rounded-[2rem] overflow-hidden shadow-warm-lg ring-1 ring-amber/25">
+                <video
+                  autoPlay
+                  muted
+                  loop
+                  playsInline
+                  preload="metadata"
+                  className="absolute inset-0 w-full h-full object-cover object-center"
+                >
+                  <source src="/migdalor2.mp4" type="video/mp4" />
+                </video>
+
+                {/* Cinematic vignette */}
+                <div
+                  className="absolute inset-0 pointer-events-none"
+                  style={{ background: "radial-gradient(ellipse at 50% 50%, transparent 45%, rgba(30,18,10,0.35) 100%)" }}
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-primary/10 via-transparent to-transparent" />
+
+                {/* Bottom warm fade */}
+                <div className="absolute inset-0 bg-gradient-to-t from-primary/30 via-transparent to-primary/8 pointer-events-none" />
+
+                {/* Top cinematic bar */}
+                <div className="absolute top-0 inset-x-0 h-10 bg-gradient-to-b from-primary/20 to-transparent pointer-events-none" />
               </div>
 
               {/* Floating decorative badge */}
