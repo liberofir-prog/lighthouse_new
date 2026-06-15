@@ -28,7 +28,7 @@ export default function WhatsAppFab() {
       rel="noopener noreferrer"
       aria-label="שלחו הודעת וואטסאפ"
       onClick={trackWhatsAppConversion}
-      className="fixed bottom-6 left-6 z-50 flex items-center justify-center w-[3.75rem] h-[3.75rem] rounded-full bg-whatsapp text-white wa-pulse hover:scale-110 transition-transform duration-200"
+      className="fixed bottom-2 md:bottom-6 left-6 z-50 flex items-center justify-center w-[3.75rem] h-[3.75rem] rounded-full bg-whatsapp text-white wa-pulse hover:scale-110 transition-transform duration-200"
       initial={{ scale: 0, opacity: 0 }}
       animate={{ scale: 1, opacity: 1 }}
       transition={{
