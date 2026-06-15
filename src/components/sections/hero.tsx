@@ -173,7 +173,7 @@ export default function Hero() {
                   preload="metadata"
                   className="absolute inset-0 w-full h-full object-cover object-center"
                 >
-                  <source src="/migdalor2.mp4" type="video/mp4" />
+                  <source src="/migdalor4.mp4" type="video/mp4" />
                 </video>
 
                 {/* Cinematic vignette */}
