@@ -85,7 +85,7 @@ export default function Hero() {
                 </span>
               </h1>
               <p className="text-base md:text-lg font-bold text-primary mt-3 tracking-wide">
-                מומחית מבית החולים לילדים רות רפופורט ברמב&quot;ם | טיפול רגשי לילדים ומשפחות
+                מומחית מבית החולים לילדים רות רפפורט ברמב&quot;ם | טיפול רגשי לילדים ומשפחות
               </p>
             </FadeIn>
 
