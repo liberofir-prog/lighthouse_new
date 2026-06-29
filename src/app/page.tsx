@@ -23,7 +23,7 @@ export default function Home() {
       </main>
       <Footer />
       <WhatsAppFab />
-      <FirstVisitPopup />
+      {/* <FirstVisitPopup /> */}
     </div>
   );
 }
