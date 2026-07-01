@@ -18,6 +18,27 @@ export interface NewsletterDraft {
 
 export const drafts: NewsletterDraft[] = [
   {
+    id: "july-2026",
+    date: "יולי 2026",
+    title: "רוחניות ילדים עם מחלות מסכנות חיים — מה אומרת הספרות?",
+    emailSubject: "מגדלור | יולי 2026 — ליווי רוחני ו-Play Therapy: מה חדש בשדה",
+    intro: "גיליון יולי 2026 מביא ממצאים עדכניים על הצומת שבין ליווי רוחני לטיפול במשחק — מ-Godly Play בחדר האשפוז, דרך טיפול בחול מסורתי ודיגיטלי, ועד להורה כסוכן שינוי רוחני. הגיליון מיועד לעמיתות מטפלות שרוצות להעמיק את הממד הרוחני בעבודה הקלינית.",
+    teasers: [
+      "רוחניות ילדים עם מחלות מסכנות חיים — מה אומרת הספרות?",
+      "Godly Play מפחית חרדה ודיכאון בילדים מאושפזים",
+      "טיפול פיליאלי: ההורה כסוכן שינוי — האפקטיביות הגבוהה ביותר"
+    ],
+    findings: [
+      { title: "רוחניות ילדים עם מחלות מסכנות חיים — מה אומרת הספרות?", source: "ScienceDirect — Palliative & Supportive Care, 2025", sourceUrl: "https://www.sciencedirect.com/science/article/pii/S088259632500418X" },
+      { title: "טיפול בחול בשיקום ילדים — סקירה מקיפה של העדויות", source: "Frontiers in Pediatrics — יוני 2026", sourceUrl: "https://www.frontiersin.org/journals/pediatrics/articles/10.3389/fped.2026.1790000/full" },
+      { title: "Godly Play מפחית חרדה ודיכאון בילדים מאושפזים", source: "PubMed — Journal of Pastoral Care & Counseling, 2008", sourceUrl: "https://pubmed.ncbi.nlm.nih.gov/18947106/" },
+      { title: "טיפול בחול דיגיטלי לצד המסורתי — נרטיב ראייתי 2026", source: "Frontiers in Psychology — 2026", sourceUrl: "https://www.frontiersin.org/journals/psychology/articles/10.3389/fpsyg.2026.1692537/full" },
+      { title: "טיפול פיליאלי: ההורה כסוכן שינוי — האפקטיביות הגבוהה ביותר בטיפול במשחק", source: "PlayStrong Institute — Filial Therapy Outcome Studies", sourceUrl: "https://playstronginstitute.com/play-therapy/complete-guide/research/outcome-studies/filial-therapy-studies" }
+    ],
+    newsletterUrl: "/metataplim/gliyon/july-2026",
+    createdAt: "2026-07-01T05:12:48.734Z",
+  },
+  {
     id: "june-2026",
     date: "יוני 2026",
     title: "משחק ממוקד-משמעות מגביר רגישות רוחנית בילדים",
