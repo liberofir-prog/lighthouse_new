@@ -18,6 +18,27 @@ export interface NewsletterDraft {
 
 export const drafts: NewsletterDraft[] = [
   {
+    id: "august-2026",
+    date: "אוגוסט 2026",
+    title: "רוחניות ילדים עם מחלה מגבילת חיים: ממצאי סקירה חדשה",
+    emailSubject: "ליווי רוחני דרך משחק: מה אומר המחקר לאוגוסט 2026",
+    intro: "שלום לכולם, גיליון אוגוסט 2026 של עלון מגדלור מתמקד בצומת שבין ליווי רוחני לבין טיפול במשחק — נושא שצובר תאוצה בספרות המחקרית הבינלאומית ומציע לנו, המטפלים, שפה חדשה לנוכחות רוחנית עם ילדים. כמה ממצאים חשובים מחכים לכם למטה.",
+    teasers: [
+      "רוחניות ילדים עם מחלה מגבילת חיים: ממצאי סקירה חדשה",
+      "משחק ממוקד-משמעות משפר רגישות רוחנית אצל ילדים",
+      "סיפור סיפורים וטיפול במשחק: מה מפחית חרדה יותר?"
+    ],
+    findings: [
+      { title: "רוחניות ילדים עם מחלה מגבילת חיים: ממצאי סקירה חדשה", source: "Pediatric Nursing / ScienceDirect", sourceUrl: "https://www.sciencedirect.com/science/article/pii/S088259632500418X" },
+      { title: "משחק ממוקד-משמעות משפר רגישות רוחנית אצל ילדים", source: "PMC / International Journal of Community Based Nursing and Midwifery", sourceUrl: "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC8724725/" },
+      { title: "מפת הידע הגלובלית של טיפול במשחק: ניתוח ביבליומטרי 2026", source: "PMC / Brain and Behavior", sourceUrl: "https://pmc.ncbi.nlm.nih.gov/articles/PMC12973151/" },
+      { title: "סיפור סיפורים וטיפול במשחק: מה מפחית חרדה יותר אצל ילדים מאושפזים?", source: "PMC / BMC Complementary Medicine and Therapies", sourceUrl: "https://pmc.ncbi.nlm.nih.gov/articles/PMC11761729/" },
+      { title: "Godly Play: פלטפורמת משחק לפיתוח רוחניות ילדים מאושפזים", source: "PubMed", sourceUrl: "https://pubmed.ncbi.nlm.nih.gov/18947106/" }
+    ],
+    newsletterUrl: "/metataplim/gliyon/august-2026",
+    createdAt: "2026-08-01T05:13:51.356Z",
+  },
+  {
     id: "july-2026",
     date: "יולי 2026",
     title: "רוחניות ילדים עם מחלות מסכנות חיים — מה אומרת הספרות?",
