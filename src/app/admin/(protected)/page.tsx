@@ -10,7 +10,7 @@ export default function AdminDashboard() {
         <div className="flex items-center justify-between mb-8">
           <div>
             <h1 className="text-2xl font-bold text-primary">מגדלור</h1>
-            <p className="text-muted-foreground text-sm mt-0.5">ניהול גיליונות ניוזלטר</p>
+            <p className="text-muted-foreground text-sm mt-0.5">אזור הניהול</p>
           </div>
           <form action={logoutAction}>
             <button
@@ -22,6 +22,32 @@ export default function AdminDashboard() {
             </button>
           </form>
         </div>
+
+        <Link
+          href="/admin/shlicha"
+          className="flex items-center justify-between bg-card rounded-2xl p-5 mb-8
+                     border border-border hover:border-amber/40 hover:shadow-warm
+                     transition-all duration-200 group shadow-warm"
+        >
+          <div>
+            <p className="font-bold text-foreground text-base group-hover:text-primary transition-colors">
+              שליחת דף הכנה למשפחה
+            </p>
+            <p className="text-muted-foreground text-sm mt-0.5">
+              לינק אישי והודעת וואטסאפ מוכנה לקראת מפגש
+            </p>
+          </div>
+          <svg
+            className="w-4 h-4 text-amber rotate-180"
+            fill="none" stroke="currentColor" viewBox="0 0 24 24"
+          >
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+          </svg>
+        </Link>
+
+        <p className="text-xs font-semibold tracking-wide text-muted-foreground/70 mb-3">
+          גיליונות ניוזלטר
+        </p>
 
         <div className="flex flex-col gap-3">
           {drafts.length === 0 && (

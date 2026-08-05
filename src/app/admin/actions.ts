@@ -9,9 +9,20 @@ import {
   verifyOTP,
   clearAdminSession,
 } from "@/lib/admin-auth";
+import { SEND_TOOL_ROUTE } from "@/lib/routes";
 
-const ADMIN_EMAIL = process.env.ADMIN_EMAIL ?? "liber.ofir@gmail.com";
-const NOTIFY_EMAIL = process.env.ADMIN_NOTIFY_EMAIL ?? "liber.ofir@gmail.com";
+/**
+ * ADMIN_EMAIL is the clinic's own mailbox: it receives the one-time sign-in
+ * code and the confirmation that a newsletter draft was approved.
+ * ADMIN_NOTIFY_EMAIL is Ofir, who is told when there is something to send.
+ *
+ * `||` rather than `??` on purpose: an env var that exists but is empty would
+ * otherwise be handed to Resend as a blank recipient, and the sign-in code
+ * would silently fail to send.
+ */
+const ADMIN_EMAIL = process.env.ADMIN_EMAIL?.trim() || "inbal@liber.co.il";
+const NOTIFY_EMAIL =
+  process.env.ADMIN_NOTIFY_EMAIL?.trim() || "liber.ofir@gmail.com";
 
 // --- Step 1: password ---
 export async function loginWithPassword(
@@ -19,7 +30,19 @@ export async function loginWithPassword(
   formData: FormData
 ): Promise<string | null> {
   const password = formData.get("password") as string;
-  if (!password || password !== process.env.ADMIN_PASSWORD) {
+  if (!password) return "סיסמה שגויה";
+
+  /* The sending tool has a password of its own. It is checked before the admin
+     password so that an unset SENDER_PASSWORD can never match: an empty env
+     var would otherwise be compared against an empty field, and the `!password`
+     guard above is what keeps that door shut. */
+  const senderPassword = process.env.SENDER_PASSWORD?.trim();
+  if (senderPassword && password === senderPassword) {
+    await setAdminSession("sender");
+    redirect(SEND_TOOL_ROUTE);
+  }
+
+  if (password !== process.env.ADMIN_PASSWORD) {
     return "סיסמה שגויה";
   }
 
