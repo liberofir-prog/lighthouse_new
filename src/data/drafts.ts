@@ -18,6 +18,27 @@ export interface NewsletterDraft {
 
 export const drafts: NewsletterDraft[] = [
   {
+    id: "september-2026",
+    date: "ספטמבר 2026",
+    title: "ממד הרוחניות בילדים עם מחלות מגבילות חיים — סקירת היקף 2025",
+    emailSubject: "מגדלור ספטמבר | ליווי רוחני ו-Play Therapy — מה חדש בשדה",
+    intro: "שלום לכולן, גיליון ספטמבר 2026 מתמקד בצומת שבין ליווי רוחני לטיפול במשחק — נושא שמחקרים עדכניים ממשיכים לחזק ולהעמיק. בגיליון זה תמצאו ממצאים ממחקרים מבוקרים, סקירות שיטתיות ועדויות קליניות עם כלים מעשיים לנוכחות רוחנית בחדר הטיפול.",
+    teasers: [
+      "ממד הרוחניות בילדים עם מחלות מגבילות חיים — סקירת היקף 2025",
+      "משחק ממוקד-משמעות מחזק רגישות רוחנית בילדים — ניסוי אקראי מבוקר",
+      "טיפול במשחק וסיפור סיפורים מפחיתים חרדה בילדים מאושפזים — RCT"
+    ],
+    findings: [
+      { title: "ממד הרוחניות בילדים עם מחלות מגבילות חיים — סקירת היקף 2025", source: "ScienceDirect / Palliative Medicine (2025)", sourceUrl: "https://www.sciencedirect.com/science/article/pii/S088259632500418X" },
+      { title: "משחק ממוקד-משמעות מחזק רגישות רוחנית בילדים — ניסוי אקראי מבוקר", source: "PubMed Central / NCBI", sourceUrl: "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC8724725/" },
+      { title: "טיפול במשחק וסיפור סיפורים מפחיתים חרדה בילדים מאושפזים — RCT", source: "PubMed Central / NCBI (2025)", sourceUrl: "https://pmc.ncbi.nlm.nih.gov/articles/PMC11761729/" },
+      { title: "ניתוח ביבליומטרי 2026: מבנה הידע והמגמות בספרות Play Therapy", source: "PubMed Central (PMC)", sourceUrl: "https://pmc.ncbi.nlm.nih.gov/articles/PMC12973151/" },
+      { title: "25 התערבויות CCPT לטראומה — ירידה של 60–75% בסימפטומים", source: "CoreWell CE / Play Therapy CE", sourceUrl: "https://corewellceu.com/blog/25-child-centered-play-therapy-interventions-for-trauma" }
+    ],
+    newsletterUrl: "/metataplim/gliyon/september-2026",
+    createdAt: "2026-09-01T05:16:05.977Z",
+  },
+  {
     id: "august-2026",
     date: "אוגוסט 2026",
     title: "רוחניות ילדים עם מחלה מגבילת חיים: ממצאי סקירה חדשה",
