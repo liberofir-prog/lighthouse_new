@@ -18,6 +18,27 @@ export interface NewsletterDraft {
 
 export const drafts: NewsletterDraft[] = [
   {
+    id: "october-2026",
+    date: "אוקטובר 2026",
+    title: "טיפול במשחק כהתערבות מבוססת חוזקות בעבודה סוציאלית עם ילדים ומשפחות",
+    emailSubject: "מגדלור | אוקטובר 2026 — כשמשחק, אמנות ורוחניות נפגשים בחדר הטיפול",
+    intro: "שלום לכולן, גיליון אוקטובר 2026 מרחיב את הצומת שבין ליווי רוחני לטיפול במשחק — הפעם דרך עדשות חדשות: גישות מבוססות חוזקות, ביטוי אמנותי כגשר רוחני, ומחקרים קליניים פעילים שמעצבים את עתיד השדה. הממצאים בגיליון זה מגיעים מ-Springer, מבתי חולים לילדים ומניסויים קליניים פעילים.",
+    teasers: [
+      "טיפול במשחק כהתערבות מבוססת חוזקות בעבודה סוציאלית עם ילדים ומשפחות",
+      "טיפוח הרוח דרך קשר, משמעות ותקווה: גישות יצירתיות ומגולמות בייעוץ ילדים",
+      "בובת הנייר כמדיום של ליווי רוחני: אמנות, אתיקה וזהות עם ילדים מאושפזים"
+    ],
+    findings: [
+      { title: "טיפול במשחק כהתערבות מבוססת חוזקות בעבודה סוציאלית עם ילדים ומשפחות", source: "Springer — Children and Family Social Work (יולי 2026)", sourceUrl: "https://link.springer.com/rwe/10.1007/978-981-95-3440-1_76-1" },
+      { title: "טיפוח הרוח דרך קשר, משמעות ותקווה: גישות יצירתיות ומגולמות בייעוץ ילדים", source: "Springer — Children and Family Social Work (2026)", sourceUrl: "https://link.springer.com/rwe/10.1007/978-981-95-3440-1_41-1" },
+      { title: "טכניקות play therapy מפחיתות חוסר אונים נלמד בקרב ילדים חסרי בית", source: "ClinicalTrials.gov (NCT07137325)", sourceUrl: "https://clinicaltrials.gov/study/NCT07137325" },
+      { title: "בובת הנייר כמדיום של ליווי רוחני: אמנות, אתיקה וזהות עם ילדים מאושפזים", source: "Children's Mercy Hospital Scholarly Exchange (2026)", sourceUrl: "https://scholarlyexchange.childrensmercy.org/cgi/viewcontent.cgi?article=1127&context=presentations" },
+      { title: "play therapy עם ביופידבק מגומיפיצ'ד לילדים עם אוטיזם — מחקר פעיל 2026", source: "ClinicalTrials.gov (NCT07322640)", sourceUrl: "https://clinicaltrials.gov/study/NCT07322640" }
+    ],
+    newsletterUrl: "/metataplim/gliyon/october-2026",
+    createdAt: "2026-10-01T05:18:03.240Z",
+  },
+  {
     id: "september-2026",
     date: "ספטמבר 2026",
     title: "ממד הרוחניות בילדים עם מחלות מגבילות חיים — סקירת היקף 2025",
