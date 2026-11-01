@@ -18,6 +18,27 @@ export interface NewsletterDraft {
 
 export const drafts: NewsletterDraft[] = [
   {
+    id: "november-2026",
+    date: "נובמבר 2026",
+    title: "אפקט גדול-מאוד לטיפול במשחק בפיתוח רגשי ילדים",
+    emailSubject: "מגדלור נובמבר 2026 | ליווי רוחני, Godly Play ומחקרים חדשים",
+    intro: "חודש נובמבר מביא אתו גיליון עשיר במיוחד — ממצאי מטא-אנליזה חדשה על יעילות ה-play therapy, עדויות על ליווי רוחני בסביבה רפואית, וכלי מעשי לחדר הטיפול. נשמח לשמוע מה מהדהד אצלכם.",
+    teasers: [
+      "אפקט גדול-מאוד לטיפול במשחק בפיתוח רגשי ילדים",
+      "Godly Play כהתערבות רוחנית-טיפולית לילדים מאושפזים",
+      "התערבויות משחק מפחיתות חרדה ודיכאון בילדים חולי סרטן"
+    ],
+    findings: [
+      { title: "אפקט גדול-מאוד לטיפול במשחק בפיתוח רגשי ילדים", source: "International Journal on Studies in Education, 2026", sourceUrl: "https://ijonse.net/index.php/ijonse/article/view/7429" },
+      { title: "טיפול במשחק מפחית תסמיני PTSD ומחזק חוסן פסיכולוגי", source: "Mediterranean Journal of Social Sciences, 2026", sourceUrl: "https://www.richtmann.org/journal/index.php/mjss/article/view/14703" },
+      { title: "Godly Play כהתערבות רוחנית-טיפולית לילדים מאושפזים", source: "Children's Health — Center for the Spirituality of Children", sourceUrl: "https://www.childrens.com/patient-families/parent-resources/spiritual-care-and-education/center-for-the-spirituality-of-children" },
+      { title: "התערבויות משחק מפחיתות חרדה ודיכאון בילדים חולי סרטן", source: "PubMed — Journal of Pediatric Nursing, 2026", sourceUrl: "https://pubmed.ncbi.nlm.nih.gov/42480167/" },
+      { title: "המקורות הקליניים של Godly Play: כוהנות, טיפול, ורוחניות ילדים", source: "Journal of Childhood & Religion — childrenspirituality.org, 2026", sourceUrl: "https://www.childrenspirituality.org/publications/2026" }
+    ],
+    newsletterUrl: "/metataplim/gliyon/november-2026",
+    createdAt: "2026-11-01T05:12:46.634Z",
+  },
+  {
     id: "october-2026",
     date: "אוקטובר 2026",
     title: "טיפול במשחק כהתערבות מבוססת חוזקות בעבודה סוציאלית עם ילדים ומשפחות",
